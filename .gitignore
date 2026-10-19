@@ -1,0 +1,6 @@
+# Nunca subir claves ni tokens
+.env
+*token*
+*.secret
+__pycache__/
+*.json
