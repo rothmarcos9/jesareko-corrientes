@@ -33,7 +33,7 @@ if not (isinstance(sat, dict) and str(sat.get("img", "")).startswith("data:image
 tg = os.environ.get("TG_LINK", "").strip()
 base = {"generado": int(time.time() * 1000), "pronostico": cargar("pronostico"), "rios": cargar("rios"),
         "incendios": cargar("incendios"), "comunicados": comunicados, "reportes": reportes,
-        "satelite": sat, "ina": cargar("ina"), "telegram": tg if re.fullmatch(r"https://t\.me/[A-Za-z0-9_]+", tg) else None}
+        "satelite": sat, "ina": cargar("ina"), "smn": cargar("smn"), "telegram": tg if re.fullmatch(r"https://t\.me/[A-Za-z0-9_]+", tg) else None}
 js = json.dumps(base, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
 html = open(pagina, encoding="utf-8").read()
