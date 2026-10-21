@@ -88,9 +88,12 @@ def main():
     except Exception as e:
         print("Aviso: no se pudieron leer los avisos del formulario:", e)
         base["reportes"] = previo.get("reportes") or []
+    # la imagen satelital va al final del JSON (es lo más pesado)
+    base["fuentes"] = {k: ("nuevo" if cargar(k + ".json") else "anterior") for k in ("pronostico", "rios", "incendios", "satelite", "ina", "smn")}
     tg = (cargar("datos/telegram.json") or {}).get("link", "")
     base["telegram"] = tg if re.fullmatch(r"https://t\.me/[A-Za-z0-9_]+", tg or "") else None
 
+    base["satelite"] = base.pop("satelite")
     js = json.dumps(base, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     os.makedirs(SALIDA, exist_ok=True)
     with open(os.path.join(SALIDA, "index.html"), "w", encoding="utf-8") as f:
