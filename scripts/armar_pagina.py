@@ -83,6 +83,9 @@ def main():
     if url_comu:
         try:
             txt = bajar(url_comu, timeout=40).decode("utf-8", "replace")
+            if os.environ.get("COMU_DIAG"):
+                urls = sorted(set(re.findall(r'https?://[^"' + "'" + r'\s<>]+', txt)))[:25]
+                print("::notice title=Diag claude::" + str(len(txt)) + " bytes | " + txt[:300].replace("\n", " ") + " | " + " ".join(urls))
             mm = PATRON.search(txt)
             lista = json.loads(mm.group(2)).get("comunicados") if mm else json.loads(txt)
             lista = [c for c in (lista or []) if isinstance(c, dict) and c.get("id")]

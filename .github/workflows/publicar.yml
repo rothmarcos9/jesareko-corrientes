@@ -39,6 +39,7 @@ jobs:
         env:
           SITIO_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
           COMU_URL: https://claude.ai/artifact/8QiioDCRRDCaC3NeoxEYFm
+          COMU_DIAG: "1"
         run: python3 scripts/armar_pagina.py _site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
