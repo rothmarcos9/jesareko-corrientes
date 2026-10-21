@@ -57,6 +57,52 @@
   ]
  },
  {
+  "id": "2026-10-20-itati-825",
+  "titulo": "Itatí llegó a 8,25 m y podría pasar los 8,40 m",
+  "resumen": "El martes el Paraná marcó 8,25 m en Itatí, con más de 300 vecinos fuera de sus casas, y se espera que siga subiendo. En la Capital estaba en 7,07 m (sobre la evacuación), en Ituzaingó bajó a 4,80 m pero sigue sobre la cota de 4 m y Goya está en alerta con 5,38 m.",
+  "fuente": "La Nación",
+  "url": "https://www.lanacion.com.ar/sociedad/itati-sufre-una-crecida-historica-y-la-gente-se-aferra-a-la-fe-por-la-virgen-nid20102026/",
+  "fecha": "2026-10-20",
+  "alertas": [
+   {
+    "loc": "itati",
+    "m": 8.25,
+    "motivo": "8,25 m y más de 300 personas fuera de sus casas.",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "corrientes",
+    "m": 7.07,
+    "motivo": "7,07 m, 7 cm sobre la cota de evacuación.",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "evac": 4,
+    "loc": "ituzaingo",
+    "m": 4.8,
+    "motivo": "bajó a 4,80 m, pero sigue sobre la evacuación (4 m).",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "goya",
+    "m": 5.38,
+    "motivo": "5,38 m, en alerta; el INA ve probable evacuar desde el viernes.",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.47,
+    "motivo": "el Paraná marcó 7,47 m.",
+    "n": 0,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-10-20-itati-828",
   "titulo": "Itatí: el Paraná marcó 8,28 m y todavía crece",
   "resumen": "A las 10 del martes el río llegó a 8,28 m en el puerto de Itatí y seguía subiendo, con calles ya anegadas. Esperan que se estacione en las próximas horas y después baje despacio.",
@@ -281,6 +327,37 @@
     "motivo": "el Paraná marcó 6,09 m, en alerta y a 31 cm de la evacuación (6,40 m).",
     "n": 2,
     "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-20-ina-nueva-onda",
+  "titulo": "El INA anticipa lluvias desde el jueves y otra onda de crecida",
+  "resumen": "Yacyretá recibía 35.000 m³/s y largaba 36.200 m³/s, mientras Itaipú descargaba 22.858 m³/s; el INA prevé lluvias fuertes en el Alto Paraná desde el jueves 22 y que el río siga alto en Corrientes. En Paso de los Libres el Uruguay marcó 9,20 m y se esperaba que baje de la evacuación desde el martes, con un nuevo repunte a partir del 28.",
+  "fuente": "Meteored (datos INA)",
+  "url": "https://meteored.com.ar/noticias/prediccion/se-aproxima-otra-onda-de-crecida-corrientes-supera-la-evacuacion-y-el-ina-preve-lluvias-desde-el-jueves-asi-seguira.html",
+  "fecha": "2026-10-19",
+  "alertas": [
+   {
+    "loc": "corrientes",
+    "m": 7.07,
+    "motivo": "7,07 m el lunes, sobre la cota de evacuación.",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "goya",
+    "m": 5.38,
+    "motivo": "5,38 m, en alerta.",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-los-libres",
+    "m": 9.2,
+    "motivo": "9,20 m; se esperaba que baje de la evacuación desde el martes.",
+    "n": 0,
+    "rio": "Uruguay"
    }
   ]
  },
