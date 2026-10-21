@@ -92,7 +92,7 @@ def main():
             remoto = f"ok: {len(lista)} leídos, {len(nuevos)} nuevos"
         except Exception as e:
             remoto = "error: " + repr(e)[:200]
-    print("comunicados remotos:", remoto)
+    print("::notice title=Comunicados remotos::" + remoto)
     claves = ("id", "titulo", "resumen", "fuente", "url", "fecha", "alertas")
     base["comunicados"] = sorted([{k: c.get(k) for k in claves} for c in comu if isinstance(c, dict)],
                                  key=lambda c: c.get("fecha") or "", reverse=True)[:10]
