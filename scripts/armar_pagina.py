@@ -100,6 +100,18 @@ def main():
         f.write(html[:m.start(2)] + js + html[m.end(2):])
     with open(os.path.join(SALIDA, "datos.json"), "w", encoding="utf-8") as f:
         f.write(js.replace("<\\/", "</"))
+    smn = base.get("smn") or {}
+    estado = {"generado": base["generado"], "fuentes": base["fuentes"],
+              "pronostico_localidades": len((base.get("pronostico") or {}).get("locs") or {}),
+              "ina_fecha": (base.get("ina") or {}).get("fecha"),
+              "ina_estaciones": {e.get("est"): e.get("nivel") for e in (base.get("ina") or {}).get("estaciones") or []},
+              "smn_localidades_con_alerta": len(smn.get("alertas") or {}),
+              "smn_estaciones": sorted((smn.get("pronostico") or {}).keys()),
+              "comunicados": len(base["comunicados"]), "avisos": len(base["reportes"]),
+              "formulario": bool(base.get("form"))}
+    with open(os.path.join(SALIDA, "estado.json"), "w", encoding="utf-8") as f:
+        json.dump(estado, f, ensure_ascii=False, indent=1)
+    print(json.dumps(estado, ensure_ascii=False))
     open(os.path.join(SALIDA, ".nojekyll"), "w").close()
     print("OK página:", len(base["comunicados"]), "comunicados,", len(base["reportes"]), "avisos")
 
