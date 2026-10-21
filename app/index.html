@@ -806,9 +806,9 @@ function renderFeed(){
   if(S.filtro==="cerca")rs=rs.filter(r=>r.dist<=100);
   rs.sort((a,b)=>b.ts-a.ts);
   const f=el("feed");
-  const soloLectura=!S.db?h("div",{class:"vacio"},"Para enviar avisos tenés que abrir la app con tu cuenta de Claude iniciada."):null;
+  const soloLectura=!S.db?h("div",{class:"vacio"},formOK()?"Para avisar qué pasa en tu barrio tocá «Avisar qué pasa acá». No hace falta registrarse.":"Muy pronto vas a poder avisar desde acá qué pasa en tu barrio, sin registrarte."):null;
   if(!S.db&&!hayBase){f.replaceChildren(soloLectura);return;}
-  if(!rs.length){f.replaceChildren(soloLectura||"",h("div",{class:"vacio"},S.filtro==="cerca"?`No hay avisos a menos de 100 km de ${yo.n} en las últimas 24 horas. Si está lloviendo donde estás, tocá “Avisar qué pasa acá”.`:"Todavía no hay avisos en la provincia. El primero que avise ayuda a todos los demás."));return;}
+  if(!rs.length){f.replaceChildren(soloLectura||"",h("div",{class:"vacio"},S.filtro==="cerca"?`No hay avisos a menos de 100 km de ${yo.n} en las últimas 24 horas.${S.db||formOK()?" Si está lloviendo donde estás, tocá “Avisar qué pasa acá”.":""}`:"Todavía no hay avisos en la provincia. El primero que avise ayuda a todos los demás."));return;}
   f.replaceChildren(...(soloLectura?[soloLectura]:[]),...rs.slice(0,40).map(r=>{
     const t=TIPOS[r.tipo]||{t:"Aviso"};
     const it=h("div",{class:"aviso"},h("div",{class:"l1"},h("span",{class:"tipo"},t.t),h("span",{class:"donde"},LOC[r.loc].n+(r.dist>2?` · ${r.dist} km`:"")),h("span",{class:"cuando"},hace(r.ts))),
@@ -916,6 +916,7 @@ function renderSuelo(){
 }
 
 function render(){
+  el("abrir-aviso").hidden=!S.db&&!formOK();
   el("demo").hidden=!S.demo;
   renderSat();
   renderMapa();renderEstado();renderSuelo();renderLista();renderFeed();renderRios();renderFuego();renderComu();
@@ -942,6 +943,7 @@ document.querySelectorAll(".filtro button").forEach(b=>b.addEventListener("click
 el("f-tipos").append(...Object.entries(TIPOS).map(([k,v],i)=>h("label",null,h("input",{type:"radio",name:"tipo",value:k,id:"t-"+k}),v.t)));
 
 /* ---------- Formulario de aviso ---------- */
+function formOK(){const F=S.form;return !!(F&&typeof F.url==="string"&&/^https:\/\/docs\.google\.com\/forms\/d\/e\/[\w-]+\/viewform/.test(F.url)&&[F.loc,F.tipo,F.texto].every(x=>typeof x==="string"&&/^entry\.\d+$/.test(x)));}
 function toast(t){const x=el("toast");x.textContent=t;x.hidden=false;clearTimeout(toast.k);toast.k=setTimeout(()=>x.hidden=true,3200);}
 function msg(t,err){const m=el("f-msg");m.textContent=t;m.className="msg"+(err?" err":"");m.hidden=!t;}
 el("abrir-aviso").addEventListener("click",()=>{llenar(el("f-loc"),S.sel||S.mi);msg("");el("sheet").hidden=false;el("f-loc").focus();});
@@ -952,7 +954,10 @@ el("form-aviso").addEventListener("submit",async e=>{
   e.preventDefault();
   const tipo=(document.querySelector('input[name="tipo"]:checked')||{}).value;
   if(!tipo){msg("Elegí qué está pasando.",true);return;}
-  if(!S.db){msg("Para enviar avisos abrí la app con tu cuenta de Claude iniciada.",true);return;}
+  if(!S.db){if(!formOK()){msg("Por ahora no se pueden enviar avisos desde esta versión. Ante una emergencia llamá al 103 o al 911.",true);return;}
+    const F=S.form,q=new URLSearchParams();q.set(F.loc,LOC[el("f-loc").value].n);q.set(F.tipo,TIPOS[tipo].t);const tx=el("f-texto").value.trim().slice(0,200);if(tx)q.set(F.texto,tx);
+    window.open(F.url+(F.url.includes("?")?"&":"?")+q.toString(),"_blank","noopener");
+    msg("Se abrió el formulario con tu aviso: tocá «Enviar» ahí para mandarlo. Aparece en la app en menos de una hora.");return;}
   let ult=0;try{ult=+localStorage.getItem("ult-aviso")||0;}catch(_){}
   if(Date.now()-ult<120000){msg("Ya mandaste un aviso hace menos de 2 minutos. Esperá un momento.",true);return;}
   const b=el("f-enviar");b.disabled=true;b.textContent="Enviando…";
@@ -986,6 +991,7 @@ function usarBase(){
   if(Array.isArray(BASE.comunicados))S.comu=BASE.comunicados;
   if(BASE.ina&&Array.isArray(BASE.ina.estaciones))S.ina=BASE.ina;
   if(BASE.smn&&typeof BASE.smn==="object")S.smn=BASE.smn;
+  if(BASE.form&&typeof BASE.form==="object")S.form=BASE.form;
   if(Array.isArray(BASE.reportes))S.reportes=BASE.reportes.filter(r=>typeof r.ts==="number");
   return true;
 }

@@ -1,0 +1,445 @@
+[
+ {
+  "id": "2026-10-20-bella-vista-islas",
+  "titulo": "Murieron dos trabajadores rurales en una isla frente a Bella Vista",
+  "resumen": "Dos peones que fueron a caballo a sacar ganado de la isla Ibirapitá, cerca de Bella Vista, cayeron al agua y fueron hallados sin vida tras una búsqueda de varios días. Ojo con cruzar a las islas: el Paraná sigue alto y el traslado de hacienda es urgente.",
+  "fuente": "Prensa Mercosur",
+  "url": "https://prensamercosur.org/2026/10/20/crecida-del-parana-dos-trabajadores-rurales-murieron-al-intentar-rescatar-ganado-en-corrientes/",
+  "fecha": "2026-10-20",
+  "alertas": []
+ },
+ {
+  "id": "2026-10-20-desplazados-472",
+  "titulo": "Bajan a 472 las personas fuera de sus casas en Corrientes",
+  "resumen": "Defensa Civil informó 206 evacuados y 266 autoevacuados: Itatí tiene 110 evacuados, isla Apipé 44, Paso de los Libres 31, Ituzaingó 19 y Yahapé 2. En la Capital, 65 familias se fueron por sus propios medios a casas de familiares.",
+  "fuente": "Examedia (datos de Defensa Civil)",
+  "url": "https://examedia.com.ar/portada/post/88082983",
+  "fecha": "2026-10-20",
+  "alertas": [
+   {
+    "loc": "itati",
+    "motivo": "110 evacuados por la crecida.",
+    "n": 3
+   },
+   {
+    "loc": "corrientes",
+    "motivo": "65 familias autoevacuadas.",
+    "n": 3
+   },
+   {
+    "loc": "paso-de-los-libres",
+    "motivo": "31 evacuados por la crecida.",
+    "n": 3
+   },
+   {
+    "loc": "ituzaingo",
+    "motivo": "19 evacuados, más 44 en isla Apipé.",
+    "n": 3
+   }
+  ]
+ },
+ {
+  "id": "2026-10-20-goya-546",
+  "titulo": "Goya sigue en alerta con el Paraná en 5,46 m",
+  "resumen": "El martes a las 8 el río marcaba 5,46 m en Goya, estacionario y por encima de la cota de alerta (5,20 m). El paseo inferior de la costanera se anega desde los 5,60 m, por eso restringieron la navegación y piden cuidar los terraplenes.",
+  "fuente": "El Libertador (Corrientes)",
+  "url": "https://www.diarioellibertador.com.ar/crecida-rio-parana-goya-alerta-paseo-inferior-costanera/",
+  "fecha": "2026-10-20",
+  "alertas": [
+   {
+    "alerta": 5.2,
+    "loc": "goya",
+    "m": 5.46,
+    "motivo": "5,46 m, sobre el alerta (5,20 m), estacionario.",
+    "n": 2,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-20-itati-828",
+  "titulo": "Itatí: el Paraná marcó 8,28 m y todavía crece",
+  "resumen": "A las 10 del martes el río llegó a 8,28 m en el puerto de Itatí y seguía subiendo, con calles ya anegadas. Esperan que se estacione en las próximas horas y después baje despacio.",
+  "fuente": "El Libertador (Corrientes)",
+  "url": "https://www.diarioellibertador.com.ar/rio-parana-itati-nivel-8-28-metros-creciente/",
+  "fecha": "2026-10-20",
+  "alertas": [
+   {
+    "loc": "itati",
+    "m": 8.28,
+    "motivo": "8,28 m y creciendo, con calles anegadas.",
+    "n": 2,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-20-paso-patria-765",
+  "titulo": "El Paraná llegó a 7,65 m en Paso de la Patria y sigue subiendo",
+  "resumen": "Según el parte de Prefectura, el río alcanzó 7,65 m en Paso de la Patria y continúa en ascenso; la localidad sigue en etapa de evacuación.",
+  "fuente": "Examedia (datos de Prefectura Naval)",
+  "url": "https://examedia.com.ar/portada/post/88085715",
+  "fecha": "2026-10-20",
+  "alertas": [
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.65,
+    "motivo": "7,65 m y creciendo, en etapa de evacuación.",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-20-paso-patria-defensa",
+  "titulo": "Paso de la Patria: cedió una defensa y se inundaron tres barrios",
+  "resumen": "Pasadas las 22 del lunes se rompió una defensa en Paso de la Patria y el agua entró a los barrios Don Julián, La Isla y Pescadores, con el río en 7,63 m en el puerto. Bomberos Voluntarios trabajan en la zona.",
+  "fuente": "El Libertador (Corrientes)",
+  "url": "https://www.diarioellibertador.com.ar/paso-de-la-patria-se-rompio-una-defensa/",
+  "fecha": "2026-10-20",
+  "alertas": []
+ },
+ {
+  "id": "2026-10-19-alturas-parana-uruguay",
+  "titulo": "Alturas del lunes: el Paraná sigue subiendo en la Capital y el Uruguay empieza a bajar",
+  "resumen": "Al mediodía del lunes, Itatí (8,22 m), Paso de la Patria (7,51 m) y la Capital (7,10 m) seguían en evacuación y con el río creciendo; Goya (5,40 m) y Bella Vista (6,13 m) quedaron en alerta estacionaria. Sobre el Uruguay el río baja en todos los puertos: Alvear y Yapeyú siguen en alerta y Paso de los Libres en evacuación, mientras Itá Ibaté quedó por debajo del alerta.",
+  "fuente": "El Libertador (datos de Prefectura)",
+  "url": "https://www.diarioellibertador.com.ar/parana-y-uruguay-donde-bajan-y-que-zonas-siguen-en-emergencia/",
+  "fecha": "2026-10-19",
+  "alertas": [
+   {
+    "evac": 7.5,
+    "loc": "itati",
+    "m": 8.22,
+    "motivo": "8,22 m y creciendo, sobre la cota de 7,50 m.",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "evac": 7,
+    "loc": "paso-de-la-patria",
+    "m": 7.51,
+    "motivo": "7,51 m y creciendo, sobre la evacuación (7 m).",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "evac": 7,
+    "loc": "corrientes",
+    "m": 7.1,
+    "motivo": "7,10 m y creciendo, sobre la evacuación (7 m).",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "ituzaingo",
+    "m": 4.67,
+    "motivo": "4,67 m, en evacuación pero bajando.",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "ita-ibate",
+    "m": 6.88,
+    "motivo": "6,88 m, bajando y por debajo del alerta.",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "loc": "empedrado",
+    "m": 6,
+    "motivo": "6 m y creciendo, cerca del alerta (6,50 m).",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "bella-vista",
+    "m": 6.13,
+    "motivo": "6,13 m, alerta estacionaria.",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5.2,
+    "loc": "goya",
+    "m": 5.4,
+    "motivo": "5,40 m, sobre el alerta (5,20 m), estacionario.",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5,
+    "loc": "esquina",
+    "m": 4.49,
+    "motivo": "4,49 m y creciendo, cerca del alerta (5 m).",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "santo-tome",
+    "m": 8.7,
+    "motivo": "8,70 m, bajando.",
+    "n": 0,
+    "rio": "Uruguay"
+   },
+   {
+    "loc": "alvear",
+    "m": 9.92,
+    "motivo": "9,92 m, en alerta pero bajando.",
+    "n": 2,
+    "rio": "Uruguay"
+   },
+   {
+    "loc": "yapeyu",
+    "m": 9.5,
+    "motivo": "9,50 m, en alerta pero bajando.",
+    "n": 2,
+    "rio": "Uruguay"
+   },
+   {
+    "alerta": 7.5,
+    "evac": 8.5,
+    "loc": "paso-de-los-libres",
+    "m": 9.17,
+    "motivo": "9,17 m, sobre la evacuación (8,50 m) pero bajando.",
+    "n": 3,
+    "rio": "Uruguay"
+   },
+   {
+    "loc": "monte-caseros",
+    "m": 7.08,
+    "motivo": "7,08 m, bajando.",
+    "n": 0,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-19-alturas-puertos",
+  "titulo": "La Capital pasó la cota de evacuación; Itatí supera los 8 metros",
+  "resumen": "El lunes a la mañana el Paraná marcaba 7,07 m en Corrientes, por encima de la evacuación (7 m). Itatí estaba en 8,17 m y Paso de la Patria en 7,47 m, los dos sobre su cota de evacuación. Sobre el Uruguay, Paso de los Libres marcaba 9,19 m.",
+  "fuente": "Perfil NEA y El Libertador (datos de Prefectura)",
+  "url": "https://www.perfil.com/noticias/nea/el-nino-en-corrientes-el-parana-supero-el-nivel-de-evacuacion-en-la-capital-y-ya-hay-754-desplazados.phtml",
+  "fecha": "2026-10-19",
+  "alertas": [
+   {
+    "alerta": 6.5,
+    "evac": 7,
+    "loc": "corrientes",
+    "m": 7.07,
+    "motivo": "el Paraná marcó 7,07 m y superó la cota de evacuación (7 m).",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "evac": 7.5,
+    "loc": "itati",
+    "m": 8.17,
+    "motivo": "el Paraná marcó 8,17 m, por encima de la cota de evacuación (7,50 m).",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "evac": 7,
+    "loc": "paso-de-la-patria",
+    "m": 7.47,
+    "motivo": "el Paraná marcó 7,47 m, por encima de la cota de evacuación (7 m); hay familias evacuadas.",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 7.5,
+    "evac": 8.5,
+    "loc": "paso-de-los-libres",
+    "m": 9.19,
+    "motivo": "el Uruguay marcó 9,19 m, por encima de la cota de evacuación (8,50 m).",
+    "n": 3,
+    "rio": "Uruguay"
+   },
+   {
+    "loc": "ituzaingo",
+    "m": 4.7,
+    "motivo": "altura del puerto informada.",
+    "n": 0,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-19-bella-vista-alerta",
+  "titulo": "Bella Vista en alerta: el Paraná llegó a 6,09 m",
+  "resumen": "Según Prefectura, el río marcó 6,09 m en Bella Vista, en etapa de alerta y a 31 cm de la cota de evacuación (6,40 m). El centro no está afectado, pero el Paraná sigue subiendo y hay anegamientos en zonas bajas de la costa.",
+  "fuente": "Examedia (datos de Prefectura Naval)",
+  "url": "https://examedia.com.ar/portada/post/88078943",
+  "fecha": "2026-10-19",
+  "alertas": [
+   {
+    "evac": 6.4,
+    "loc": "bella-vista",
+    "m": 6.09,
+    "motivo": "el Paraná marcó 6,09 m, en alerta y a 31 cm de la evacuación (6,40 m).",
+    "n": 2,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-18-evacuados-754",
+  "titulo": "Suben a 754 las personas fuera de sus casas en Corrientes",
+  "resumen": "Defensa Civil informó 392 evacuados y 362 autoevacuados en siete localidades. Itatí sigue siendo la más golpeada (295 evacuados), la Capital suma 344 autoevacuados y también hay evacuados en isla Apipé, Paso de los Libres, Ituzaingó, Paso de la Patria y Yahapé.",
+  "fuente": "El Litoral (Corrientes)",
+  "url": "https://www.ellitoral.com.ar/sociedad/2026-10-18-19-58-0-crecida-del-parana-ya-son-754-las-personas-que-dejaron-sus-casas-en-corrientes",
+  "fecha": "2026-10-18",
+  "alertas": [
+   {
+    "loc": "itati",
+    "motivo": "313 personas fuera de sus casas (295 evacuados).",
+    "n": 3
+   },
+   {
+    "loc": "corrientes",
+    "motivo": "344 autoevacuados por la crecida del Paraná.",
+    "n": 3
+   },
+   {
+    "loc": "paso-de-los-libres",
+    "motivo": "31 evacuados por la crecida.",
+    "n": 3
+   },
+   {
+    "loc": "ituzaingo",
+    "motivo": "19 evacuados, más 41 en isla Apipé.",
+    "n": 3
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "una familia evacuada por la crecida.",
+    "n": 3
+   }
+  ]
+ },
+ {
+  "id": "2026-10-18-goya-alerta",
+  "titulo": "Goya entró en alerta y la Capital quedó a 9 cm de la evacuación",
+  "resumen": "El domingo a la mañana el Paraná marcaba 6,91 m en Corrientes, muy cerca de la cota de evacuación de 7 m que se proyecta superar. En Goya el río llegó a 5,28 m, por encima del alerta (5,20 m) y debajo de la evacuación (5,70 m).",
+  "fuente": "Infobae",
+  "url": "https://www.infobae.com/sociedad/2026/10/18/el-nino-crecen-los-rios-en-el-litoral-preven-nuevas-lluvias-y-aumenta-la-cantidad-de-evacuados/",
+  "fecha": "2026-10-18",
+  "alertas": [
+   {
+    "loc": "goya",
+    "motivo": "el Paraná marcó 5,28 m y superó la cota de alerta (5,20 m).",
+    "n": 2
+   },
+   {
+    "loc": "corrientes",
+    "motivo": "el Paraná marcó 6,91 m, a 9 cm de la cota de evacuación (7 m).",
+    "n": 2
+   }
+  ]
+ },
+ {
+  "id": "2026-10-17-evacuados-corrientes",
+  "titulo": "Ya son 646 las personas fuera de sus casas en Corrientes",
+  "resumen": "Según Defensa Civil, hay 289 evacuados y 357 autoevacuados por la crecida. Itatí es la más golpeada (192 evacuados) y en la Capital hay 339 autoevacuados; también hay afectados en isla Apipé, Paso de los Libres, Ituzaingó, Paso de la Patria y Yahapé.",
+  "fuente": "El Litoral (Corrientes)",
+  "url": "https://www.ellitoral.com.ar/sociedad/2026-10-17-20-20-0-el-rio-parana-sigue-creciendo-y-corrientes-registra-646-evacuados",
+  "fecha": "2026-10-17",
+  "alertas": [
+   {
+    "loc": "itati",
+    "motivo": "es la localidad más afectada, con 192 evacuados.",
+    "n": 3
+   },
+   {
+    "loc": "corrientes",
+    "motivo": "hay 339 autoevacuados por la crecida.",
+    "n": 3
+   },
+   {
+    "loc": "paso-de-los-libres",
+    "motivo": "hay familias evacuadas por la crecida del Uruguay.",
+    "n": 3
+   },
+   {
+    "loc": "ituzaingo",
+    "motivo": "hay familias afectadas por la crecida.",
+    "n": 2
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "hay familias afectadas por la crecida.",
+    "n": 2
+   }
+  ]
+ },
+ {
+  "id": "2026-10-17-ina-alerta",
+  "titulo": "INA: la Capital correntina pasaría la cota de evacuación desde el 18",
+  "resumen": "El alerta del INA marca a Corrientes en 6,13 m, con evacuación prevista a partir del 18/10 (cota 7 m), y a Goya llegando a evacuación hacia el 19/10. El aporte a Yacyretá tuvo un pico cercano a 40.000 m³/s el 16/10 y Paso de los Libres sigue arriba de la marca de evacuación sobre el Uruguay.",
+  "fuente": "UNO Entre Ríos (datos del INA)",
+  "url": "https://www.unoentrerios.com.ar/la-provincia/ina-abundantes-lluvias-al-norte-se-superan-marcas-alerta-y-evacuacion-multiples-puertos-n10287219.html",
+  "fecha": "2026-10-17",
+  "alertas": [
+   {
+    "loc": "corrientes",
+    "motivo": "el INA prevé que el Paraná pase la cota de evacuación (7 m) desde el 18/10.",
+    "n": 3
+   },
+   {
+    "loc": "goya",
+    "motivo": "el INA prevé que el Paraná llegue a la cota de evacuación hacia el 19/10.",
+    "n": 3
+   },
+   {
+    "loc": "paso-de-los-libres",
+    "motivo": "el Uruguay sigue por encima de la cota de evacuación.",
+    "n": 3
+   }
+  ]
+ },
+ {
+  "id": "2026-10-15-municipios-alerta",
+  "titulo": "Cuatro municipios ribereños, cerca del nivel de evacuación",
+  "resumen": "Itatí (6,80 m) ya superó el alerta y tiene la costanera anegada; Itá Ibaté marcaba 6,06 m y Paso de la Patria 5,92 m, con una proyección de 7,30 m para el martes 20. En la Capital (5,79 m) los sectores más expuestos son Punta Taitalo, Puerto Italia y la zona entre barrio Caridi y La Tosquera.",
+  "fuente": "Perfil NEA",
+  "url": "https://www.perfil.com/noticias/nea/crecida-del-rio-parana-los-cuatro-municipios-de-corrientes-que-estan-en-alerta-por-niveles-de-evacuacion.phtml",
+  "fecha": "2026-10-15",
+  "alertas": [
+   {
+    "loc": "itati",
+    "motivo": "el río superó la cota de alerta y la costanera está anegada.",
+    "n": 2
+   },
+   {
+    "loc": "ita-ibate",
+    "motivo": "el río está cerca de la cota de evacuación.",
+    "n": 2
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "se proyecta 7,30 m para el martes 20.",
+    "n": 2
+   }
+  ]
+ },
+ {
+  "id": "2026-10-14-itaipu-yacyreta",
+  "titulo": "Itaipú también abrió sus compuertas; cerrado el paso Ayolas–Ituzaingó",
+  "resumen": "Yacyretá opera con los vertederos principal y secundario abiertos. Se suspendieron las visitas y el paso por la represa, en principio hasta el sábado 17. Según el INA, en Yacyretá hay alerta por encima de 25.000 m³/s y evacuación por encima de 30.000. Sobre el Uruguay, Paso de los Libres superó el nivel de evacuación y Alvear, La Cruz, Yapeyú y Bonpland están en alerta.",
+  "fuente": "Rosario3",
+  "url": "https://www.rosario3.com/informaciongeneral/abrieron-las-compuertas-de-la-represa-de-itaipu-y-yacyreta-y-cierran-las-visitas-por-la-crecida-del-parana-20261014-0049.html",
+  "fecha": "2026-10-14",
+  "alertas": null
+ },
+ {
+  "id": "2026-10-12-eby-vertedero",
+  "titulo": "Yacyretá abrió las compuertas del vertedero principal",
+  "resumen": "La EBY informó que el Paraná llegó a unos 28.000 m³/s a la altura de la represa y que el caudal seguirá subiendo en los próximos días. El Iguazú pasó de 1.500 a 9.000 m³/s y desde Itaipú llegan unos 19.000 m³/s.",
+  "fuente": "Entidad Binacional Yacyretá",
+  "url": "https://www.eby.gov.py/yacyreta-abre-compuertas-para-atenuar-efectos-de-aumento-de-caudal-del-parana/",
+  "fecha": "2026-10-12",
+  "alertas": null
+ }
+]

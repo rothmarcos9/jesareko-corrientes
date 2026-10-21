@@ -45,3 +45,13 @@ Prefectura Naval ni Defensa Civil. Emergencias: 911 · Defensa Civil: 103 ·
 Bomberos: 100.
 
 © 2026 Marcos Roth. Todos los derechos reservados. Ver `LICENSE`.
+
+
+## Página pública
+
+La app se publica sola en GitHub Pages: https://rothmarcos9.github.io/jesareko-corrientes/
+
+- `app/index.html`: la aplicación (un solo archivo).
+- `scripts/`: descarga de datos (Open-Meteo, GloFAS, NASA FIRMS, NOAA GOES-19, INA, SMN) y armado de la página.
+- `datos/comunicados.json`: comunicados sobre la crecida (se actualiza dos veces por día).
+- `.github/workflows/publicar.yml`: cada hora baja los datos y vuelve a publicar la página.

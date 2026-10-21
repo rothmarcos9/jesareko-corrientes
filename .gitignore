@@ -4,3 +4,6 @@
 *.secret
 __pycache__/
 *.json
+!datos/*.json
+_site/
+*.pdf
