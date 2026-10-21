@@ -77,6 +77,22 @@ def main():
         print(k, "nuevo" if nuevo else ("previo" if previo.get(k) else "plantilla"))
 
     comu = cargar("datos/comunicados.json") or previo.get("comunicados") or plantilla.get("comunicados") or []
+    # Fuente extra: la versión de la app en claude.ai, que recibe los comunicados dos veces por día.
+    remoto = "sin probar"
+    url_comu = os.environ.get("COMU_URL", "")
+    if url_comu:
+        try:
+            txt = bajar(url_comu, timeout=40).decode("utf-8", "replace")
+            mm = PATRON.search(txt)
+            lista = json.loads(mm.group(2)).get("comunicados") if mm else json.loads(txt)
+            lista = [c for c in (lista or []) if isinstance(c, dict) and c.get("id")]
+            ids = {c.get("id") for c in comu}
+            nuevos = [c for c in lista if c["id"] not in ids]
+            comu = comu + nuevos
+            remoto = f"ok: {len(lista)} leídos, {len(nuevos)} nuevos"
+        except Exception as e:
+            remoto = "error: " + repr(e)[:200]
+    print("comunicados remotos:", remoto)
     claves = ("id", "titulo", "resumen", "fuente", "url", "fecha", "alertas")
     base["comunicados"] = sorted([{k: c.get(k) for k in claves} for c in comu if isinstance(c, dict)],
                                  key=lambda c: c.get("fecha") or "", reverse=True)[:10]
@@ -108,7 +124,7 @@ def main():
               "smn_localidades_con_alerta": len(smn.get("alertas") or {}),
               "smn_estaciones": sorted((smn.get("pronostico") or {}).keys()),
               "comunicados": len(base["comunicados"]), "avisos": len(base["reportes"]),
-              "formulario": bool(base.get("form"))}
+              "formulario": bool(base.get("form")), "comunicados_remotos": remoto}
     with open(os.path.join(SALIDA, "estado.json"), "w", encoding="utf-8") as f:
         json.dump(estado, f, ensure_ascii=False, indent=1)
     print(json.dumps(estado, ensure_ascii=False))
