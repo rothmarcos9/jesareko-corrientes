@@ -1,5 +1,97 @@
 [
  {
+  "id": "2026-10-21-esquina-471",
+  "titulo": "Esquina se acerca a la cota de alerta",
+  "resumen": "El Paraná llegó a 4,71 m en el puerto de Esquina el 21 de octubre y sube unos 12 cm por día; la cota de alerta es de 5 m, así que quedan menos de 30 cm.",
+  "fuente": "Corrientes Hoy (datos de Prefectura Naval)",
+  "url": "https://www.corrienteshoy.com/info-general/otra-ciudad-correntina-en-el-sur-esta-en-alerta-ante-la-creciente-del-rio.htm",
+  "fecha": "2026-10-21",
+  "alertas": [
+   {
+    "alerta": 5,
+    "loc": "esquina",
+    "m": 4.71,
+    "motivo": "Crece unos 12 cm por día, cerca de la cota de alerta",
+    "n": 0,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-21-goya-548",
+  "titulo": "Goya: el Paraná sube a 5,48 m y el pico vendría esta semana",
+  "resumen": "En Goya el río marcó 5,48 m, por arriba de la cota de alerta de 5,20 m, y ya cubre la parte baja de la costanera. Se espera el pico entre el 22 y el 27 de octubre, con valores que podrían pasar los 6 m.",
+  "fuente": "Infobae",
+  "url": "https://www.infobae.com/sociedad/2026/10/21/advirtieron-que-el-pico-de-la-crecida-del-rio-parana-podria-registrarse-esta-semana-y-activaron-nuevos-protocolos/",
+  "fecha": "2026-10-21",
+  "alertas": [
+   {
+    "alerta": 5.2,
+    "loc": "goya",
+    "m": 5.48,
+    "motivo": "Supera la cota de alerta",
+    "n": 2,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-21-prefectura-alturas",
+  "titulo": "Prefectura: el Paraná sigue arriba de la evacuación en cuatro puertos correntinos",
+  "resumen": "Según el parte de Prefectura del miércoles 21, Itatí marcó 8,28 m, Paso de la Patria 7,74 m, Corrientes 7,36 m e Ituzaingó 4,61 m, todos por encima de su cota de evacuación. Bella Vista (6,25 m) y Goya (5,51 m) siguen en alerta.",
+  "fuente": "La Nación (datos de Prefectura Naval)",
+  "url": "https://www.lanacion.com.ar/sociedad/altura-de-los-rios-en-la-argentina-segun-prefectura-esta-es-la-situacion-en-el-parana-hoy-miercoles-nid21102026/",
+  "fecha": "2026-10-21",
+  "alertas": [
+   {
+    "evac": 7.5,
+    "loc": "itati",
+    "m": 8.28,
+    "motivo": "Supera la cota de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "evac": 7,
+    "loc": "paso-de-la-patria",
+    "m": 7.74,
+    "motivo": "Supera la cota de evacuación y sigue creciendo",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "evac": 7,
+    "loc": "corrientes",
+    "m": 7.36,
+    "motivo": "Supera la cota de evacuación y sigue creciendo",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "evac": 4,
+    "loc": "ituzaingo",
+    "m": 4.61,
+    "motivo": "Supera la cota de evacuación, tendencia creciente",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "bella-vista",
+    "m": 6.25,
+    "motivo": "En estado de alerta",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "goya",
+    "m": 5.51,
+    "motivo": "En estado de alerta",
+    "n": 2,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-10-20-bella-vista-islas",
   "titulo": "Murieron dos trabajadores rurales en una isla frente a Bella Vista",
   "resumen": "Dos peones que fueron a caballo a sacar ganado de la isla Ibirapitá, cerca de Bella Vista, cayeron al agua y fueron hallados sin vida tras una búsqueda de varios días. Ojo con cruzar a las islas: el Paraná sigue alto y el traslado de hacienda es urgente.",
@@ -53,6 +145,51 @@
     "motivo": "5,46 m, sobre el alerta (5,20 m), estacionario.",
     "n": 2,
     "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-20-ina-repunte",
+  "titulo": "INA: niveles altos varios días más y posible nuevo repunte a fin de mes",
+  "resumen": "Según el INA, la Capital, Itatí, Paso de la Patria e Ituzaingó siguen por encima de la evacuación, Goya en alerta y con chances de pasar la evacuación desde el jueves, y Alvear en alerta sobre el Uruguay. Yacyretá bajó algo su caudal, pero se esperan lluvias fuertes en la zona y un nuevo repunte hacia fines de octubre.",
+  "fuente": "El Litoral (Corrientes) / INA",
+  "url": "https://www.ellitoral.com.ar/sociedad/2026-10-20-19-55-0-advierten-por-un-posible-nuevo-repunte-del-rio-parana-y-alertan-por-lluvias-abundantes",
+  "fecha": "2026-10-20",
+  "alertas": [
+   {
+    "loc": "corrientes",
+    "motivo": "Supera la cota de evacuación (INA)",
+    "n": 3
+   },
+   {
+    "loc": "itati",
+    "motivo": "Supera la cota de evacuación (INA)",
+    "n": 3
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "Supera la cota de evacuación (INA)",
+    "n": 3
+   },
+   {
+    "loc": "ituzaingo",
+    "motivo": "Supera la cota de evacuación (INA)",
+    "n": 3
+   },
+   {
+    "loc": "goya",
+    "motivo": "En alerta, podría pasar la evacuación desde el jueves",
+    "n": 2
+   },
+   {
+    "loc": "paso-de-los-libres",
+    "motivo": "Sobre la cota de evacuación, con tendencia a bajar",
+    "n": 3
+   },
+   {
+    "loc": "alvear",
+    "motivo": "Supera el nivel de alerta del Uruguay",
+    "n": 2
    }
   ]
  },
