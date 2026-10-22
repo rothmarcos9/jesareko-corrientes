@@ -55,6 +55,55 @@ def avisos_formulario(cfg):
                     "texto": (f[3].strip() if len(f) > 3 else "")[:200], "ts": int(fecha.timestamp() * 1000), "origen": "formulario"})
     return out
 
+URL_SITIO = "https://rothmarcos9.github.io/jesareko-corrientes/"
+TITULO = "Jesareko Corrientes · Alerta temprana de lluvias, crecidas e incendios"
+DESCRIPCION = ("App gratuita de alerta temprana para la provincia de Corrientes: pronóstico y alertas del SMN, "
+               "altura del río Paraná y Uruguay (INA y Prefectura), evacuados, compuertas de Yacyretá e Itaipú, "
+               "zonas inundables, focos de incendio e imagen satelital. Sin registrarse.")
+
+def para_buscadores(h):
+    """Agrega idioma, título, descripción, vista previa para compartir y datos estructurados."""
+    import html as H
+    ld = {"@context": "https://schema.org", "@type": "WebApplication", "name": "Jesareko Corrientes",
+          "alternateName": ["Jesareko", "Alerta temprana Corrientes"], "url": URL_SITIO,
+          "description": DESCRIPCION, "applicationCategory": "WeatherApplication", "operatingSystem": "Web",
+          "inLanguage": "es-AR", "isAccessibleForFree": True,
+          "offers": {"@type": "Offer", "price": "0", "priceCurrency": "ARS"},
+          "author": {"@type": "Person", "name": "Marcos Roth"},
+          "areaServed": {"@type": "AdministrativeArea", "name": "Provincia de Corrientes, Argentina"},
+          "keywords": "alerta temprana, Corrientes, crecida río Paraná, altura del río, inundaciones, El Niño, SMN, INA, Yacyretá, evacuados, Itatí, Goya, Paso de la Patria"}
+    d, t = H.escape(DESCRIPCION, quote=True), H.escape(TITULO, quote=True)
+    meta = (f'<title>{t}</title><meta name="description" content="{d}">'
+            f'<meta name="keywords" content="{H.escape(ld["keywords"], quote=True)}">'
+            f'<meta name="author" content="Marcos Roth"><meta name="robots" content="index,follow">'
+            f'<link rel="canonical" href="{URL_SITIO}">'
+            f'<meta property="og:type" content="website"><meta property="og:locale" content="es_AR">'
+            f'<meta property="og:site_name" content="Jesareko Corrientes"><meta property="og:title" content="{t}">'
+            f'<meta property="og:description" content="{d}"><meta property="og:url" content="{URL_SITIO}">'
+            f'<meta property="og:image" content="{URL_SITIO}compartir.png"><meta property="og:image:width" content="1200">'
+            f'<meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">'
+            f'<meta name="theme-color" content="#13221E">')
+    gv = (cargar("datos/google.json") or {}).get("verificacion", "")
+    if re.fullmatch(r"[A-Za-z0-9_\-]{20,80}", gv or ""):
+        meta += f'<meta name="google-site-verification" content="{gv}">'
+    meta += '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + '</script>'
+    h = h.replace("<html>", '<html lang="es-AR">', 1)
+    h = re.sub(r"<title>[^<]*</title>", "", h, count=1)  # el título ahora va en <head>
+    if "<meta charset=utf8>" in h:
+        return h.replace("<meta charset=utf8>", "<meta charset=utf8>" + meta, 1)
+    return h.replace("<head>", '<head><meta charset="utf-8">' + meta, 1)
+
+def extras_buscadores():
+    hoy = time.strftime("%Y-%m-%d", time.gmtime())
+    with open(os.path.join(SALIDA, "robots.txt"), "w") as f:
+        f.write(f"User-agent: *\nAllow: /\nSitemap: {URL_SITIO}sitemap.xml\n")
+    with open(os.path.join(SALIDA, "sitemap.xml"), "w") as f:
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+                f'<url><loc>{URL_SITIO}</loc><lastmod>{hoy}</lastmod><changefreq>hourly</changefreq><priority>1.0</priority></url></urlset>\n')
+    import shutil
+    if os.path.exists("app/compartir.png"):
+        shutil.copy("app/compartir.png", os.path.join(SALIDA, "compartir.png"))
+
 def main():
     html = open("app/index.html", encoding="utf-8").read()
     m = PATRON.search(html)
@@ -112,8 +161,11 @@ def main():
     base["satelite"] = base.pop("satelite")
     js = json.dumps(base, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     os.makedirs(SALIDA, exist_ok=True)
+    pagina = html[:m.start(2)] + js + html[m.end(2):]
+    pagina = para_buscadores(pagina)
     with open(os.path.join(SALIDA, "index.html"), "w", encoding="utf-8") as f:
-        f.write(html[:m.start(2)] + js + html[m.end(2):])
+        f.write(pagina)
+    extras_buscadores()
     with open(os.path.join(SALIDA, "datos.json"), "w", encoding="utf-8") as f:
         f.write(js.replace("<\\/", "</"))
     smn = base.get("smn") or {}
