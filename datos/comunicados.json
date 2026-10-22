@@ -1,5 +1,86 @@
 [
  {
+  "id": "2026-10-22-capital-743",
+  "titulo": "El Paraná sigue subiendo frente a Corrientes: 7,43 m en la capital",
+  "resumen": "Según Prefectura, el jueves el río marcó 7,43 m en la capital, 7,79 m en Paso de la Patria y 8,30 m en Itatí. Se espera un descenso muy lento en los próximos días y rige alerta naranja por tormentas fuertes.",
+  "fuente": "Diario El Libertador",
+  "url": "https://www.diarioellibertador.com.ar/asi-amanecio-el-parana-frente-a-capital-rafagas-de-viento-y-alerta-naranja-por-tormentas-severas/",
+  "fecha": "2026-10-22",
+  "alertas": [
+   {
+    "loc": "corrientes",
+    "m": 7.43,
+    "motivo": "Altura informada por Prefectura",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.79,
+    "motivo": "Altura informada por Prefectura",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "itati",
+    "m": 8.3,
+    "motivo": "Altura informada por Prefectura",
+    "n": 0,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-21-afectados-1084",
+  "titulo": "Ya son 1.084 los correntinos fuera de su casa por la crecida",
+  "resumen": "Entre evacuados (543) y autoevacuados (541), la crecida del Paraná y el Uruguay afecta sobre todo a Corrientes capital, Itatí, Isla Apipé e Ituzaingó. En Paso de los Libres el Uruguay marca 8,48 m y está en baja: salió de la etapa de evacuación y pasó a alerta, aunque todavía hay 31 evacuados.",
+  "fuente": "El Litoral",
+  "url": "https://www.ellitoral.com.ar/sociedad/2026-10-21-16-26-0-crecida-de-los-rios-parana-y-uruguay-ya-hay-mas-de-1-000-personas-afectadas-en-corrientes",
+  "fecha": "2026-10-21",
+  "alertas": [
+   {
+    "loc": "corrientes",
+    "m": 7.37,
+    "motivo": "480 autoevacuados",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "itati",
+    "m": 8.28,
+    "motivo": "411 evacuados y 27 autoevacuados",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.74,
+    "motivo": "4 evacuados",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "ituzaingo",
+    "m": 4.58,
+    "motivo": "19 evacuados más 76 en Isla Apipé; río en baja",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "santa-lucia",
+    "motivo": "10 autoevacuados",
+    "n": 3
+   },
+   {
+    "loc": "paso-de-los-libres",
+    "m": 8.48,
+    "motivo": "31 evacuados; río en baja, salió de evacuación a alerta",
+    "n": 3,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
   "id": "2026-10-21-esquina-471",
   "titulo": "Esquina se acerca a la cota de alerta",
   "resumen": "El Paraná llegó a 4,71 m en el puerto de Esquina el 21 de octubre y sube unos 12 cm por día; la cota de alerta es de 5 m, así que quedan menos de 30 cm.",
@@ -30,6 +111,24 @@
     "loc": "goya",
     "m": 5.48,
     "motivo": "Supera la cota de alerta",
+    "n": 2,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-21-goya-emergencia",
+  "titulo": "Goya declaró la emergencia hídrica por 180 días",
+  "resumen": "Con el Paraná en 5,51 m, por encima de la cota de alerta de 5,20 m, el municipio declaró la emergencia hídrica y climática. Prevé limpiar desagües, revisar bombas y defensas y preparar lugares para eventuales evacuados.",
+  "fuente": "Diario El Libertador",
+  "url": "https://www.diarioellibertador.com.ar/goya-emergencia-hidrica-climatica-180-dias/",
+  "fecha": "2026-10-21",
+  "alertas": [
+   {
+    "alerta": 5.2,
+    "loc": "goya",
+    "m": 5.51,
+    "motivo": "Supera la cota de alerta; emergencia hídrica",
     "n": 2,
     "rio": "Paraná"
    }
