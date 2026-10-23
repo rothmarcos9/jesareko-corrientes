@@ -1,5 +1,43 @@
 [
  {
+  "id": "2026-10-23-capital-738",
+  "titulo": "El Paraná sigue arriba de la evacuación en Capital y Goya continúa en alerta",
+  "resumen": "El viernes el río marcó 7,38 m en la ciudad de Corrientes, por encima de la cota de evacuación de 7 m, y 5,54 m en Goya, sobre la marca de alerta. Paso de la Patria e Itatí también siguen por encima de sus niveles de evacuación.",
+  "fuente": "Los Andes",
+  "url": "https://www.losandes.com.ar/sociedad/alerta-el-litoral-el-rio-parana-registra-una-crecida-historica-y-hay-cientos-evacuados-la-emergencia-hidrica-n6011464",
+  "fecha": "2026-10-23",
+  "alertas": [
+   {
+    "evac": 7,
+    "loc": "corrientes",
+    "m": 7.38,
+    "motivo": "Supera la cota de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5.2,
+    "loc": "goya",
+    "m": 5.54,
+    "motivo": "Supera la cota de alerta",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "Supera la marca de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "itati",
+    "motivo": "Supera la marca de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-10-22-bella-vista-628",
   "titulo": "Bella Vista: el río marcó 6,28 m y ya hay 19 evacuados",
   "resumen": "La lectura de Prefectura del jueves dio 6,28 m en Bella Vista, apenas 12 cm por debajo del nivel de evacuación (6,40 m). Hay 19 personas evacuadas y la ciudad pasó a alerta roja por el clima.",
