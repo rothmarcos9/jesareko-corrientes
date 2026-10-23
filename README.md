@@ -1,5 +1,9 @@
 # Jesareko Corrientes · Alerta temprana (versión beta)
 
+## 👉 Abrir la app: [rothmarcos9.github.io/jesareko-corrientes](https://rothmarcos9.github.io/jesareko-corrientes/)
+
+App gratuita de **alerta temprana para la provincia de Corrientes**: alertas del SMN, **altura del río Paraná y del río Uruguay** (INA y Prefectura), crecida, evacuados, compuertas de Yacyretá e Itaipú, zonas inundables, focos de incendio e imagen satelital para 30 localidades (Corrientes capital, Goya, Itatí, Paso de la Patria, Bella Vista, Esquina, Empedrado, Ituzaingó, Paso de los Libres, Santo Tomé, Monte Caseros, Mercedes y más). Funciona desde el celular, sin registrarse ni instalar nada.
+
 **Jesareko** significa "estar atento" o "vigilar" en guaraní.
 
 Aplicación web gratuita de alerta temprana para la provincia de Corrientes

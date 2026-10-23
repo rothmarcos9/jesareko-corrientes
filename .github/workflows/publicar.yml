@@ -53,3 +53,7 @@ jobs:
     steps:
       - id: deploy
         uses: actions/deploy-pages@v4
+      - name: Avisar a los buscadores (IndexNow)
+        if: github.event_name == 'push'
+        continue-on-error: true
+        run: curl -sS -m 30 "https://api.indexnow.org/indexnow?url=https://rothmarcos9.github.io/jesareko-corrientes/&key=2054cbf0ad5253f9355b55c86798a31d&keyLocation=https://rothmarcos9.github.io/jesareko-corrientes/2054cbf0ad5253f9355b55c86798a31d.txt" -o /dev/null -w "IndexNow %{http_code}\n"

@@ -55,6 +55,7 @@ def avisos_formulario(cfg):
                     "texto": (f[3].strip() if len(f) > 3 else "")[:200], "ts": int(fecha.timestamp() * 1000), "origen": "formulario"})
     return out
 
+INDEXNOW = "2054cbf0ad5253f9355b55c86798a31d"  # clave pública de IndexNow (Bing, Yandex y otros buscadores)
 URL_SITIO = "https://rothmarcos9.github.io/jesareko-corrientes/"
 TITULO = "Jesareko Corrientes · Alerta temprana de lluvias, crecidas e incendios"
 DESCRIPCION = ("App gratuita de alerta temprana para la provincia de Corrientes: pronóstico y alertas del SMN, "
@@ -100,6 +101,8 @@ def extras_buscadores():
     with open(os.path.join(SALIDA, "sitemap.xml"), "w") as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
                 f'<url><loc>{URL_SITIO}</loc><lastmod>{hoy}</lastmod><changefreq>hourly</changefreq><priority>1.0</priority></url></urlset>\n')
+    with open(os.path.join(SALIDA, INDEXNOW + ".txt"), "w") as f:
+        f.write(INDEXNOW)
     import shutil
     if os.path.exists("app/compartir.png"):
         shutil.copy("app/compartir.png", os.path.join(SALIDA, "compartir.png"))
