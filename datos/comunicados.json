@@ -1,5 +1,23 @@
 [
  {
+  "id": "2026-10-22-bella-vista-628",
+  "titulo": "Bella Vista: el río marcó 6,28 m y ya hay 19 evacuados",
+  "resumen": "La lectura de Prefectura del jueves dio 6,28 m en Bella Vista, apenas 12 cm por debajo del nivel de evacuación (6,40 m). Hay 19 personas evacuadas y la ciudad pasó a alerta roja por el clima.",
+  "fuente": "Examedia",
+  "url": "https://examedia.com.ar/portada/post/88100525",
+  "fecha": "2026-10-22",
+  "alertas": [
+   {
+    "evac": 6.4,
+    "loc": "bella-vista",
+    "m": 6.28,
+    "motivo": "19 evacuados, río a 12 cm de la evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-10-22-capital-743",
   "titulo": "El Paraná sigue subiendo frente a Corrientes: 7,43 m en la capital",
   "resumen": "Según Prefectura, el jueves el río marcó 7,43 m en la capital, 7,79 m en Paso de la Patria y 8,30 m en Itatí. Se espera un descenso muy lento en los próximos días y rige alerta naranja por tormentas fuertes.",
@@ -26,6 +44,42 @@
     "m": 8.3,
     "motivo": "Altura informada por Prefectura",
     "n": 0,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-22-goya-555",
+  "titulo": "Goya: el Paraná llegó a 5,55 m y se acerca a la cota de evacuación",
+  "resumen": "Según Prefectura, el jueves al mediodía el río marcaba 5,55 m en Goya, por encima de la alerta (5,20 m) y cada vez más cerca de la marca de evacuación de 5,70 m. El municipio promulgó la emergencia hídrica por 180 días.",
+  "fuente": "Diario El Libertador",
+  "url": "https://www.diarioellibertador.com.ar/creciente-rio-parana-goya-promulgacion-emergencia-hidrica-ordenanza-2319/",
+  "fecha": "2026-10-22",
+  "alertas": [
+   {
+    "alerta": 5.2,
+    "evac": 5.7,
+    "loc": "goya",
+    "m": 5.55,
+    "motivo": "Supera la cota de alerta y sigue creciendo",
+    "n": 2,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-22-itati-550-evacuados",
+  "titulo": "Itatí: el Paraná volvió a subir a 8,30 m y hay unos 550 evacuados",
+  "resumen": "Tras casi dos días estable, el río volvió a crecer y marcó 8,30 m en Itatí el jueves a la mañana. El municipio contabiliza alrededor de 550 vecinos evacuados.",
+  "fuente": "Revista Códigos",
+  "url": "https://revistacodigos.com/la-crecida-del-parana-golpea-a-corrientes-y-ya-son-550-los-evacuados-en-itati/",
+  "fecha": "2026-10-22",
+  "alertas": [
+   {
+    "loc": "itati",
+    "m": 8.3,
+    "motivo": "Unos 550 evacuados por la crecida",
+    "n": 3,
     "rio": "Paraná"
    }
   ]
