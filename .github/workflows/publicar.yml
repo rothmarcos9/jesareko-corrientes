@@ -18,7 +18,7 @@ concurrency:
 
 jobs:
   armar:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
       - name: Dependencias
         run: |
           pip install --quiet pillow pypdf
-          sudo apt-get install -y -qq poppler-utils > /dev/null
+          (sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils) > /dev/null || echo "::warning::No se pudo instalar poppler-utils"
       - name: Pronóstico, ríos, incendios y satélite
         run: python3 scripts/actualizar.py || echo "Alguna fuente falló; se usa el dato anterior"
       - name: Alturas del INA
@@ -46,7 +46,7 @@ jobs:
 
   publicar:
     needs: armar
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
