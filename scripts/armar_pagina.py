@@ -221,7 +221,11 @@ def main():
               "smn_localidades_con_alerta": len(smn.get("alertas") or {}),
               "smn_estaciones": sorted((smn.get("pronostico") or {}).keys()),
               "comunicados": len(base["comunicados"]), "avisos": len(base["reportes"]),
-              "formulario": bool(base.get("form")), "comunicados_remotos": remoto}
+              "formulario": bool(base.get("form")), "comunicados_remotos": remoto,
+              "nuevos_datos_corrientes": {k: ((base.get("pronostico") or {}).get("locs") or {}).get("corrientes", {}).get(k) for k in ("hum", "st", "stmax", "caida24", "caida72")},
+              "lluvia_48h_corrientes": sum((((base.get("pronostico") or {}).get("locs") or {}).get("corrientes", {}).get("h48") or {}).get("mm") or []),
+              "ina_historial": {k: len(v) for k, v in ((base.get("ina") or {}).get("hist") or {}).items()},
+              "ina_sin_reporte": (base.get("ina") or {}).get("hist_sin")}
     with open(os.path.join(SALIDA, "estado.json"), "w", encoding="utf-8") as f:
         json.dump(estado, f, ensure_ascii=False, indent=1)
     print(json.dumps(estado, ensure_ascii=False))
