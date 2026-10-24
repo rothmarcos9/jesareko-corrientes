@@ -46,9 +46,9 @@ def listar(desde, hasta):
     return sorted(claves)
 
 
-def destellos(clave):
+def destellos(raw):
+    """Lee los destellos de un archivo GLM (en el hilo principal: la librería netCDF no es segura con hilos)."""
     import netCDF4
-    raw = get(f"{BUCKET}/{clave}")
     with tempfile.NamedTemporaryFile(suffix=".nc") as f:
         f.write(raw); f.flush()
         with netCDF4.Dataset(f.name) as ds:
@@ -70,7 +70,13 @@ def main(salida="rayos.json"):
         sys.exit("ERROR rayos: no hay archivos GLM recientes")
     pts, fallas = [], 0
     with ThreadPoolExecutor(8) as ex:
-        for r in ex.map(lambda c: _seguro(c[1]), claves):
+        for raw in ex.map(lambda c: _bajar(c[1]), claves):
+            r = None
+            if raw:
+                try:
+                    r = destellos(raw)
+                except Exception as e:
+                    print("Aviso GLM", repr(e)[:120])
             if r is None:
                 fallas += 1
             else:
@@ -92,9 +98,9 @@ def main(salida="rayos.json"):
     print(f"::notice title=Rayos::{len(claves)} archivos ({fallas} con error), {len(pts)} destellos en la región, {len(locs)} localidades con rayos a menos de 50 km")
 
 
-def _seguro(clave):
+def _bajar(clave):
     try:
-        return destellos(clave)
+        return get(f"{BUCKET}/{clave}")
     except Exception as e:
         print("Aviso GLM", clave[-40:], repr(e)[:120])
         return None
