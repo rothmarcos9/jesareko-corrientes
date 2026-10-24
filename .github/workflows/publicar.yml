@@ -37,6 +37,10 @@ jobs:
         run: python3 scripts/ina.py ina.json || echo "INA no disponible"
       - name: Servicio Meteorológico Nacional
         run: python3 scripts/smn.py smn.json || echo "SMN no disponible"
+      - name: Precisión del pronóstico
+        env:
+          SITIO_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        run: python3 scripts/verificar.py verificacion.json || echo "Verificación no disponible"
       - name: Armar la página
         env:
           SITIO_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}

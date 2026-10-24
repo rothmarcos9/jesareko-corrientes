@@ -430,6 +430,7 @@ footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:gr
           <a href="https://anida.ign.gob.ar/publicacion/argentina_ambiental/amenazas_hidrometeorologicas.html" target="_blank" rel="noopener">Aprendé sobre tormentas, inundaciones y sequías · Atlas ANIDA <span>ign.gob.ar ↗</span></a>
           <a id="link-google" href="https://www.google.com/search?q=clima+Corrientes" target="_blank" rel="noopener">Pronóstico en Google <span id="link-google-loc">Corrientes ↗</span></a>
         </div>
+        <div id="verif" style="display:grid;gap:8px" hidden></div>
         <h3>Teléfonos de emergencia</h3>
         <div class="tels num">
           <div class="tel"><b>911</b><span>Emergencias</span></div>
@@ -996,7 +997,25 @@ function render(){
   el("abrir-aviso").hidden=!S.db&&!formOK();
   el("demo").hidden=!S.demo;
   renderSat();
-  renderMapa();renderEstado();renderSuelo();renderLista();renderFeed();renderRios();renderFuego();renderComu();
+  renderMapa();renderEstado();renderSuelo();renderLista();renderFeed();renderRios();renderFuego();renderComu();renderVerif();
+}
+/* Precisión medida del pronóstico (comparado con las estaciones del SMN) */
+function renderVerif(){
+  const c=el("verif"),V=S.verif,r=V&&V.resumen;
+  if(!r||!(r.dias_temp>=5)){c.hidden=true;return;}
+  const n=x=>String(x).replace(".",","),dia=f=>f?`${+f.slice(8)}/${+f.slice(5,7)}`:"";
+  const sesgo=r.sesgo_tmax!=null&&Math.abs(r.sesgo_tmax)>=1?` En general pronostica máximas ${r.sesgo_tmax>0?"más altas":"más bajas"} de lo que se mide (${n(Math.abs(r.sesgo_tmax))} °C en promedio).`:"";
+  const ll=r.dias_lluvia>=5?h("li",null,h("b",null,`Si llueve o no: acertó ${r.acierto_lluvia} % de los días. `),`De los días en que llovió, ${r.llovio_y_se_pronostico} estaban pronosticados y ${r.llovio_sin_pronostico} no; hubo ${r.falsa_alarma} ${r.falsa_alarma===1?"falsa alarma":"falsas alarmas"} (pronosticó lluvia y no llovió). Sobre ${r.dias_lluvia} días-estación con partes de aeropuerto.`):h("li",null,"Lluvia: todavía hay pocos días medidos; el dato aparece cuando se junten al menos 5.");
+  const est=Object.entries(V.por_estacion||{}).filter(([,x])=>x.dias_temp>0);
+  c.replaceChildren(h("h3",null,"¿Qué tan preciso es el pronóstico?"),
+    h("p",{class:"nota",style:"font-size:.88rem;color:var(--ink)"},`Comparación automática del pronóstico que la app tenía el día anterior con lo que midieron las estaciones del SMN en la provincia, del ${dia(V.periodo&&V.periodo[0])} al ${dia(V.periodo&&V.periodo[1])}.`),
+    h("ul",{style:"margin:0;padding-left:20px;display:grid;gap:6px;font-size:.9rem"},
+      h("li",null,h("b",null,`Temperatura máxima: error promedio de ${n(r.error_tmax)} °C. `),`${r.tmax_dentro_2c} % de los días erró por 2 °C o menos.${sesgo}`),
+      h("li",null,h("b",null,`Temperatura mínima: error promedio de ${n(r.error_tmin)} °C.`)),ll),
+    est.length?h("details",null,h("summary",{style:"cursor:pointer;font-size:.85rem;color:var(--agua)"},"Ver por estación"),
+      h("ul",{style:"margin:6px 0 0;padding-left:20px;font-size:.85rem;display:grid;gap:3px"},est.map(([k,x])=>h("li",null,`${k}: máxima ±${n(x.error_tmax)} °C, mínima ±${n(x.error_tmin)} °C${x.dias_lluvia>=3?`, lluvia ${x.acierto_lluvia} % de acierto`:""} (${x.dias_temp} días)`)))):null,
+    h("p",{class:"nota"},"La lluvia se mide solo como «llovió / no llovió» según los partes METAR de los aeropuertos; la cantidad de milímetros no se verifica. Ituzaingó no tiene partes de lluvia."));
+  c.hidden=false;
 }
 
 /* ---------- Zonas inundables ---------- */
@@ -1068,6 +1087,7 @@ function usarBase(){
   if(Array.isArray(BASE.comunicados))S.comu=BASE.comunicados;
   if(BASE.ina&&Array.isArray(BASE.ina.estaciones))S.ina=BASE.ina;
   if(BASE.smn&&typeof BASE.smn==="object")S.smn=BASE.smn;
+  if(BASE.verif&&typeof BASE.verif==="object")S.verif=BASE.verif;
   if(BASE.form&&typeof BASE.form==="object")S.form=BASE.form;
   if(Array.isArray(BASE.reportes))S.reportes=BASE.reportes.filter(r=>typeof r.ts==="number");
   return true;

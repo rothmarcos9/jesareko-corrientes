@@ -199,6 +199,13 @@ def main():
         base["reportes"] = previo.get("reportes") or []
     # la imagen satelital va al final del JSON (es lo más pesado)
     base["fuentes"] = {k: ("nuevo" if cargar(k + ".json") else "anterior") for k in ("pronostico", "rios", "incendios", "satelite", "ina", "smn")}
+    ver = cargar("verificacion.json")
+    if not ver and SITIO:
+        try:
+            ver = json.loads(bajar(SITIO + "/verificacion.json"))
+        except Exception:
+            ver = None
+    base["verif"] = {k: ver.get(k) for k in ("actualizado", "periodo", "resumen", "por_estacion", "metodo")} if ver else None
     tg = (cargar("datos/telegram.json") or {}).get("link", "")
     base["telegram"] = tg if re.fullmatch(r"https://t\.me/[A-Za-z0-9_]+", tg or "") else None
 
@@ -211,6 +218,9 @@ def main():
         f.write(pagina)
     extras_buscadores()
     extras_pwa(base["generado"])
+    if ver:
+        with open(os.path.join(SALIDA, "verificacion.json"), "w", encoding="utf-8") as f:
+            json.dump(ver, f, ensure_ascii=False)
     with open(os.path.join(SALIDA, "datos.json"), "w", encoding="utf-8") as f:
         f.write(js.replace("<\\/", "</"))
     smn = base.get("smn") or {}
