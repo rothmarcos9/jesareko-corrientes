@@ -101,4 +101,7 @@ def _seguro(clave):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:])
+    try:
+        main(*sys.argv[1:])
+    except BaseException as e:
+        print("::warning title=Rayos::" + repr(e)[:400]); raise
