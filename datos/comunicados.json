@@ -1,5 +1,36 @@
 [
  {
+  "id": "2026-10-24-capital-743",
+  "titulo": "El Paraná llegó a 7,43 m en Capital y el Uruguay marcó 7,88 m en Libres",
+  "resumen": "Según el último relevamiento, el río en la ciudad de Corrientes subió a 7,43 m, por encima del nivel de evacuación; en Paso de la Patria marcó 7,79 m con agua en zonas habitadas y en Paso de los Libres el Uruguay llegó a 7,88 m, alcanzando la calle y la costanera. La provincia ya suma más de 550 evacuados y autoevacuados.",
+  "fuente": "Infobae",
+  "url": "https://www.infobae.com/sociedad/2026/10/24/inundaciones-evacuados-y-aislados-las-imagenes-del-caos-que-provoco-el-nino-en-neuquen-chaco-y-corrientes/",
+  "fecha": "2026-10-24",
+  "alertas": [
+   {
+    "loc": "corrientes",
+    "m": 7.43,
+    "motivo": "Supera el nivel de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.79,
+    "motivo": "Altura informada, agua en zonas habitadas",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-los-libres",
+    "m": 7.88,
+    "motivo": "Altura informada, agua en la costanera",
+    "n": 0,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
   "id": "2026-10-23-capital-738",
   "titulo": "El Paraná sigue arriba de la evacuación en Capital y Goya continúa en alerta",
   "resumen": "El viernes el río marcó 7,38 m en la ciudad de Corrientes, por encima de la cota de evacuación de 7 m, y 5,54 m en Goya, sobre la marca de alerta. Paso de la Patria e Itatí también siguen por encima de sus niveles de evacuación.",
@@ -32,6 +63,38 @@
    {
     "loc": "itati",
     "motivo": "Supera la marca de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-23-itati-100-evacuados",
+  "titulo": "Itatí: más de cien evacuados tras las tormentas",
+  "resumen": "Por la crecida del Paraná y las tormentas, más de 100 personas tuvieron que dejar sus casas en Itatí y están siendo asistidas en tres centros de contención.",
+  "fuente": "Canal Doce Misiones",
+  "url": "https://www.canal12misiones.com/nacionales/itati-tuvo-mas-de-100-evacuados-por-las-tormentas",
+  "fecha": "2026-10-23",
+  "alertas": [
+   {
+    "loc": "itati",
+    "motivo": "Más de 100 evacuados",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-23-paso-patria-evacuados",
+  "titulo": "Paso de la Patria: familias evacuadas y aviso de un posible nuevo repunte",
+  "resumen": "Varias familias de tres barrios de Paso de la Patria, entre ellos Los Pescadores, dejaron sus casas por el agua. El viernes el Paraná bajó unos 40 cm, pero podría volver a subir hasta un metro por las tormentas en Brasil.",
+  "fuente": "A24",
+  "url": "https://www.a24.com/actualidad/dramatica-inundacion-paso-la-patria-el-rio-parana-sigue-creciendo-hay-evacuados-y-el-mal-tiempo-no-para-n1609557",
+  "fecha": "2026-10-23",
+  "alertas": [
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "Familias evacuadas por la crecida",
     "n": 3,
     "rio": "Paraná"
    }
