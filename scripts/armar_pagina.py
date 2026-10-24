@@ -88,11 +88,52 @@ def para_buscadores(h):
     if re.fullmatch(r"[A-Za-z0-9_\-]{20,80}", gv or ""):
         meta += f'<meta name="google-site-verification" content="{gv}">'
     meta += '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False) + '</script>'
+    meta += ('<link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" sizes="192x192" href="icono-192.png">'
+             '<link rel="apple-touch-icon" href="icono-180.png"><meta name="apple-mobile-web-app-title" content="Jesareko">'
+             '<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">')
+    h = h.replace("</body>", INSTALAR + "</body>", 1) if "</body>" in h else h + INSTALAR
     h = h.replace("<html>", '<html lang="es-AR">', 1)
     h = re.sub(r"<title>[^<]*</title>", "", h, count=1)  # el título ahora va en <head>
     if "<meta charset=utf8>" in h:
         return h.replace("<meta charset=utf8>", "<meta charset=utf8>" + meta, 1)
     return h.replace("<head>", '<head><meta charset="utf-8">' + meta, 1)
+
+# Botón "Instalar la app" (Android/Chrome) y ayuda para iPhone; registra el service worker para que abra sin conexión.
+INSTALAR = """<script>
+(function(){
+  if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
+  var enApp=matchMedia('(display-mode: standalone)').matches||navigator.standalone;if(enApp)return;
+  var ref=document.getElementById('abrir-aviso');if(!ref)return;
+  var b=document.createElement('button');b.type='button';b.className='mas';b.hidden=true;b.style.cssText='margin:0 auto;font-weight:700';
+  b.textContent='📲 Instalar Jesareko en el celular';ref.insertAdjacentElement('afterend',b);
+  var ev=null;addEventListener('beforeinstallprompt',function(e){e.preventDefault();ev=e;b.hidden=false;});
+  b.addEventListener('click',function(){if(ev){ev.prompt();ev.userChoice.finally(function(){ev=null;b.hidden=true;});}
+    else{alert('En iPhone: tocá el botón Compartir y elegí «Agregar a inicio».');}});
+  if(/iphone|ipad|ipod/i.test(navigator.userAgent)){b.hidden=false;b.textContent='📲 Agregar Jesareko a la pantalla de inicio';}
+})();
+</script>"""
+
+def extras_pwa(generado):
+    m = {"name": "Jesareko Corrientes · Alerta temprana", "short_name": "Jesareko", "lang": "es-AR",
+         "description": DESCRIPCION, "start_url": "./", "scope": "./", "display": "standalone",
+         "background_color": "#EDF1EC", "theme_color": "#13221E",
+         "icons": [{"src": "icono-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+                   {"src": "icono-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}]}
+    with open(os.path.join(SALIDA, "manifest.webmanifest"), "w", encoding="utf-8") as f:
+        json.dump(m, f, ensure_ascii=False)
+    # Primero intenta la red (datos frescos); si no hay conexión, muestra lo último guardado.
+    sw = """const C='jesareko-%d';
+self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(['./','manifest.webmanifest','icono-192.png'])).catch(()=>{}));});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim()));});
+self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET'||new URL(r.url).origin!==location.origin)return;
+  e.respondWith(fetch(r).then(res=>{if(res.ok){const cp=res.clone();caches.open(C).then(c=>c.put(r,cp));}return res;}).catch(()=>caches.match(r).then(x=>x||caches.match('./'))));});
+""" % generado
+    with open(os.path.join(SALIDA, "sw.js"), "w", encoding="utf-8") as f:
+        f.write(sw)
+    import shutil
+    for n in ("icono-180.png", "icono-192.png", "icono-512.png"):
+        if os.path.exists("app/" + n):
+            shutil.copy("app/" + n, os.path.join(SALIDA, n))
 
 def extras_buscadores():
     hoy = time.strftime("%Y-%m-%d", time.gmtime())
@@ -169,6 +210,7 @@ def main():
     with open(os.path.join(SALIDA, "index.html"), "w", encoding="utf-8") as f:
         f.write(pagina)
     extras_buscadores()
+    extras_pwa(base["generado"])
     with open(os.path.join(SALIDA, "datos.json"), "w", encoding="utf-8") as f:
         f.write(js.replace("<\\/", "</"))
     smn = base.get("smn") or {}

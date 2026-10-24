@@ -65,7 +65,7 @@ main .wrap{display:grid;gap:20px;padding-block:18px 40px;grid-template-columns:1
 .chip{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--lvbg,var(--ok-bg));color:var(--ink);white-space:nowrap}
 .chip i{width:9px;height:9px;border-radius:50%;background:var(--lv,var(--ok));display:inline-block}
 .titular{font-size:1.15rem;font-weight:700}
-.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
 @media (max-width:420px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .metric{background:var(--surface);padding:10px 10px 8px}
 .metric b{display:block;font-family:var(--display);font-size:1.8rem;font-weight:600;line-height:1}
@@ -251,6 +251,20 @@ fieldset{border:0;padding:0;margin:0}
 .smn b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
 .smn strong{display:block;font-family:var(--display);font-size:1.15rem;font-weight:600}
 .dato .bar.ancho{grid-template-columns:6.8em 1fr auto}.dato .bar.ancho span:last-child{white-space:nowrap}
+.horas{display:grid;gap:6px;padding:10px 12px;border:1px solid var(--line);border-radius:8px}
+.horas .resumen{font-size:.92rem}
+.horas svg{width:100%;height:84px;display:block;overflow:visible}
+.hb{fill:var(--agua)}.hb.fuerte{fill:var(--naranja)}.hb.muy{fill:var(--roja)}
+.hp{fill:var(--agua-soft)}
+.hx{font-size:9px;fill:var(--muted);font-family:var(--body)}
+.hd-l{stroke:var(--line);stroke-width:1}
+.hn{stroke:var(--ink);stroke-width:1;stroke-dasharray:2 2;opacity:.6}
+.tend{font-size:.85rem;font-weight:700}
+.tend.sube{color:var(--roja)}.tend.baja{color:var(--ok)}
+.rio svg.ih{height:44px}
+.ih-l{fill:none;stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
+.ih-p{fill:var(--ink)}
+.ih-a{stroke:var(--amarilla);stroke-width:1;stroke-dasharray:3 3}.ih-e{stroke:var(--roja);stroke-width:1;stroke-dasharray:3 3}
 footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:grid;gap:6px}
 </style>
 
@@ -286,7 +300,10 @@ footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:gr
             <div class="metric"><b id="m-prob">–</b><span>Probabilidad</span></div>
             <div class="metric"><b id="m-temp">–</b><span>Máx / mín</span></div>
             <div class="metric"><b id="m-viento">–</b><span>Ráfagas</span></div>
+            <div class="metric"><b id="m-hum">–</b><span>Humedad ahora</span></div>
+            <div class="metric"><b id="m-st">–</b><span>Sensación térmica</span></div>
           </div>
+          <div class="horas" id="lluvia-h" hidden></div>
           <div class="vecinos" id="vecinos"></div>
           <div class="acciones" id="acciones"></div>
           <div class="meta" id="e-meta"></div>
@@ -435,6 +452,8 @@ footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:gr
   <span><b>Alertas oficiales.</b> Las alturas de los puertos y sus cotas de alerta y evacuación salen del reporte diario del INA. Cuando el INA, Defensa Civil o la EBY informan alerta o evacuación en una localidad, la app sube su nivel durante 4 días aunque el modelo indique otra cosa.</span>
   <span><b>Incendios.</b> Focos de calor detectados por los satélites VIIRS (NASA FIRMS). Un foco puede ser un incendio de campo o forestal, una quema o una fuente industrial.</span>
   <span><b>Servicio Meteorológico Nacional.</b> Las alertas oficiales del SMN (formato CAP) se leen cada hora y suben el nivel de las localidades que quedan dentro del área de alerta. El pronóstico por estación sale del modelo numérico del SMN (datos abiertos, licencia CC BY 4.0).</span>
+  <span><b>Humedad, sensación térmica y lluvia hora por hora.</b> Modelos meteorológicos vía Open-Meteo, para el punto de cada localidad. La lluvia ya caída es una estimación del modelo, no una medición de pluviómetro. El aviso de dengue es un consejo de prevención (de octubre a abril, con calor, humedad y lluvia), no un dato de casos.</span>
+  <span><b>Tendencia del río.</b> Alturas de los últimos reportes diarios del INA para cada puerto.</span>
   <span><b>Lluvias extremas.</b> Lluvia diaria con recurrencia de 20, 50 y 100 años de las estaciones del SMN, del Atlas Nacional Interactivo (ANIDA) del Instituto Geográfico Nacional.</span>
   <span><b>Suelo y anegamiento.</b> Descripción general del paisaje y los suelos de cada zona según estudios del INTA Corrientes (regiones naturales, degradación de suelos y excesos hídricos del sudoeste). La asignación de cada localidad a una zona es aproximada.</span>
 </div></footer>
@@ -626,6 +645,57 @@ const CONSEJOS={
   fuego:["No quemes pastizales, ramas ni basura","Limpiá el pasto seco alrededor de la casa","Si ves fuego o humo, llamá al 100 y avisá en la app","Si hay humo, cerrá puertas y ventanas"]
 };
 
+/* Lluvia hora por hora, próximas 48 horas */
+function fechaHora(t0,i){return new Date(Date.parse(t0+":00-03:00")+i*3600000);}
+function cuandoDia(d){const hoy=new Date(Date.now()-3*3600000).toISOString().slice(0,10),f=new Date(d.getTime()-3*3600000).toISOString().slice(0,10);
+  const dd=Math.round((Date.parse(f)-Date.parse(hoy))/86400000);return dd<=0?"hoy":dd===1?"mañana":"el "+["domingo","lunes","martes","miércoles","jueves","viernes","sábado"][new Date(d.getTime()-3*3600000).getUTCDay()];}
+function horaLoc(d){return new Date(d.getTime()-3*3600000).getUTCHours();}
+function bloqueHoras(p){
+  const H=p&&p.h48;if(!H||!Array.isArray(H.mm)||!H.mm.length||!H.t0)return null;
+  const mm=H.mm.map(v=>+v||0),pp=(H.pp||[]).map(v=>+v||0),n=mm.length,tot=mm.reduce((a,b)=>a+b,0);
+  const wrap=h("div",null);
+  let res;
+  if(tot<0.3)res="Sin lluvia prevista en las próximas 48 horas.";
+  else{const i1=mm.findIndex(v=>v>=0.3),ip=mm.indexOf(Math.max(...mm));const d1=fechaHora(H.t0,i1),dp=fechaHora(H.t0,ip);
+    const ini=i1===0?"Ya está lloviendo o empieza enseguida":`Empieza a llover ${cuandoDia(d1)} cerca de las ${horaLoc(d1)} h`;
+    const pico=mm[ip]>=1?`; lo más fuerte, ${cuandoDia(dp)} cerca de las ${horaLoc(dp)} h (${String(mm[ip]).replace(".",",")} mm en una hora)`:"";
+    res=`${ini}${pico}. Total en 48 h: ${Math.round(tot)} mm.`;}
+  wrap.append(h("span",{class:"eyebrow"},"Lluvia hora por hora · próximas 48 h"),h("div",{class:"resumen"},res));
+  if(tot>=0.3){
+    const W=320,Hh=70,top=Math.max(4,...mm),bw=W/n;
+    const s=svg("svg",{viewBox:`0 0 ${W} ${Hh+14}`,preserveAspectRatio:"none",role:"img","aria-label":res});
+    for(let i=0;i<n;i++){
+      if(pp[i])s.append(svg("rect",{class:"hp",x:(i*bw+.4).toFixed(1),y:(Hh-pp[i]/100*Hh).toFixed(1),width:(bw-.8).toFixed(1),height:(pp[i]/100*Hh).toFixed(1)}));
+      const v=mm[i];if(v>0){const hh=Math.max(1.5,v/top*Hh);const r=svg("rect",{class:"hb"+(v>=15?" muy":v>=5?" fuerte":""),x:(i*bw+.8).toFixed(1),y:(Hh-hh).toFixed(1),width:(bw-1.6).toFixed(1),height:hh.toFixed(1)});s.append(r);}
+      const d=fechaHora(H.t0,i),hr=horaLoc(d);
+      const hit=svg("rect",{x:(i*bw).toFixed(1),y:0,width:bw.toFixed(1),height:Hh,fill:"transparent"});const t=svg("title",{});t.textContent=`${cuandoDia(d)} ${hr} h: ${String(v).replace(".",",")} mm · probabilidad ${pp[i]||0} %`;hit.append(t);s.append(hit);
+      if(hr===0&&i>0)s.append(svg("line",{class:"hd-l",x1:(i*bw).toFixed(1),x2:(i*bw).toFixed(1),y1:0,y2:Hh+2}));
+      if(hr%6===0){const tx=svg("text",{class:"hx",x:(i*bw).toFixed(1),y:Hh+11,"text-anchor":i===0?"start":"middle"});tx.textContent=hr===0?(["dom","lun","mar","mié","jue","vie","sáb"][new Date(d.getTime()-3*3600000).getUTCDay()]):`${hr} h`;s.append(tx);}
+    }
+    s.append(svg("line",{class:"hn",x1:0,x2:0,y1:0,y2:Hh}));
+    wrap.append(s,h("div",{class:"meta"},`Barras: milímetros por hora (naranja desde 5 mm, rojo desde 15). Fondo celeste: probabilidad de lluvia. Máximo del gráfico: ${Math.round(top)} mm/h.`));
+  }
+  if(p.caida72!=null)wrap.append(h("div",{class:"meta"},`Lluvia ya caída (estimada): ${String(p.caida24).replace(".",",")} mm en las últimas 24 h y ${String(p.caida72).replace(".",",")} mm en 72 h.`));
+  return wrap;
+}
+/* Tendencia de la altura del río (historial del INA) */
+function histINA(est){const H=S.ina&&S.ina.hist;if(!H)return null;const k=Object.keys(H).find(x=>sinTilde(x)===sinTilde(est));const v=k&&Array.isArray(H[k])?H[k].filter(x=>Array.isArray(x)&&typeof x[1]==="number"):null;return v&&v.length?v:null;}
+function tendINA(est){const v=histINA(est);if(!v||v.length<2)return null;const u=v[v.length-1],lim=new Date(Date.parse(u[0])-3*86400000).toISOString().slice(0,10);
+  const ref=[...v].reverse().find(x=>x[0]<=lim)||v[0];if(ref===u)return null;const d=Math.round((u[1]-ref[1])*100),dias=Math.round((Date.parse(u[0])-Date.parse(ref[0]))/86400000);
+  return{d,dias,txt:Math.abs(d)<3?`estable en ${dias} ${dias===1?"día":"días"}`:`${d>0?"▲ subió":"▼ bajó"} ${Math.abs(d)} cm en ${dias} ${dias===1?"día":"días"}`,cls:Math.abs(d)<3?"":d>0?"sube":"baja"};}
+function graficoINA(e){const v=histINA(e.est);if(!v||v.length<2)return null;
+  const W=320,H=44,pad=4,vals=v.map(x=>x[1]),lo=Math.min(...vals,e.alerta||vals[0])-0.15,hi=Math.max(...vals,e.evac||vals[0])+0.1;
+  const t0=Date.parse(v[0][0]),t1=Date.parse(v[v.length-1][0])||t0+1,X=d=>pad+(Date.parse(d)-t0)/Math.max(1,t1-t0)*(W-2*pad),Y=y=>H-pad-(y-lo)/(hi-lo)*(H-2*pad);
+  const s=svg("svg",{class:"ih",viewBox:`0 0 ${W} ${H}`,preserveAspectRatio:"none",role:"img","aria-label":`Altura de los últimos ${v.length} reportes del INA en ${e.est}`});
+  if(e.alerta)s.append(svg("line",{class:"ih-a",x1:pad,x2:W-pad,y1:Y(e.alerta),y2:Y(e.alerta),"vector-effect":"non-scaling-stroke"}));
+  if(e.evac)s.append(svg("line",{class:"ih-e",x1:pad,x2:W-pad,y1:Y(e.evac),y2:Y(e.evac),"vector-effect":"non-scaling-stroke"}));
+  s.append(svg("path",{class:"ih-l",d:"M"+v.map(x=>`${X(x[0]).toFixed(1)},${Y(x[1]).toFixed(1)}`).join("L"),"vector-effect":"non-scaling-stroke"}));
+  for(const x of v){const c=svg("circle",{class:"ih-p",cx:X(x[0]).toFixed(1),cy:Y(x[1]).toFixed(1),r:2.2});const t=svg("title",{});t.textContent=`${+x[0].slice(8)}/${+x[0].slice(5,7)}: ${coma(x[1])} m`;c.append(t);s.append(c);}
+  return s;}
+/* Prevención del dengue: calor + humedad + agua acumulada, en la temporada */
+function riesgoDengue(p){if(!p)return false;const mes=new Date().getMonth();if(!(mes>=9||mes<=3))return false;
+  const hum=p.humMed!=null?p.humMed:p.hum;return p.tmax>=24&&hum!=null&&hum>=60&&((p.caida72||0)>=10||(p.lluvia24||0)>=10);}
+
 function renderEstado(){
   const id=S.sel||S.mi,l=LOC[id],p=S.pron[id],nv=nivelTotal(id);
   setLv(el("estado"),nv.n);
@@ -636,6 +706,9 @@ function renderEstado(){
   el("m-prob").innerHTML=p&&p.prob!=null?`${p.prob}<small>%</small>`:"–";
   el("m-temp").innerHTML=p&&p.tmax!=null?`${p.tmax}°<small>/ ${p.tmin}°</small>`:"–";
   el("m-viento").innerHTML=p&&p.rafagas!=null?`${p.rafagas}<small>km/h</small>`:"–";
+  el("m-hum").innerHTML=p&&p.hum!=null?`${p.hum}<small>%</small>`:"–";
+  el("m-st").innerHTML=p&&p.st!=null?`${p.st}°<small>${p.stmax!=null&&p.stmax>p.st?`máx ${p.stmax}°`:""}</small>`:"–";
+  const lh=el("lluvia-h"),bh=bloqueHoras(p);lh.replaceChildren(...(bh?[bh]:[]));lh.hidden=!bh;
   // Avisos de vecinos cercanos
   const v=el("vecinos");v.replaceChildren();
   const cerca=avisosCerca(id).slice(0,3);
@@ -659,7 +732,8 @@ function renderEstado(){
   if(ei){const propio=sinTilde(ei.est)===sinTilde(l.n);const d=propio?0:Math.round(km(l,EST_C[sinTilde(ei.est)]||l));
     const tit=propio?(al&&al.fecha.slice(5)>=fechaIna()?`Último reporte del INA (${S.ina.fecha||""}): ${coma(ei.nivel)} m`:`${ei.rio} en ${ei.est}: ${coma(ei.nivel)} m`):`Puerto oficial más cercano: ${ei.est}, a ${d} km · ${coma(ei.nivel)} m`;
     const extra=propio||al?"":` ${l.n} no tiene escala en el reporte del INA; tomá este dato como referencia.`;
-    v.append(h("div",{class:"vecino "+(ei.n>=2?"fuego-c":"rio-c")},ico(),h("div",null,h("b",null,tit),` · alerta ${coma(ei.alerta)} m, evacuación ${coma(ei.evac)} m (INA, ${S.ina.fecha||""})${ei.persp&&/[a-záéíóú]{3}/i.test(ei.persp)?". Perspectiva: "+ei.persp:""}.${extra}`)));}
+    const td=tendINA(ei.est);
+    v.append(h("div",{class:"vecino "+(ei.n>=2?"fuego-c":"rio-c")},ico(),h("div",null,h("b",null,tit),` · alerta ${coma(ei.alerta)} m, evacuación ${coma(ei.evac)} m (INA, ${S.ina.fecha||""})${ei.persp&&/[a-záéíóú]{3}/i.test(ei.persp)?". Perspectiva: "+ei.persp:""}.${td?` Tendencia: ${td.txt}.`:""}${extra}`)));}
   const rp=S.rios.find(x=>x.id===RIOLOC[id]);const er=estadoRio(rp);
   if(er&&(er.n||er.sube)){v.append(h("div",{class:"vecino rio-c"},ico(),h("div",null,h("b",null,`${rp.nombre}: ${er.label.toLowerCase()}${er.sube?", sigue subiendo":""}`),` · hoy ${fmt(er.v)} m³/s, hasta ${fmt(er.mx)} en 7 días (valor habitual ${fmt(rp.p50)})`)));}
   const es=estSMN(id);
@@ -668,6 +742,8 @@ function renderEstado(){
       ah&&ah.temp!=null?` · ahora ${ah.cielo.toLowerCase()}, ${String(ah.temp).replace(".",",")} °C (${ah.hora} h)`:"",
       h("div",{class:"smn num"},ds.map(x=>{const f=new Date(x.fecha+"T12:00:00-03:00");return h("div",null,h("b",null,x.fecha===hoy?"hoy":DIAS[f.getDay()]),h("strong",null,`${x.tmax}°`),h("div",{style:"padding:0;background:none"},`mín ${x.tmin}°`),`${String(Math.round(x.lluvia))} mm`);})),
       h("div",{class:"meta"},"Modelo numérico del SMN para la estación; puede diferir del pronóstico oficial redactado. Datos abiertos SMN (CC BY 4.0)."))));}}
+  if(p&&p.caida72>=60&&p.lluvia24>=20)v.append(h("div",{class:"vecino fuego-c"},ico(),h("div",null,h("b",null,"Suelo saturado"),` · ya llovieron unos ${Math.round(p.caida72)} mm en 3 días y se esperan ${p.lluvia24} mm más. El agua va a tardar en escurrir: atención en calles y barrios bajos.`)));
+  if(riesgoDengue(p))v.append(h("div",{class:"vecino suave"},ico(),h("div",null,h("b",null,"Prevención del dengue"),` · con calor, humedad y lluvia se multiplican los mosquitos. Después de cada lluvia vaciá baldes, tachos, macetas, cubiertas y todo lo que junte agua, y usá repelente.`)));
   // Consejos
   const a=el("acciones");a.replaceChildren();
   const why=nv.motivos[0]?.why||(nv.vecinal?"lluvia":null);
@@ -760,7 +836,8 @@ function renderRios(){
     setLv(barra,n);
     return h("div",{class:"rio"},h("div",{class:"l1"},h("b",null,`${e.rio} en ${e.est}`),chip(n,lab)),
       h("div",{class:"l2 num"},h("span",null,h("strong",null,e.nivel.toFixed(2).replace(".",",")),"  m"),h("span",null,`alerta ${String(e.alerta).replace(".",",")} m`),h("span",null,`evacuación ${String(e.evac).replace(".",",")} m`)),barra,
-      e.persp?h("span",{class:"nota meta"},"Perspectiva INA: "+e.persp):null);};
+      (()=>{const td=tendINA(e.est);return td?h("span",{class:"tend "+td.cls},td.txt.charAt(0).toUpperCase()+td.txt.slice(1)):null;})(),graficoINA(e),
+      e.persp&&/[a-záéíóú]{3}/i.test(e.persp)?h("span",{class:"nota meta"},"Perspectiva INA: "+e.persp):null);};
   const bloqueIna=ina.length?[h("div",{class:"sub"},`Alturas oficiales del INA · ${S.ina.fecha||""}`),...ina.map(filaIna)]:[];
   c.replaceChildren(...bloqueIna,h("div",{class:"sub"},"Represas"),...rep.map(fila),h("div",{class:"sub"},"Río Paraná"),...par.map(fila),h("div",{class:"sub"},"Río Uruguay"),...uru.map(fila),
     h("div",{class:"vacio"},`Caudal modelado (${S.riosAct?.fuente||"GloFAS"}), no la altura del puerto. Actualizado ${S.riosAct?hace(S.riosAct.actualizado):""}.`));

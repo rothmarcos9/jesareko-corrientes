@@ -29,17 +29,33 @@ def multi(base, puntos, extra):
 def pronostico():
     ahora = datetime.now(TZ).strftime("%Y-%m-%dT%H:00")
     locs = {}
+    r1 = lambda v: round(v, 1)
     for i in range(0, len(L), 5):
         g = L[i:i + 5]
         data = multi("https://api.open-meteo.com/v1/forecast", [(x[1], x[2]) for x in g],
-                     "&hourly=precipitation,precipitation_probability,temperature_2m,wind_gusts_10m&forecast_days=2&timezone=America%2FArgentina%2FCordoba")
+                     "&hourly=precipitation,precipitation_probability,temperature_2m,wind_gusts_10m,relative_humidity_2m,apparent_temperature"
+                     "&past_days=3&forecast_days=3&timezone=America%2FArgentina%2FCordoba")
         for (lid, _, _), d in zip(g, data):
             h = d["hourly"]; t = h["time"]
             i0 = next((k for k, x in enumerate(t) if x >= ahora), 0); s = slice(i0, i0 + 24)
-            pr = [v or 0 for v in h["precipitation"][s]]; pp = [v or 0 for v in h["precipitation_probability"][s]]
-            tt = [v for v in h["temperature_2m"][s] if v is not None]; wg = [v or 0 for v in h["wind_gusts_10m"][s]]
+            col = lambda k, sl, z=0: [z if v is None else v for v in h[k][sl]]
+            pr = col("precipitation", s); pp = col("precipitation_probability", s)
+            tt = [v for v in h["temperature_2m"][s] if v is not None]; wg = col("wind_gusts_10m", s)
+            hu = [v for v in h["relative_humidity_2m"][s] if v is not None]
+            at = [v for v in h["apparent_temperature"][s] if v is not None]
+            s48 = slice(i0, i0 + 48)
             locs[lid] = {"lluvia24": round(sum(pr)), "lluviaMaxHora": round(max(pr)), "prob": round(max(pp)),
-                         "tmax": round(max(tt)), "tmin": round(min(tt)), "rafagas": round(max(wg))}
+                         "tmax": round(max(tt)), "tmin": round(min(tt)), "rafagas": round(max(wg)),
+                         # humedad y sensación térmica
+                         "hum": round(h["relative_humidity_2m"][i0] or 0), "humMed": round(sum(hu) / len(hu)) if hu else None,
+                         "st": round(h["apparent_temperature"][i0]) if h["apparent_temperature"][i0] is not None else None,
+                         "stmax": round(max(at)) if at else None, "stmin": round(min(at)) if at else None,
+                         # lluvia caída (estimada por el modelo) en las últimas 24 y 72 horas
+                         "caida24": r1(sum(col("precipitation", slice(max(0, i0 - 24), i0)))),
+                         "caida72": r1(sum(col("precipitation", slice(max(0, i0 - 72), i0)))),
+                         # lluvia hora por hora, próximas 48 horas
+                         "h48": {"t0": t[i0], "mm": [r1(v) for v in col("precipitation", s48)],
+                                 "pp": [round(v) for v in col("precipitation_probability", s48)]}}
         time.sleep(3)
     return {"actualizado": int(time.time() * 1000), "fuente": "Open-Meteo", "locs": locs}
 

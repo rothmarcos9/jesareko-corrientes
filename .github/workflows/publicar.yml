@@ -32,6 +32,8 @@ jobs:
       - name: Pronóstico, ríos, incendios y satélite
         run: python3 scripts/actualizar.py || echo "Alguna fuente falló; se usa el dato anterior"
       - name: Alturas del INA
+        env:
+          SITIO_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
         run: python3 scripts/ina.py ina.json || echo "INA no disponible"
       - name: Servicio Meteorológico Nacional
         run: python3 scripts/smn.py smn.json || echo "SMN no disponible"
