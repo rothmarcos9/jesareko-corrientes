@@ -229,6 +229,7 @@ def main():
     with open(os.path.join(SALIDA, "estado.json"), "w", encoding="utf-8") as f:
         json.dump(estado, f, ensure_ascii=False, indent=1)
     print(json.dumps(estado, ensure_ascii=False))
+    print("::notice title=Datos nuevos::" + json.dumps({k: estado[k] for k in ("fuentes", "nuevos_datos_corrientes", "lluvia_48h_corrientes", "ina_fecha", "ina_historial", "ina_sin_reporte")}, ensure_ascii=False))
     open(os.path.join(SALIDA, ".nojekyll"), "w").close()
     print("OK página:", len(base["comunicados"]), "comunicados,", len(base["reportes"]), "avisos")
 
