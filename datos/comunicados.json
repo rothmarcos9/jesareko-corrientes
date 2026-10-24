@@ -31,6 +31,75 @@
   ]
  },
  {
+  "id": "2026-10-24-ina-parana-alto",
+  "titulo": "El Paraná seguirá alto: Capital en 7,37 m y Goya por encima de la evacuación",
+  "resumen": "Con pronósticos del INA, el río en Corrientes capital marcó 7,37 m (evacuación 7 m) y podría llegar a 7,80 m el 27/10; Itatí (8,15 m), Paso de la Patria (7,70 m) e Ituzaingó (4,52 m) siguen sobre su nivel de evacuación y Goya llegó a 5,60 m. En el Uruguay el río baja: Paso de los Libres quedó en 6,48 m, por debajo de alerta y evacuación.",
+  "fuente": "El Litoral",
+  "url": "https://www.ellitoral.com.ar/sociedad/2026-10-24-16-49-0-advierten-que-el-parana-seguira-alto-durante-las-proximas-semanas",
+  "fecha": "2026-10-24",
+  "alertas": [
+   {
+    "evac": 7,
+    "loc": "corrientes",
+    "m": 7.37,
+    "motivo": "Supera el nivel de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "itati",
+    "m": 8.15,
+    "motivo": "Supera el nivel de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.7,
+    "motivo": "Supera el nivel de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "ituzaingo",
+    "m": 4.52,
+    "motivo": "Supera el nivel de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5.2,
+    "evac": 5.4,
+    "loc": "goya",
+    "m": 5.6,
+    "motivo": "Supera la cota de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-los-libres",
+    "m": 6.48,
+    "motivo": "En descenso, debajo de alerta y evacuación",
+    "n": 0,
+    "rio": "Uruguay"
+   },
+   {
+    "loc": "alvear",
+    "m": 6.63,
+    "motivo": "Altura informada, en descenso",
+    "n": 0,
+    "rio": "Uruguay"
+   },
+   {
+    "loc": "santo-tome",
+    "m": 5.8,
+    "motivo": "Altura informada, en descenso",
+    "n": 0,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
   "id": "2026-10-23-capital-738",
   "titulo": "El Paraná sigue arriba de la evacuación en Capital y Goya continúa en alerta",
   "resumen": "El viernes el río marcó 7,38 m en la ciudad de Corrientes, por encima de la cota de evacuación de 7 m, y 5,54 m en Goya, sobre la marca de alerta. Paso de la Patria e Itatí también siguen por encima de sus niveles de evacuación.",
@@ -67,6 +136,15 @@
     "rio": "Paraná"
    }
   ]
+ },
+ {
+  "id": "2026-10-23-itaipu-cierra-canaleta",
+  "titulo": "Itaipú cerró la canaleta central de su vertedero",
+  "resumen": "El 23/10 a las 15:40 Itaipú cerró el canal central del vertedero, abierto desde el 15/10, y sigue erogando unos 8.000 m³/s por la canaleta izquierda para que el Paraná se mantenga cerca de 116,60 m s.n.m. en la zona de Foz. El Iguazú aporta unos 5.500 m³/s y podría llegar a 12.000 m³/s.",
+  "fuente": "ABC Color",
+  "url": "https://www.abc.com.py/este/2026/10/24/itaipu-cierra-una-canaleta-de-su-vertedero-para-contener-el-nivel-del-rio-parana/",
+  "fecha": "2026-10-23",
+  "alertas": []
  },
  {
   "id": "2026-10-23-itati-100-evacuados",
