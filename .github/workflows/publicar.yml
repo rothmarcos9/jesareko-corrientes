@@ -27,7 +27,7 @@ jobs:
           python-version: "3.12"
       - name: Dependencias
         run: |
-          pip install --quiet pillow pypdf
+          pip install --quiet pillow pypdf netCDF4
           (sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils) > /dev/null || echo "::warning::No se pudo instalar poppler-utils"
       - name: Pronóstico, ríos, incendios y satélite
         run: python3 scripts/actualizar.py || echo "Alguna fuente falló; se usa el dato anterior"
@@ -37,6 +37,8 @@ jobs:
         run: python3 scripts/ina.py ina.json || echo "INA no disponible"
       - name: Servicio Meteorológico Nacional
         run: python3 scripts/smn.py smn.json || echo "SMN no disponible"
+      - name: Rayos (GOES-19)
+        run: timeout 600 python3 scripts/rayos.py rayos.json || echo "Rayos no disponibles"
       - name: Precisión del pronóstico
         env:
           SITIO_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}

@@ -169,6 +169,11 @@ def main():
         base[k] = nuevo or previo.get(k) or plantilla.get(k)
         print(k, "nuevo" if nuevo else ("previo" if previo.get(k) else "plantilla"))
 
+    # Rayos: solo sirven si son recientes; nunca se usa un dato viejo
+    ry = cargar("rayos.json") or previo.get("rayos")
+    base["rayos"] = ry if isinstance(ry, dict) and time.time() * 1000 - (ry.get("hasta") or 0) < 150 * 60000 else None
+    print("rayos", "nuevo" if cargar("rayos.json") else ("previo" if base["rayos"] else "sin dato"))
+
     comu = cargar("datos/comunicados.json") or previo.get("comunicados") or plantilla.get("comunicados") or []
     # Fuente extra: la versión de la app en claude.ai, que recibe los comunicados dos veces por día.
     remoto = "sin probar"

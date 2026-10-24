@@ -331,6 +331,7 @@ footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:gr
           <span><svg width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="var(--naranja)" stroke-width="2"/></svg>Avisos de vecinos (3 h)</span>
           <span><svg width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="3" fill="var(--roja)"/></svg>Foco de calor (24 h)</span>
           <span><svg width="12" height="12" aria-hidden="true"><rect x="2" y="2" width="8" height="8" fill="var(--agua)"/></svg>Medición de río</span>
+          <span><svg width="12" height="12" aria-hidden="true"><path d="M7 1 3 7h3l-1 4 4-6H6z" fill="#F2B705" stroke="#13221E" stroke-width=".6"/></svg>Rayos (última hora)</span>
         </div>
         <div class="ley-inund" id="ley-inund" hidden>
           <span>Profundidad del agua:</span>
@@ -429,6 +430,8 @@ footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:gr
           <a href="https://www.smn.gob.ar/radar" target="_blank" rel="noopener">Radar de lluvias <span>smn.gob.ar ↗</span></a>
           <a href="https://anida.ign.gob.ar/publicacion/argentina_ambiental/amenazas_hidrometeorologicas.html" target="_blank" rel="noopener">Aprendé sobre tormentas, inundaciones y sequías · Atlas ANIDA <span>ign.gob.ar ↗</span></a>
           <a id="link-google" href="https://www.google.com/search?q=clima+Corrientes" target="_blank" rel="noopener">Pronóstico en Google <span id="link-google-loc">Corrientes ↗</span></a>
+          <a href="https://www.windy.com/-27.47/-58.83?-28.6,-58.0,7" target="_blank" rel="noopener">Comparar modelos de pronóstico (europeo, estadounidense, alemán) <span>windy.com ↗</span></a>
+          <a href="https://icaa.gov.ar/" target="_blank" rel="noopener">Lluvias medidas en la ciudad de Corrientes · Instituto Correntino del Agua y del Ambiente <span>icaa.gov.ar ↗</span></a>
         </div>
         <div id="verif" style="display:grid;gap:8px" hidden></div>
         <h3>Teléfonos de emergencia</h3>
@@ -451,6 +454,8 @@ footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:gr
   <span><b>Ríos.</b> Caudal diario modelado por GloFAS (Copernicus) vía Open-Meteo, no la altura medida en el puerto. "Alto" es un caudal que el río supera solo el 10 % de los días (2005–2025) y "crecida", el 3 %; en Yacyretá se usan los umbrales de alerta y evacuación del INA. Para la altura oficial en cada puerto, consultá a Prefectura Naval. Un salto brusco aguas abajo de Yacyretá suele indicar apertura de compuertas.</span>
   <span><b>Zonas inundables.</b> Mapa de amenaza de inundación por crecida de ríos del Centro Común de Investigación de la Unión Europea (JRC, Copernicus / GloFAS, versión 2.1), para crecidas de 10 y 100 años de período de retorno, recortado a la provincia.</span>
   <span><b>Alertas oficiales.</b> Las alturas de los puertos y sus cotas de alerta y evacuación salen del reporte diario del INA. Cuando el INA, Defensa Civil o la EBY informan alerta o evacuación en una localidad, la app sube su nivel durante 4 días aunque el modelo indique otra cosa.</span>
+  <span><b>Rayos.</b> Destellos detectados por el sensor GLM del satélite GOES-19 (NOAA) en la hora anterior a cada actualización. Detecta la gran mayoría de los rayos, con una precisión de ubicación de unos 8 a 10 km. La app sube a alerta amarilla una localidad con rayos a menos de 20 km, y a naranja si son muchos (50 o más).</span>
+  <span><b>Comparación de modelos.</b> Lluvia de las próximas 24 horas según el modelo europeo (ECMWF), el estadounidense (GFS) y el alemán (ICON). Si coinciden, el pronóstico es más confiable; si difieren mucho, hay más incertidumbre.</span>
   <span><b>Incendios.</b> Focos de calor detectados por los satélites VIIRS (NASA FIRMS). Un foco puede ser un incendio de campo o forestal, una quema o una fuente industrial.</span>
   <span><b>Servicio Meteorológico Nacional.</b> Las alertas oficiales del SMN (formato CAP) se leen cada hora y suben el nivel de las localidades que quedan dentro del área de alerta. El pronóstico por estación sale del modelo numérico del SMN (datos abiertos, licencia CC BY 4.0).</span>
   <span><b>Humedad, sensación térmica y lluvia hora por hora.</b> Modelos meteorológicos vía Open-Meteo, para el punto de cada localidad. La lluvia ya caída es una estimación del modelo, no una medición de pluviómetro. El aviso de dengue es un consejo de prevención (de octubre a abril, con calor, humedad y lluvia), no un dato de casos.</span>
@@ -611,6 +616,7 @@ function nivelTotal(id){
   const ei=estINA(id);if(ei&&ei.n){base.motivos.push({v:ei.n,why:"ina"});base.n=Math.max(base.n,ei.n);}
   const of=oficiales(id);if(of.length){base.motivos.push({v:of[0].n,why:"oficial"});base.n=Math.max(base.n,of[0].n);}
   const sm=alertasSMN(id).filter(a=>Date.parse(a.desde)<=Date.now()+36*3600000);if(sm.length){base.motivos.push({v:sm[0].n,why:"smn"});base.n=Math.max(base.n,sm[0].n);}
+  const ry=rayosLoc(id);if(ry&&ry.n20>0){const v=ry.n20>=50?2:1;base.motivos.push({v,why:"rayos"});base.n=Math.max(base.n,v);}
   base.motivos.sort((a,b)=>b.v-a.v);
   const vec=recientes(3).filter(r=>r.loc===id&&TIPOS[r.tipo]&&TIPOS[r.tipo].sev>=2);
   return{...base,n:Math.max(base.n,vec.length?2:0),vecinal:vec.length>0};
@@ -631,6 +637,7 @@ function titular(p,nv){
     ina:(()=>{const e=estINA(S.sel||S.mi);return e?`El ${e.rio} en ${e.est} está en ${e.nivel.toFixed(2).replace(".",",")} m (alerta ${String(e.alerta).replace(".",",")} m, evacuación ${String(e.evac).replace(".",",")} m), según el INA.`:"Río alto según el INA.";})(),
     oficial:(()=>{const o=oficiales(S.sel||S.mi)[0];return o?`${o.n===3?"Evacuación":"Alerta"} por crecida según ${o.fuente}: ${o.motivo}`:"Alerta oficial por crecida.";})(),
     smn:(()=>{const a=alertasSMN(S.sel||S.mi)[0];return a?`Alerta ${["","amarilla","naranja","roja"][a.n]} del SMN por ${a.evento.toLowerCase()}, ${cuandoSMN(a)}.`:"Alerta del SMN.";})(),
+    rayos:(()=>{const r=rayosLoc(S.sel||S.mi);return r?`Tormenta eléctrica cerca: ${r.n20} ${r.n20===1?"rayo":"rayos"} a menos de 20 km en la última hora.`:"Rayos cerca.";})(),
     fuego:`Hay focos de calor cerca. Evitá quemar pastizales o basura y avisá al 100 si ves humo o fuego.`,frio:`Frío intenso: la mínima baja a ${p.tmin} °C.`,viento:`Ráfagas de hasta ${p.rafagas} km/h.`};
   return t[top.why];
 }
@@ -643,9 +650,20 @@ const CONSEJOS={
   oficial:["Seguí las indicaciones de Defensa Civil (103) y del municipio","Si te indican evacuar, hacelo sin demora y avisá a tus vecinos","Prepará una mochila con documentos, remedios, cargador y linterna","No entres al río ni a zonas inundadas"],
   rio:["Seguí los avisos de Prefectura y Defensa Civil","Si vivís en la costa o en zona baja, prepará una mochila con documentos y remedios","Sacá a los animales de las islas y bajos","No entres al río ni a zonas inundadas"],
   smn:["Seguí las actualizaciones del SMN y de Defensa Civil","Durante la tormenta quedate bajo techo y lejos de árboles y cables","Asegurá objetos sueltos y limpiá desagües","No cruces calles anegadas ni a pie ni en auto"],
+  rayos:["Si escuchás truenos, entrá a un lugar cerrado o al auto","Alejate de árboles solos, alambrados, postes y del agua (río, laguna, pileta)","No uses aparatos enchufados ni el celular mientras carga","Esperá 30 minutos después del último trueno para salir"],
   fuego:["No quemes pastizales, ramas ni basura","Limpiá el pasto seco alrededor de la casa","Si ves fuego o humo, llamá al 100 y avisá en la app","Si hay humo, cerrá puertas y ventanas"]
 };
 
+/* Rayos (GOES-19 GLM) */
+function rayosVigentes(){const R=S.rayos;return !!(R&&R.hasta&&Date.now()-R.hasta<150*60000);}
+function rayosLoc(id){return rayosVigentes()&&S.rayos.locs?S.rayos.locs[id]||null:null;}
+const NOM_MOD={ecmwf:"europeo",gfs:"estadounidense",icon:"alemán"};
+function acuerdoModelos(p){const M=p&&p.modelos;if(!M)return null;const ks=Object.keys(M).filter(k=>NOM_MOD[k]);if(ks.length<2)return null;
+  const v=ks.map(k=>M[k].lluvia),mx=Math.max(...v),mn=Math.min(...v),d=mx-mn;
+  const lista=ks.map(k=>`${NOM_MOD[k]} ${Math.round(M[k].lluvia)} mm`).join(" · ");
+  if(mx<2)return{n:"alta",txt:`Los modelos ${ks.map(k=>NOM_MOD[k]).join(", ")} coinciden: poca o nada de lluvia en 24 h.`};
+  const n=d<=Math.max(5,.35*mx)?"alta":d<=Math.max(10,.7*mx)?"media":"baja";
+  return{n,txt:`Lluvia en 24 h según cada modelo: ${lista}. ${n==="alta"?"Coinciden: confianza alta en el pronóstico.":n==="media"?"Difieren algo: confianza media.":"Difieren bastante: confianza baja, la lluvia puede ser bastante más o menos."}`};}
 /* Lluvia hora por hora, próximas 48 horas */
 function fechaHora(t0,i){return new Date(Date.parse(t0+":00-03:00")+i*3600000);}
 function cuandoDia(d){const hoy=new Date(Date.now()-3*3600000).toISOString().slice(0,10),f=new Date(d.getTime()-3*3600000).toISOString().slice(0,10);
@@ -676,6 +694,7 @@ function bloqueHoras(p){
     s.append(svg("line",{class:"hn",x1:0,x2:0,y1:0,y2:Hh}));
     wrap.append(s,h("div",{class:"meta"},`Barras: milímetros por hora (naranja desde 5 mm, rojo desde 15). Fondo celeste: probabilidad de lluvia. Máximo del gráfico: ${Math.round(top)} mm/h.`));
   }
+  const am=acuerdoModelos(p);if(am)wrap.append(h("div",{class:"resumen",style:"font-size:.85rem"},h("b",null,`Confianza ${am.n}. `),am.txt));
   if(p.caida72!=null)wrap.append(h("div",{class:"meta"},`Lluvia ya caída (estimada): ${String(p.caida24).replace(".",",")} mm en las últimas 24 h y ${String(p.caida72).replace(".",",")} mm en 72 h.`));
   return wrap;
 }
@@ -720,6 +739,8 @@ function renderEstado(){
       h("div",null,h("b",null,`${lugar}: ${TIPOS[r.tipo].t.toLowerCase()}`),` · ${hace(r.ts)}`,r.texto?h("div",null,`“${r.texto}”`):null)));
   }
   for(const a of alertasSMN(id).slice(0,2)){v.append(h("div",{class:"vecino"+(a.n>=2?" fuego-c":"")},ico(),h("div",null,h("b",null,`Alerta ${["","amarilla","naranja","roja"][a.n]} por ${a.evento.toLowerCase()} (SMN, oficial)`),` · ${cuandoSMN(a)}. ${(String(a.desc||"").match(/^.{20,230}?\.(?=\s|$)/)||[String(a.desc||"").slice(0,200)+"…"])[0]}`)));}
+  const ry=rayosLoc(id);
+  if(ry){const hh=new Date(S.rayos.hasta-3*3600000).toISOString().slice(11,16);v.append(h("div",{class:"vecino"+(ry.n20?" fuego-c":" suave")},ico(),h("div",null,h("b",null,ry.n20?`Rayos cerca: ${ry.n20} a menos de 20 km`:`Rayos en la zona: ${ry.n50} a menos de 50 km`),` · en la última hora (hasta las ${hh} h). El más cercano, a ${ry.dmin} km. Detectados por el satélite GOES-19.`)));}
   const rc0=recur(id);
   if(p&&rc0&&p.lluvia24>=rc0.r[0])v.append(h("div",{class:"vecino fuego-c"},ico(),h("div",null,h("b",null,`Lluvia excepcional: ${p.lluvia24} mm en 24 h`),` · en esta zona una lluvia así ocurre en promedio una vez cada ${p.lluvia24>=rc0.r[2]?"100":p.lluvia24>=rc0.r[1]?"50":"20"} años o más (estación ${rc0.e}, Atlas ANIDA del IGN y SMN).`)));
   const fc=focosCerca(id,20);
@@ -770,6 +791,9 @@ function renderMapa(){
   const g=m.querySelector("#puntos");g.replaceChildren();
   const gf=svg("g",{"aria-hidden":"true"});
   for(const f of S.focos){const [x,y]=proj(f.lat,f.lon);if(x<0||x>420||y<0||y>409)continue;gf.append(svg("circle",{class:"fire",cx:x.toFixed(1),cy:y.toFixed(1),r:2.6}));}
+  if(rayosVigentes())for(const [la,lo,n] of S.rayos.puntos||[]){const [x,y]=proj(la,lo);if(x<0||x>420||y<0||y>409)continue;const k=Math.min(1.8,.8+Math.log10(n+1)*.5);
+    const r=svg("path",{d:`M${(x+1*k).toFixed(1)} ${(y-4*k).toFixed(1)}l${(-3*k).toFixed(1)} ${(4.5*k).toFixed(1)}h${(2.4*k).toFixed(1)}l${(-1*k).toFixed(1)} ${(3.5*k).toFixed(1)}l${(3.4*k).toFixed(1)} ${(-5*k).toFixed(1)}h${(-2.4*k).toFixed(1)}z`,fill:"#F2B705",stroke:"#13221E","stroke-width":.5});
+    const t=svg("title",{});t.textContent=`${n} ${n===1?"rayo":"rayos"} en la última hora`;r.append(t);gf.append(r);}
   g.append(gf);
   for(const p of S.rios){const [x,y]=proj(p.lat,p.lon);if(x<0||x>420||y<0||y>409)continue;const e=estadoRio(p);
     const r=svg("rect",{class:"rpt",x:(x-4.5).toFixed(1),y:(y-4.5).toFixed(1),width:9,height:9,fill:e&&e.n?NIV[e.n+1].c:"var(--agua)"});
@@ -1088,6 +1112,7 @@ function usarBase(){
   if(BASE.ina&&Array.isArray(BASE.ina.estaciones))S.ina=BASE.ina;
   if(BASE.smn&&typeof BASE.smn==="object")S.smn=BASE.smn;
   if(BASE.verif&&typeof BASE.verif==="object")S.verif=BASE.verif;
+  if(BASE.rayos&&typeof BASE.rayos==="object")S.rayos=BASE.rayos;
   if(BASE.form&&typeof BASE.form==="object")S.form=BASE.form;
   if(Array.isArray(BASE.reportes))S.reportes=BASE.reportes.filter(r=>typeof r.ts==="number");
   return true;

@@ -57,7 +57,33 @@ def pronostico():
                          "h48": {"t0": t[i0], "mm": [r1(v) for v in col("precipitation", s48)],
                                  "pp": [round(v) for v in col("precipitation_probability", s48)]}}
         time.sleep(3)
+    try:
+        modelos(locs, ahora)
+    except Exception as e:
+        print("Aviso: sin comparación de modelos", repr(e)[:200])
     return {"actualizado": int(time.time() * 1000), "fuente": "Open-Meteo", "locs": locs}
+
+MODELOS = {"ecmwf": "ecmwf_ifs025", "gfs": "gfs_seamless", "icon": "icon_seamless"}
+
+def modelos(locs, ahora):
+    """Lluvia y máxima de las próximas 24 h según el modelo europeo, el estadounidense y el alemán, por separado."""
+    for i in range(0, len(L), 10):
+        g = L[i:i + 10]
+        data = multi("https://api.open-meteo.com/v1/forecast", [(x[1], x[2]) for x in g],
+                     "&hourly=precipitation,temperature_2m&models=" + ",".join(MODELOS.values()) +
+                     "&forecast_days=3&timezone=America%2FArgentina%2FCordoba")
+        for (lid, _, _), d in zip(g, data):
+            h = d["hourly"]; t = h["time"]
+            i0 = next((k for k, x in enumerate(t) if x >= ahora), 0); s = slice(i0, i0 + 24)
+            m = {}
+            for corto, largo in MODELOS.items():
+                pr = [v for v in (h.get("precipitation_" + largo) or [])[s] if v is not None]
+                tt = [v for v in (h.get("temperature_2m_" + largo) or [])[s] if v is not None]
+                if len(pr) >= 20 and len(tt) >= 20:
+                    m[corto] = {"lluvia": round(sum(pr), 1), "tmax": round(max(tt))}
+            if len(m) >= 2 and lid in locs:
+                locs[lid]["modelos"] = m
+        time.sleep(3)
 
 def rios():
     hoy = datetime.now(TZ).strftime("%Y-%m-%d")
