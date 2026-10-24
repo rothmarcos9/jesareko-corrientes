@@ -38,7 +38,9 @@ jobs:
       - name: Servicio Meteorológico Nacional
         run: python3 scripts/smn.py smn.json || echo "SMN no disponible"
       - name: Rayos (GOES-19)
-        run: timeout 600 python3 scripts/rayos.py rayos.json || echo "Rayos no disponibles"
+        run: |
+          timeout 600 python3 -u scripts/rayos.py rayos.json > rayos.log 2>&1 || echo "Rayos no disponibles"
+          echo "::notice title=Rayos (registro)::$(tail -c 700 rayos.log | tr '\n' ' ')"
       - name: Precisión del pronóstico
         env:
           SITIO_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
