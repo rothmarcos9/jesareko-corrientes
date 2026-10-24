@@ -22,7 +22,7 @@ Aplicación web gratuita de alerta temprana para la provincia de Corrientes
 
 ## Autor
 
-**Marcos Roth** · Licenciado en Geografía (UNNE) · Corrientes, Argentina.
+**Marcos E.A. Roth** · Licenciado en Geografía (UNNE) · Corrientes, Argentina.
 Idea, concepto, nombre, criterios de alerta, selección de localidades y fuentes,
 y dirección del desarrollo. El código fue escrito con asistencia de
 inteligencia artificial (Claude, de Anthropic) bajo su dirección.
@@ -48,7 +48,7 @@ Versión beta, en prueba. No reemplaza los avisos oficiales del SMN, el INA,
 Prefectura Naval ni Defensa Civil. Emergencias: 911 · Defensa Civil: 103 ·
 Bomberos: 100.
 
-© 2026 Marcos Roth. Todos los derechos reservados. Ver `LICENSE`.
+© 2026 Marcos E.A. Roth. Todos los derechos reservados. Ver `LICENSE`.
 
 
 ## Página pública

@@ -70,13 +70,13 @@ def para_buscadores(h):
           "description": DESCRIPCION, "applicationCategory": "WeatherApplication", "operatingSystem": "Web",
           "inLanguage": "es-AR", "isAccessibleForFree": True,
           "offers": {"@type": "Offer", "price": "0", "priceCurrency": "ARS"},
-          "author": {"@type": "Person", "name": "Marcos Roth"},
+          "author": {"@type": "Person", "name": "Marcos E.A. Roth"},
           "areaServed": {"@type": "AdministrativeArea", "name": "Provincia de Corrientes, Argentina"},
           "keywords": "alerta temprana, Corrientes, crecida río Paraná, altura del río, inundaciones, El Niño, SMN, INA, Yacyretá, evacuados, Itatí, Goya, Paso de la Patria"}
     d, t = H.escape(DESCRIPCION, quote=True), H.escape(TITULO, quote=True)
     meta = (f'<title>{t}</title><meta name="description" content="{d}">'
             f'<meta name="keywords" content="{H.escape(ld["keywords"], quote=True)}">'
-            f'<meta name="author" content="Marcos Roth"><meta name="robots" content="index,follow">'
+            f'<meta name="author" content="Marcos E.A. Roth"><meta name="robots" content="index,follow">'
             f'<link rel="canonical" href="{URL_SITIO}">'
             f'<meta property="og:type" content="website"><meta property="og:locale" content="es_AR">'
             f'<meta property="og:site_name" content="Jesareko Corrientes"><meta property="og:title" content="{t}">'
