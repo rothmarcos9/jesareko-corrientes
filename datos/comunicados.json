@@ -1,5 +1,24 @@
 [
  {
+  "id": "2026-10-25-yacyreta-ituzaingo-432",
+  "titulo": "Yacyretá espera hasta 38.000 m³/s e Ituzaingó sigue sobre la evacuación",
+  "resumen": "Según el reporte de Yacyretá del domingo, el caudal que entra a la represa rondaría los 34.500 m³/s y podría subir a entre 35.000 y 38.000 m³/s en los próximos días. En el puerto de Ituzaingó el Paraná marcó 4,32 m a las 11, por encima de la cota de evacuación (4 m), y se prevé que siga entre 4,4 y 4,6 m.",
+  "fuente": "Radio Cataratas (informe de Yacyretá)",
+  "url": "https://radiocataratas.com/2026/10/25/yacyreta-alerta-por-efecto-nino-caudales-altos-en-el-parana-y-niveles-en-alerta-en-ituzaingo-y-ayolas/",
+  "fecha": "2026-10-25",
+  "alertas": [
+   {
+    "alerta": 3.5,
+    "evac": 4,
+    "loc": "ituzaingo",
+    "m": 4.32,
+    "motivo": "Supera la cota de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-10-24-capital-743",
   "titulo": "El Paraná llegó a 7,43 m en Capital y el Uruguay marcó 7,88 m en Libres",
   "resumen": "Según el último relevamiento, el río en la ciudad de Corrientes subió a 7,43 m, por encima del nivel de evacuación; en Paso de la Patria marcó 7,79 m con agua en zonas habitadas y en Paso de los Libres el Uruguay llegó a 7,88 m, alcanzando la calle y la costanera. La provincia ya suma más de 550 evacuados y autoevacuados.",
