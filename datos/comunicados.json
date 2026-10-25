@@ -100,6 +100,51 @@
   ]
  },
  {
+  "id": "2026-10-25-desplazados-1452",
+  "titulo": "Ya son 1.452 los correntinos que dejaron su casa por la crecida",
+  "resumen": "Según el corte del sábado a la noche, la provincia suma 767 evacuados y 685 autoevacuados por el Paraná; Itatí tiene 475 evacuados, la Capital 588 autoevacuados y 64 evacuados, Isla Apipé 114 y Paso de la Patria 24 evacuados y 86 autoevacuados. También hay evacuados en Paso de los Libres (31), Bella Vista (16), Ituzaingó (14) y autoevacuados en Santa Lucía (28).",
+  "fuente": "Examedia",
+  "url": "https://examedia.com.ar/portada/post/88115076",
+  "fecha": "2026-10-24",
+  "alertas": [
+   {
+    "loc": "itati",
+    "motivo": "475 evacuados por la crecida",
+    "n": 3
+   },
+   {
+    "loc": "corrientes",
+    "motivo": "64 evacuados y 588 autoevacuados",
+    "n": 3
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "24 evacuados y 86 autoevacuados",
+    "n": 3
+   },
+   {
+    "loc": "ituzaingo",
+    "motivo": "14 evacuados (más 114 en Isla Apipé)",
+    "n": 3
+   },
+   {
+    "loc": "paso-de-los-libres",
+    "motivo": "31 evacuados",
+    "n": 3
+   },
+   {
+    "loc": "bella-vista",
+    "motivo": "16 evacuados",
+    "n": 3
+   },
+   {
+    "loc": "santa-lucia",
+    "motivo": "28 autoevacuados",
+    "n": 3
+   }
+  ]
+ },
+ {
   "id": "2026-10-23-capital-738",
   "titulo": "El Paraná sigue arriba de la evacuación en Capital y Goya continúa en alerta",
   "resumen": "El viernes el río marcó 7,38 m en la ciudad de Corrientes, por encima de la cota de evacuación de 7 m, y 5,54 m en Goya, sobre la marca de alerta. Paso de la Patria e Itatí también siguen por encima de sus niveles de evacuación.",
