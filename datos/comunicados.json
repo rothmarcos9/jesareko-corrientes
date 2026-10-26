@@ -1,5 +1,23 @@
 [
  {
+  "id": "2026-10-25-goya-563",
+  "titulo": "Goya: el riacho llegó a 5,63 m, a 7 cm de la cota de evacuación",
+  "resumen": "Según Prefectura, el domingo a las 8 el río en Goya marcó 5,63 m y sigue creciendo en etapa de alerta, muy cerca de los 5,70 m de evacuación. El COE municipal preparó más de diez centros de evacuados por si hacen falta.",
+  "fuente": "Diario El Libertador",
+  "url": "https://www.diarioellibertador.com.ar/creciente-rio-parana-goya-nivel-alerta-plan-contingencia-coe/",
+  "fecha": "2026-10-25",
+  "alertas": [
+   {
+    "evac": 5.7,
+    "loc": "goya",
+    "m": 5.63,
+    "motivo": "En alerta, 5,63 m y creciendo",
+    "n": 2,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-10-25-yacyreta-ituzaingo-432",
   "titulo": "Yacyretá espera hasta 38.000 m³/s e Ituzaingó sigue sobre la evacuación",
   "resumen": "Según el reporte de Yacyretá del domingo, el caudal que entra a la represa rondaría los 34.500 m³/s y podría subir a entre 35.000 y 38.000 m³/s en los próximos días. En el puerto de Ituzaingó el Paraná marcó 4,32 m a las 11, por encima de la cota de evacuación (4 m), y se prevé que siga entre 4,4 y 4,6 m.",
@@ -115,6 +133,24 @@
     "motivo": "Altura informada, en descenso",
     "n": 0,
     "rio": "Uruguay"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-24-yacyreta-35900",
+  "titulo": "Yacyretá larga 35.900 m³/s y el Paraná sigue sobre evacuación en Corrientes",
+  "resumen": "El sábado Yacyretá erogaba unos 35.900 m³/s y en la confluencia Paraná-Iguazú pasaban 31.753 m³/s, arriba del umbral de evacuación de 30.000 m³/s. En la ciudad de Corrientes el río estaba en 7,37 m, sobre la cota de evacuación de 7 m, aunque con leve tendencia a la baja según el INA.",
+  "fuente": "Infobae (datos del INA)",
+  "url": "https://www.infobae.com/sociedad/2026/10/25/el-nino-habia-1800-los-evacuados-en-chaco-misiones-fue-afectada-por-fuertes-tormentas-y-santa-fe-preve-otra-suba-del-parana/",
+  "fecha": "2026-10-24",
+  "alertas": [
+   {
+    "evac": 7,
+    "loc": "corrientes",
+    "m": 7.37,
+    "motivo": "Sobre la cota de evacuación (7,37 m)",
+    "n": 3,
+    "rio": "Paraná"
    }
   ]
  },
