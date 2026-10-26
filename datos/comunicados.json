@@ -1,5 +1,39 @@
 [
  {
+  "id": "2026-10-26-paso-patria-772",
+  "titulo": "Paso de la Patria: el Paraná en 7,72 m",
+  "resumen": "Según el parte del mediodía del lunes de la comuna, el Paraná llegó a 7,72 m en Paso de la Patria y sigue creciendo. Municipio y bomberos voluntarios asisten a los evacuados y a sus mascotas en los barrios inundados.",
+  "fuente": "Chaco Día por Día (parte municipal)",
+  "url": "https://chacodiapordia.com/el-parana-sigue-creciendo-mientras-se-asiste-a-evacuados-y-mascotas-en-paso-de-la-patria/",
+  "fecha": "2026-10-26",
+  "alertas": [
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.72,
+    "motivo": "7,72 m y creciendo, con evacuados",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-26-santo-tome-1035",
+  "titulo": "El Uruguay vuelve a crecer: Santo Tomé en 10,35 m",
+  "resumen": "El lunes a la mañana el río Uruguay marcaba 10,35 m en el puerto de Santo Tomé, subiendo unos 6 cm por hora, y el Paseo Costero quedó cerrado al tránsito. La crecida también sigue en Garruchos, Alvear y aguas abajo hasta Paso de los Libres.",
+  "fuente": "Examedia",
+  "url": "https://examedia.com.ar/portada/post/88120981",
+  "fecha": "2026-10-26",
+  "alertas": [
+   {
+    "loc": "santo-tome",
+    "m": 10.35,
+    "motivo": "10,35 m y creciendo; Paseo Costero cerrado",
+    "n": 0,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
   "id": "2026-10-25-goya-563",
   "titulo": "Goya: el riacho llegó a 5,63 m, a 7 cm de la cota de evacuación",
   "resumen": "Según Prefectura, el domingo a las 8 el río en Goya marcó 5,63 m y sigue creciendo en etapa de alerta, muy cerca de los 5,70 m de evacuación. El COE municipal preparó más de diez centros de evacuados por si hacen falta.",
