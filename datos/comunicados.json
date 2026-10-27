@@ -1,5 +1,31 @@
 [
  {
+  "id": "2026-10-26-capital-735",
+  "titulo": "El Paraná se estacionó en 7,35 m en Capital",
+  "resumen": "Tras bajar un poco en los últimos días, el río se mantiene en 7,35 m en la ciudad de Corrientes, con fuerte correntada. El agua tapa el primer escalón de la defensa en Punta San Sebastián y parte de la playa Arazaty II.",
+  "fuente": "Examedia",
+  "url": "https://examedia.com.ar/portada/post/88124714",
+  "fecha": "2026-10-26",
+  "alertas": [
+   {
+    "loc": "corrientes",
+    "m": 7.35,
+    "motivo": "7,35 m, estacionado",
+    "n": 0,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-26-itaipu-reabre-vertedero",
+  "titulo": "Itaipú volvió a abrir su vertedero",
+  "resumen": "Itaipú reabrió la canaleta izquierda del vertedero con unos 3.100 m³/s ante el pico del Iguazú, cercano a 20.000 m³/s. Prevén que el Paraná suba unos 2,5 m en 24 horas en el Puente de la Amistad, agua que después baja hacia Yacyretá y Corrientes.",
+  "fuente": "Itaipu Binacional",
+  "url": "https://www.itaipu.gov.py/noticias/energia/itaipu-reabrio-su-vertedero-tras-ajustar-sus-descargas-para-el-control-de-la-crecida",
+  "fecha": "2026-10-26",
+  "alertas": []
+ },
+ {
   "id": "2026-10-26-paso-patria-772",
   "titulo": "Paso de la Patria: el Paraná en 7,72 m",
   "resumen": "Según el parte del mediodía del lunes de la comuna, el Paraná llegó a 7,72 m en Paso de la Patria y sigue creciendo. Municipio y bomberos voluntarios asisten a los evacuados y a sus mascotas en los barrios inundados.",
@@ -30,6 +56,46 @@
     "motivo": "10,35 m y creciendo; Paseo Costero cerrado",
     "n": 0,
     "rio": "Uruguay"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-26-siete-evacuacion",
+  "titulo": "Siete localidades en cota de evacuación sobre el Paraná",
+  "resumen": "Ituzaingó, Itá Ibaté, Itatí, Paso de la Patria y Corrientes capital están en los niveles de evacuación o por encima, junto a localidades de Misiones y Chaco. En la isla Apipé, frente a Ituzaingó, ya evacuaron a más de 100 personas, y el paso por Yacyretá sigue cerrado.",
+  "fuente": "Infobae",
+  "url": "https://www.infobae.com/sociedad/2026/10/26/el-nino-el-paso-por-yacyreta-continua-cerrado-por-el-nivel-del-parana-mientras-la-creciente-volvio-al-rio-uruguay/",
+  "fecha": "2026-10-26",
+  "alertas": [
+   {
+    "loc": "ituzaingo",
+    "motivo": "En evacuación; +100 evacuados en isla Apipé",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "ita-ibate",
+    "motivo": "En nivel de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "itati",
+    "motivo": "En nivel de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "En nivel de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "corrientes",
+    "motivo": "En nivel de evacuación",
+    "n": 3,
+    "rio": "Paraná"
    }
   ]
  },
