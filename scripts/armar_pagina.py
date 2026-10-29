@@ -56,6 +56,38 @@ def avisos_formulario(cfg):
     return out
 
 INDEXNOW = "2054cbf0ad5253f9355b55c86798a31d"  # clave pública de IndexNow (Bing, Yandex y otros buscadores)
+def avisos_app(cfg):
+    """Avisos enviados desde la app (con ubicación y foto) a la planilla, vía Apps Script."""
+    if not cfg or not cfg.get("csv_app") or not cfg.get("api"):
+        return []
+    filas = list(csv.reader(io.StringIO(bajar(cfg["csv_app"]).decode("utf-8", "replace"))))
+    lim = time.time() - 24 * 3600
+    out = []
+    for i, f in enumerate(filas[1:], start=2):
+        f = (f + [""] * 9)[:9]
+        fecha = None
+        for fmt in ("%d/%m/%Y %H:%M:%S", "%Y-%m-%d %H:%M:%S", "%m/%d/%Y %H:%M:%S"):
+            try:
+                fecha = datetime.strptime(f[0].strip(), fmt).replace(tzinfo=TZ); break
+            except ValueError:
+                pass
+        if not fecha or fecha.timestamp() < lim:
+            continue
+        loc, tipo = f[1].strip(), f[2].strip()
+        if not re.fullmatch(r"[a-z0-9-]{3,40}", loc) or tipo not in TIPOS.values():
+            continue
+        r = {"id": f"app-{i}", "loc": loc, "tipo": tipo, "texto": f[3].strip()[:200], "ts": int(fecha.timestamp() * 1000), "origen": "app"}
+        try:
+            la, lo = float(f[4].replace(",", ".")), float(f[5].replace(",", "."))
+            if -31.8 < la < -26 and -61 < lo < -55:
+                r["lat"], r["lon"] = round(la, 5), round(lo, 5)
+        except ValueError:
+            pass
+        if f[8].strip().lower() == "aprobada" and re.fullmatch(r"[\w-]{20,80}", f[7].strip()):
+            r["foto"] = f[7].strip()
+        out.append(r)
+    return out
+
 URL_SITIO = "https://rothmarcos9.github.io/jesareko-corrientes/"
 TITULO = "Jesareko Corrientes · Alerta temprana de lluvias, crecidas e incendios"
 DESCRIPCION = ("App gratuita de alerta temprana para la provincia de Corrientes: pronóstico y alertas del SMN, "
@@ -196,9 +228,13 @@ def main():
                                  key=lambda c: c.get("fecha") or "", reverse=True)[:10]
 
     form = cargar("datos/formulario.json")
-    base["form"] = {k: form[k] for k in ("url", "loc", "tipo", "texto") if k in form} if form else None
+    base["form"] = {k: form[k] for k in ("url", "loc", "tipo", "texto", "api") if form.get(k)} if form else None
     try:
         base["reportes"] = avisos_formulario(form)
+        try:
+            base["reportes"] += avisos_app(form)
+        except Exception as e:
+            print("Aviso: no se pudieron leer los avisos de la app:", e)
     except Exception as e:
         print("Aviso: no se pudieron leer los avisos del formulario:", e)
         base["reportes"] = previo.get("reportes") or []

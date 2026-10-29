@@ -265,6 +265,24 @@ fieldset{border:0;padding:0;margin:0}
 .ih-l{fill:none;stroke:var(--ink);stroke-width:2;stroke-linejoin:round}
 .ih-p{fill:var(--ink)}
 .ih-a{stroke:var(--amarilla);stroke-width:1;stroke-dasharray:3 3}.ih-e{stroke:var(--roja);stroke-width:1;stroke-dasharray:3 3}
+.lbl{font-weight:700;font-size:.9rem}
+.extras{display:flex;gap:8px;flex-wrap:wrap}
+.extras .b-sec{border-radius:8px;padding:9px 12px;cursor:pointer;font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;gap:4px}
+.foto-prev{display:flex;gap:10px;align-items:center}
+.foto-prev img{width:96px;height:96px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.aviso .foto{width:100%;max-height:260px;object-fit:cover;border-radius:8px;margin-top:4px}
+.aviso .ubic{font-size:.8rem;color:var(--agua);font-weight:700;text-decoration:none}
+.ciudad{padding:14px 12px 12px;display:grid;gap:10px}
+.ciudad .hd{display:grid;gap:4px;padding-inline:4px}
+.ciudad h3{font-size:1.45rem}
+#ciudad-mapa{height:380px;border-radius:8px;border:1px solid var(--line);background:var(--land);z-index:0}
+.ley-c{display:flex;gap:10px;flex-wrap:wrap;font-size:.75rem;color:var(--muted);padding-inline:4px}
+.ley-c i{display:inline-block;width:14px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.ciudad details{font-size:.85rem;padding-inline:4px}
+.ciudad details summary{cursor:pointer;color:var(--agua);font-weight:700}
+.ciudad ul{margin:6px 0 0;padding-left:20px;display:grid;gap:4px}
+.leaflet-popup-content{font:14px/1.4 var(--body)}
+.leaflet-popup-content b{display:block;margin-bottom:2px}
 footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:grid;gap:6px}
 </style>
 
@@ -341,6 +359,24 @@ footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:gr
           <span><i style="background:rgb(10,50,130)"></i>más de 10 m</span>
         </div>
         <p class="nota-inund" id="nota-inund" hidden></p>
+      </section>
+
+      <section class="panel ciudad" id="ciudad" hidden>
+        <div class="hd">
+          <span class="eyebrow">Ciudad de Corrientes · anegamientos por lluvia</span>
+          <h3>Zonas que se anegan</h3>
+          <span class="meta">Barrios y calles donde se acumula el agua cuando llueve fuerte. Tocá una zona para ver por qué y la fuente. Mapa orientativo, en revisión.</span>
+        </div>
+        <div class="vecino fuego-c" id="ciudad-aviso" hidden></div>
+        <div id="ciudad-mapa" role="region" aria-label="Mapa de la ciudad de Corrientes con las zonas que se anegan"></div>
+        <div class="ley-c">
+          <span><i style="background:#C8312A;opacity:.6"></i>Se anega seguido</span>
+          <span><i style="background:#E2731B;opacity:.55"></i>En temporales fuertes</span>
+          <span><i style="background:#E2B714;opacity:.55"></i>En temporales extraordinarios</span>
+          <span><i style="background:#1E6A73;opacity:.6"></i>Lagunas y bañados</span>
+          <span><svg width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="#13221E" stroke="#fff" stroke-width="1.5"/></svg>Avisos de vecinos (24 h)</span>
+        </div>
+        <div id="ciudad-extra"></div>
       </section>
 
       <section class="panel suelo" id="suelo">
@@ -478,6 +514,16 @@ footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:gr
     <div class="campo">
       <label for="f-texto">Detalle (opcional)</label>
       <textarea id="f-texto" rows="3" maxlength="200" placeholder="Ej.: se cortó la calle en el barrio San Martín, el agua llega al cordón"></textarea>
+    </div>
+    <div class="campo" id="f-extras" hidden>
+      <span class="lbl">Ubicación y foto (opcional)</span>
+      <div class="extras">
+        <button type="button" class="b-sec" id="f-ubic">📍 Agregar mi ubicación</button>
+        <label class="b-sec foto-btn">📷 Sacar o elegir foto<input type="file" id="f-foto" accept="image/*" hidden></label>
+      </div>
+      <div class="meta" id="f-ubic-txt"></div>
+      <div class="foto-prev" id="f-foto-box" hidden><img id="f-foto-prev" alt="Foto del aviso"><button type="button" class="volver" id="f-foto-quitar">Quitar foto</button></div>
+      <span class="meta">Con la ubicación, tu aviso aparece en el punto exacto del mapa. Las fotos se revisan antes de publicarse: no saques caras de personas ni patentes.</span>
     </div>
     <p class="msg" id="f-msg" hidden></p>
     <div class="fila-btn">
@@ -653,6 +699,76 @@ const CONSEJOS={
   rayos:["Si escuchás truenos, entrá a un lugar cerrado o al auto","Alejate de árboles solos, alambrados, postes y del agua (río, laguna, pileta)","No uses aparatos enchufados ni el celular mientras carga","Esperá 30 minutos después del último trueno para salir"],
   fuego:["No quemes pastizales, ramas ni basura","Limpiá el pasto seco alrededor de la casa","Si ves fuego o humo, llamá al 100 y avisá en la app","Si hay humo, cerrá puertas y ventanas"]
 };
+
+/* ---------- Mapa de la ciudad de Corrientes (zonas que se anegan) ---------- */
+const CIU={centro:{lat:-27.48,lon:-58.81},datos:null,mapa:null,capaAv:null,cargando:false};
+function ciudadVisible(){const id=S.sel||S.mi;return LOC[id]&&km(LOC[id],CIU.centro)<=30;}
+function cargarCSS(u){if(document.querySelector(`link[href="${u}"]`))return;const l=document.createElement("link");l.rel="stylesheet";l.href=u;document.head.append(l);}
+function cargarJS(u){return new Promise((ok,no)=>{if(window.L)return ok();const x=document.createElement("script");x.src=u;x.onload=ok;x.onerror=no;document.head.append(x);});}
+const COL_N={alta:"#C8312A",media:"#E2731B",baja:"#E2B714"};
+const TXT_N={alta:"Se anega seguido",media:"Se anega en temporales fuertes",baja:"Se anegó en temporales extraordinarios"};
+async function renderCiudad(){
+  const sec=el("ciudad");const vis=ciudadVisible();sec.hidden=!vis;if(!vis)return;
+  const p=S.pron.corrientes,av=el("ciudad-aviso");
+  if(p&&p.lluvia24>=30){av.hidden=false;av.replaceChildren(h("div",null,h("b",null,`Hoy se esperan ${p.lluvia24} mm en la ciudad`),` · con más de 40 mm los desagües trabajan al límite. Atención en las zonas en rojo y naranja.`));}else av.hidden=true;
+  if(!CIU.datos&&!CIU.cargando){CIU.cargando=true;
+    try{const r=await fetch("ciudad.json",{cache:"no-cache"});if(!r.ok)throw 0;CIU.datos=await r.json();if(!CIU.datos.zonas.some(z=>z.geom))throw 0;}catch(_){CIU.datos=null;sec.hidden=true;return;}
+    try{cargarCSS("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");await cargarJS("https://unpkg.com/leaflet@1.9.4/dist/leaflet.js");}catch(_){el("ciudad-mapa").textContent="No se pudo cargar el mapa. Revisá la conexión.";CIU.cargando=false;return;}
+    armarMapaCiudad();CIU.cargando=false;
+  }
+  if(CIU.mapa){avisosCiudad();setTimeout(()=>CIU.mapa.invalidateSize(),50);}
+}
+function armarMapaCiudad(){
+  const D=CIU.datos,m=L.map("ciudad-mapa",{scrollWheelZoom:false,tap:true}).setView([-27.49,-58.81],12);
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(m);
+  if(D.agua)L.geoJSON(D.agua,{style:{color:"#1E6A73",weight:1,fillColor:"#1E6A73",fillOpacity:.45},interactive:false}).addTo(m);
+  const fuentes=k=>(k||[]).map(x=>D.fuentes[x]).filter(Boolean);
+  const pop=z=>{const d=document.createElement("div");d.append(h("b",null,z.n),h("span",{style:`color:${COL_N[z.nivel]};font-weight:700`},TXT_N[z.nivel]),h("div",null,z.motivo),h("div",{style:"margin-top:4px;font-size:.8rem"},"Fuentes: ",...fuentes(z.f).flatMap((f,i)=>[i?" · ":"",h("a",{href:f.u,target:"_blank",rel:"noopener"},f.t.split(":")[0].split(",")[0])])));return d;};
+  for(const nivel of ["baja","media","alta"])for(const z of D.zonas.filter(z=>z.nivel===nivel&&z.geom)){
+    const st={color:COL_N[z.nivel],weight:1.5,fillColor:COL_N[z.nivel],fillOpacity:z.nivel==="alta"?.45:.35};
+    const capa=z.geom.type==="Circle"?L.circle([z.geom.c[0],z.geom.c[1]],{radius:z.geom.r,...st}):L.geoJSON(z.geom,{style:st});
+    capa.bindPopup(()=>pop(z)).bindTooltip(z.n,{sticky:true}).addTo(m);
+  }
+  const ex=el("ciudad-extra");ex.replaceChildren(
+    D.calles&&D.calles.length?h("details",null,h("summary",null,"Calles y avenidas que se cortan con lluvia"),h("ul",null,D.calles.map(c=>h("li",null,h("b",null,c.n+": "),c.motivo)))):"",
+    h("details",null,h("summary",null,"Cómo se armó este mapa"),h("p",{class:"nota",style:"margin:6px 0"},D.nota+" "),h("ul",null,Object.entries(D.criterio||{}).map(([k,v])=>h("li",null,h("b",null,TXT_N[k]+": "),v))),
+      D.sin_ubicar&&D.sin_ubicar.length?h("p",{class:"nota",style:"margin:6px 0"},"Zonas mencionadas que todavía no están dibujadas en el mapa: "+D.sin_ubicar.join(", ")+"."):"",
+      h("ul",null,Object.values(D.fuentes).map(f=>h("li",null,h("a",{href:f.u,target:"_blank",rel:"noopener"},f.t)))),h("p",{class:"nota",style:"margin:6px 0"},"Límites de barrios y lagunas: © colaboradores de OpenStreetMap (ODbL).")));
+  CIU.mapa=m;CIU.capaAv=L.layerGroup().addTo(m);
+}
+function avisosCiudad(){
+  if(!CIU.capaAv)return;CIU.capaAv.clearLayers();
+  for(const r of recientes(24).filter(r=>typeof r.lat==="number"&&typeof r.lon==="number"&&km(r,CIU.centro)<=25)){
+    const t=TIPOS[r.tipo]||{t:"Aviso"};const d=document.createElement("div");
+    d.append(h("b",null,t.t),h("div",null,hace(r.ts)),r.texto?h("div",null,`“${r.texto}”`):"",r.foto?h("img",{src:fotoURL(r.foto,400),alt:"Foto del aviso",style:"width:100%;margin-top:6px;border-radius:6px"}):"");
+    L.circleMarker([r.lat,r.lon],{radius:7,color:"#fff",weight:2,fillColor:"#13221E",fillOpacity:.9}).bindPopup(d).addTo(CIU.capaAv);
+  }
+}
+function fotoURL(id,w){return /^[\w-]{20,80}$/.test(id)?`https://drive.google.com/thumbnail?id=${id}&sz=w${w||600}`:"";}
+
+/* ---------- Ubicación y foto en los avisos ---------- */
+const AV={pos:null,foto:null};
+function apiOK(){return typeof S.api==="string"&&/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(S.api);}
+function ubicar(auto){
+  const t=el("f-ubic-txt");
+  if(!navigator.geolocation){t.textContent="Tu celular no permite compartir la ubicación desde el navegador.";return;}
+  t.textContent="Buscando tu ubicación…";
+  navigator.geolocation.getCurrentPosition(p=>{
+    AV.pos={lat:p.coords.latitude,lon:p.coords.longitude,precision:Math.round(p.coords.accuracy||0)};
+    const cerca=[...LOCS].sort((a,b)=>km(AV.pos,a)-km(AV.pos,b))[0];
+    if(cerca&&km(AV.pos,cerca)<=25)el("f-loc").value=cerca.id;
+    t.textContent=`📍 Ubicación agregada (precisión de unos ${AV.pos.precision} m).`;el("f-ubic").textContent="📍 Actualizar ubicación";
+  },e=>{AV.pos=null;t.textContent=e.code===1?(auto?"No se agregó la ubicación (no diste permiso). Podés tocar «Agregar mi ubicación».":"No diste permiso para usar la ubicación. Podés activarlo en la configuración del navegador."):"No se pudo obtener la ubicación. Probá de nuevo al aire libre.";},
+  {enableHighAccuracy:true,timeout:15000,maximumAge:60000});
+}
+async function achicarFoto(file){
+  const url=URL.createObjectURL(file);
+  try{const img=await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=no;i.src=url;});
+    let w=img.naturalWidth,hh=img.naturalHeight;const k=Math.min(1,1280/Math.max(w,hh));w=Math.round(w*k);hh=Math.round(hh*k);
+    const c=document.createElement("canvas");c.width=w;c.height=hh;c.getContext("2d").drawImage(img,0,0,w,hh);
+    let q=.75,out=c.toDataURL("image/jpeg",q);while(out.length>1100000&&q>.4){q-=.1;out=c.toDataURL("image/jpeg",q);}
+    return out;}finally{URL.revokeObjectURL(url);}
+}
 
 /* Rayos (GOES-19 GLM) */
 function rayosVigentes(){const R=S.rayos;return !!(R&&R.hasta&&Date.now()-R.hasta<150*60000);}
@@ -914,7 +1030,9 @@ function renderFeed(){
   f.replaceChildren(...(soloLectura?[soloLectura]:[]),...rs.slice(0,40).map(r=>{
     const t=TIPOS[r.tipo]||{t:"Aviso"};
     const it=h("div",{class:"aviso"},h("div",{class:"l1"},h("span",{class:"tipo"},t.t),h("span",{class:"donde"},LOC[r.loc].n+(r.dist>2?` · ${r.dist} km`:"")),h("span",{class:"cuando"},hace(r.ts))),
-      r.texto?h("p",null,r.texto):null);
+      r.texto?h("p",null,r.texto):null,
+      r.foto&&fotoURL(r.foto)?h("img",{class:"foto",src:fotoURL(r.foto),alt:"Foto enviada por un vecino",loading:"lazy"}):null,
+      typeof r.lat==="number"?h("a",{class:"ubic",href:`https://www.google.com/maps?q=${r.lat},${r.lon}`,target:"_blank",rel:"noopener"},"📍 Ver el lugar en el mapa"):null);
     if(S.owner||(S.uid&&r.autor===S.uid))it.append(h("button",{class:"borrar",type:"button",onclick:()=>borrar(r.id,it)},"Borrar aviso"));
     return it;
   }));
@@ -1017,10 +1135,10 @@ function renderSuelo(){
 }
 
 function render(){
-  el("abrir-aviso").hidden=!S.db&&!formOK();
+  el("abrir-aviso").hidden=!S.db&&!formOK()&&!apiOK();
   el("demo").hidden=!S.demo;
   renderSat();
-  renderMapa();renderEstado();renderSuelo();renderLista();renderFeed();renderRios();renderFuego();renderComu();renderVerif();
+  renderMapa();renderEstado();renderSuelo();renderLista();renderFeed();renderRios();renderFuego();renderComu();renderVerif();renderCiudad();
 }
 /* Precisión medida del pronóstico (comparado con las estaciones del SMN) */
 function renderVerif(){
@@ -1065,7 +1183,13 @@ el("f-tipos").append(...Object.entries(TIPOS).map(([k,v],i)=>h("label",null,h("i
 function formOK(){const F=S.form;return !!(F&&typeof F.url==="string"&&/^https:\/\/docs\.google\.com\/forms\/d\/e\/[\w-]+\/viewform/.test(F.url)&&[F.loc,F.tipo,F.texto].every(x=>typeof x==="string"&&/^entry\.\d+$/.test(x)));}
 function toast(t){const x=el("toast");x.textContent=t;x.hidden=false;clearTimeout(toast.k);toast.k=setTimeout(()=>x.hidden=true,3200);}
 function msg(t,err){const m=el("f-msg");m.textContent=t;m.className="msg"+(err?" err":"");m.hidden=!t;}
-el("abrir-aviso").addEventListener("click",()=>{llenar(el("f-loc"),S.sel||S.mi);msg("");el("sheet").hidden=false;el("f-loc").focus();});
+el("abrir-aviso").addEventListener("click",()=>{llenar(el("f-loc"),S.sel||S.mi);msg("");el("f-extras").hidden=!apiOK();el("sheet").hidden=false;el("f-loc").focus();});
+el("f-ubic").addEventListener("click",()=>ubicar(false));
+el("f-foto").addEventListener("change",async e=>{const f=e.target.files&&e.target.files[0];if(!f)return;
+  try{AV.foto=await achicarFoto(f);el("f-foto-prev").src=AV.foto;el("f-foto-box").hidden=false;}catch(_){AV.foto=null;msg("No se pudo leer la foto. Probá con otra.",true);}
+  if(!AV.pos)ubicar(true);});
+el("f-foto-quitar").addEventListener("click",()=>{AV.foto=null;el("f-foto").value="";el("f-foto-box").hidden=true;});
+function limpiarExtras(){AV.foto=null;AV.pos=null;el("f-foto").value="";el("f-foto-box").hidden=true;el("f-ubic-txt").textContent="";el("f-ubic").textContent="📍 Agregar mi ubicación";}
 el("f-cancelar").addEventListener("click",()=>{el("sheet").hidden=true;});
 el("sheet").addEventListener("click",e=>{if(e.target.id==="sheet")el("sheet").hidden=true;});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")el("sheet").hidden=true;});
@@ -1073,6 +1197,20 @@ el("form-aviso").addEventListener("submit",async e=>{
   e.preventDefault();
   const tipo=(document.querySelector('input[name="tipo"]:checked')||{}).value;
   if(!tipo){msg("Elegí qué está pasando.",true);return;}
+  if(!S.db&&apiOK()){
+    let ult=0;try{ult=+localStorage.getItem("ult-aviso")||0;}catch(_){}
+    if(Date.now()-ult<120000){msg("Ya mandaste un aviso hace menos de 2 minutos. Esperá un momento.",true);return;}
+    const b=el("f-enviar");b.disabled=true;b.textContent=AV.foto?"Enviando foto…":"Enviando…";
+    const d={loc:el("f-loc").value,tipo,texto:el("f-texto").value.trim().slice(0,200)};
+    if(AV.pos){d.lat=AV.pos.lat;d.lon=AV.pos.lon;d.precision=AV.pos.precision;}
+    if(AV.foto)d.foto=AV.foto;
+    try{const r=await fetch(S.api,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(d)});const j=await r.json();
+      if(!j.ok)throw new Error(j.error||"error");
+      try{localStorage.setItem("ult-aviso",String(Date.now()));}catch(_){}
+      el("form-aviso").reset();limpiarExtras();el("sheet").hidden=true;toast(j.foto?"¡Gracias! Aviso enviado. La foto se publica cuando se revise.":"¡Gracias! Aviso enviado. Aparece en la app en menos de una hora.");
+    }catch(err){msg("No se pudo enviar ("+(err&&err.message||"sin conexión")+"). Revisá la conexión y probá de nuevo. Ante una emergencia llamá al 103 o al 911.",true);}
+    finally{b.disabled=false;b.textContent="Enviar aviso";}
+    return;}
   if(!S.db){if(!formOK()){msg("Por ahora no se pueden enviar avisos desde esta versión. Ante una emergencia llamá al 103 o al 911.",true);return;}
     const F=S.form,q=new URLSearchParams();q.set(F.loc,LOC[el("f-loc").value].n);q.set(F.tipo,TIPOS[tipo].t);const tx=el("f-texto").value.trim().slice(0,200);if(tx)q.set(F.texto,tx);
     window.open(F.url+(F.url.includes("?")?"&":"?")+q.toString(),"_blank","noopener");
@@ -1112,7 +1250,7 @@ function usarBase(){
   if(BASE.smn&&typeof BASE.smn==="object")S.smn=BASE.smn;
   if(BASE.verif&&typeof BASE.verif==="object")S.verif=BASE.verif;
   if(BASE.rayos&&typeof BASE.rayos==="object")S.rayos=BASE.rayos;
-  if(BASE.form&&typeof BASE.form==="object")S.form=BASE.form;
+  if(BASE.form&&typeof BASE.form==="object"){S.form=BASE.form;if(typeof BASE.form.api==="string")S.api=BASE.form.api;}
   if(Array.isArray(BASE.reportes))S.reportes=BASE.reportes.filter(r=>typeof r.ts==="number");
   return true;
 }
