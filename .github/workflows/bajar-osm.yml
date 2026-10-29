@@ -1,48 +1,20 @@
 name: Bajar barrios y lagunas de OpenStreetMap
 on:
   push:
-    paths: [".github/workflows/bajar-osm.yml"]
+    paths: [".github/workflows/bajar-osm.yml", "scripts/osm_ciudad.py"]
   workflow_dispatch:
 permissions:
   contents: write
 jobs:
   osm:
     runs-on: ubuntu-24.04
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - name: Consultar Overpass
-        run: |
-          npm install -g osmtogeojson@3.0.0-beta.5 >/dev/null 2>&1
-          B="-27.58,-58.90,-27.38,-58.68"
-          Q1="[out:json][timeout:120];(relation[\"boundary\"=\"administrative\"][\"admin_level\"~\"9|10\"]($B);relation[\"place\"~\"neighbourhood|suburb|quarter\"]($B);way[\"place\"~\"neighbourhood|suburb|quarter\"]($B););out body;>;out skel qt;"
-          Q2="[out:json][timeout:120];(way[\"natural\"=\"water\"]($B);relation[\"natural\"=\"water\"]($B);way[\"natural\"=\"wetland\"]($B);relation[\"natural\"=\"wetland\"]($B);way[\"waterway\"~\"canal|stream|drain|ditch\"]($B););out body;>;out skel qt;"
-          Q3="[out:json][timeout:60];(node[\"place\"~\"neighbourhood|suburb|quarter\"]($B););out body;"
-          for n in 1 2 3; do
-            eval q=\$Q$n
-            for i in 1 2 3; do curl -s -m 180 --data-urlencode "data=$q" https://overpass-api.de/api/interpreter -o o$n.json && python3 -c "import json;json.load(open('o$n.json'))" && break; sleep 20; done
-          done
-          osmtogeojson o1.json > barrios.geojson; osmtogeojson o2.json > agua.geojson
-          python3 - <<'PY'
-          import json
-          def red(f):
-              d=json.load(open(f))
-              def r(c):
-                  return [r(x) for x in c] if isinstance(c,list) and c and isinstance(c[0],list) else ([round(c[0],5),round(c[1],5)] if isinstance(c,list) else c)
-              out=[]
-              for ft in d["features"]:
-                  g=ft.get("geometry") or {}
-                  if g.get("type") not in ("Polygon","MultiPolygon","LineString","MultiLineString"): continue
-                  p=ft.get("properties",{}); t=p.get("tags",p)
-                  out.append({"type":"Feature","properties":{k:t.get(k) for k in ("name","place","admin_level","boundary","natural","water","wetland","waterway") if t.get(k)},"geometry":{"type":g["type"],"coordinates":r(g["coordinates"])}})
-              return {"type":"FeatureCollection","features":out}
-          json.dump(red("barrios.geojson"),open("datos/ciudad/barrios.geojson","w"),ensure_ascii=False,separators=(",",":"))
-          json.dump(red("agua.geojson"),open("datos/ciudad/agua.geojson","w"),ensure_ascii=False,separators=(",",":"))
-          d=json.load(open("o3.json")); pts=[{"name":e["tags"].get("name"),"place":e["tags"].get("place"),"lat":e["lat"],"lon":e["lon"]} for e in d.get("elements",[]) if e.get("tags",{}).get("name")]
-          json.dump(pts,open("datos/ciudad/barrios_puntos.json","w"),ensure_ascii=False)
-          b=json.load(open("datos/ciudad/barrios.geojson")); a=json.load(open("datos/ciudad/agua.geojson"))
-          print("::notice title=OSM::barrios(poligonos)=%d agua=%d puntos=%d"%(len(b["features"]),len(a["features"]),len(pts)))
-          PY
+        run: mkdir -p datos/ciudad && python3 scripts/osm_ciudad.py
       - name: Guardar en el repositorio
         run: |
           git config user.name "Jesareko (automático)"; git config user.email "rothmarcos9@users.noreply.github.com"
-          git add datos/ciudad && git commit -m "Datos de OpenStreetMap: barrios y cuerpos de agua de la ciudad de Corrientes (© colaboradores de OpenStreetMap, ODbL)" && git push || echo sin cambios
+          git add datos/ciudad/*.geojson datos/ciudad/barrios_puntos.json
+          git commit -m "Datos de OpenStreetMap: barrios y cuerpos de agua de la ciudad de Corrientes (© colaboradores de OpenStreetMap, ODbL)" && git pull --rebase && git push || echo sin cambios
