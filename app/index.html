@@ -722,13 +722,15 @@ function armarMapaCiudad(){
   const D=CIU.datos,m=L.map("ciudad-mapa",{scrollWheelZoom:false,tap:true}).setView([-27.49,-58.81],12);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(m);
   if(D.agua)L.geoJSON(D.agua,{style:{color:"#1E6A73",weight:1,fillColor:"#1E6A73",fillOpacity:.45},interactive:false}).addTo(m);
+  const grupo=L.featureGroup().addTo(m);
   const fuentes=k=>(k||[]).map(x=>D.fuentes[x]).filter(Boolean);
   const pop=z=>{const d=document.createElement("div");d.append(h("b",null,z.n),h("span",{style:`color:${COL_N[z.nivel]};font-weight:700`},TXT_N[z.nivel]),h("div",null,z.motivo),h("div",{style:"margin-top:4px;font-size:.8rem"},"Fuentes: ",...fuentes(z.f).flatMap((f,i)=>[i?" · ":"",h("a",{href:f.u,target:"_blank",rel:"noopener"},f.t.split(":")[0].split(",")[0])])));return d;};
   for(const nivel of ["baja","media","alta"])for(const z of D.zonas.filter(z=>z.nivel===nivel&&z.geom)){
     const st={color:COL_N[z.nivel],weight:1.5,fillColor:COL_N[z.nivel],fillOpacity:z.nivel==="alta"?.45:.35};
     const capa=z.geom.type==="Circle"?L.circle([z.geom.c[0],z.geom.c[1]],{radius:z.geom.r,...st}):L.geoJSON(z.geom,{style:st});
-    capa.bindPopup(()=>pop(z)).bindTooltip(z.n,{sticky:true}).addTo(m);
+    capa.bindPopup(()=>pop(z)).bindTooltip(z.n,{sticky:true}).addTo(grupo);
   }
+  try{m.fitBounds(grupo.getBounds(),{padding:[8,8]});}catch(_){}
   const ex=el("ciudad-extra");ex.replaceChildren(
     D.calles&&D.calles.length?h("details",null,h("summary",null,"Calles y avenidas que se cortan con lluvia"),h("ul",null,D.calles.map(c=>h("li",null,h("b",null,c.n+": "),c.motivo)))):"",
     h("details",null,h("summary",null,"Cómo se armó este mapa"),h("p",{class:"nota",style:"margin:6px 0"},D.nota+" "),h("ul",null,Object.entries(D.criterio||{}).map(([k,v])=>h("li",null,h("b",null,TXT_N[k]+": "),v))),

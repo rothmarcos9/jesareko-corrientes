@@ -1,7 +1,7 @@
 name: Bajar barrios y lagunas de OpenStreetMap
 on:
   push:
-    paths: [".github/workflows/bajar-osm.yml", "scripts/osm_ciudad.py"]
+    paths: [".github/workflows/bajar-osm.yml"]
   workflow_dispatch:
 permissions:
   contents: write

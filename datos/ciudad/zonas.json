@@ -7,53 +7,406 @@
   "baja": "Afectada en un solo temporal extraordinario (más de 200 mm)."
  },
  "fuentes": {
-  "TU2026": {"t": "Tejido Urbano, «Habitar el riesgo hídrico» (agosto de 2026), cuenca del arroyo Poncho Verde y cuencas pluviales de la ciudad", "u": "https://tejidourbano.org.ar/informes/habitar-el-riesgo-hidrico/"},
-  "MUN2025": {"t": "Municipalidad de Corrientes vía Radio Sudamericana: zonas más afectadas por el temporal del 21/12/2025 (103 mm en una hora)", "u": "https://www.radiosudamericana.com/nota/sociedad/337882-El-Municipio-trabaja-en-las-zonas-mas-afectadas-por-el-temporal.htm"},
-  "EL2025": {"t": "El Litoral: barrios más afectados por el temporal de diciembre de 2025 (más de 300 mm)", "u": "https://www.ellitoral.com.ar/ciudad/2025-12-22-16-18-0-temporal-en-la-ciudad-de-corrientes-se-asiste-a-mas-de-150-personas-en-dos-escuelas"},
-  "SR2025": {"t": "El Litoral: más de 120 departamentos afectados en el barrio Santa Rosa (diciembre de 2025)", "u": "https://www.ellitoral.com.ar/ciudad/2025-12-26-10-6-0--inundaciones-en-corrientes-mas-de-120-departamentos-afectados-en-el-barrio-santa-rosa"},
-  "RS2024": {"t": "Radio Sudamericana: barrios con agua tras el temporal del 3/3/2024 (unos 250 mm en dos horas y media)", "u": "https://www.radiosudamericana.com/nota/sociedad/306237-Corrientes-tiene-791-evacuados-y-aun-hay-agua-en-algunos-barrios.htm"},
-  "CH2026": {"t": "Corrientes Hoy: anegamientos con solo 42 mm (agosto de 2026)", "u": "https://www.corrienteshoy.com/info-general/caos-en-la-ciudad-llovieron-solo-42-mm-y-los-vecinos-inundados.htm"},
-  "MUN2017": {"t": "Municipalidad de Corrientes vía El Litoral: informe sobre las inundaciones de abril de 2017 (570 mm en 20 días)", "u": "https://www.ellitoral.com.ar/corrientes/2017-4-28-13-26-0-la-municipalidad-realizo-un-informe-especial-sobre-las-inundaciones-en-capital"}
+  "TU2026": {
+   "t": "Tejido Urbano, «Habitar el riesgo hídrico» (agosto de 2026), cuenca del arroyo Poncho Verde y cuencas pluviales de la ciudad",
+   "u": "https://tejidourbano.org.ar/informes/habitar-el-riesgo-hidrico/"
+  },
+  "MUN2025": {
+   "t": "Municipalidad de Corrientes vía Radio Sudamericana: zonas más afectadas por el temporal del 21/12/2025 (103 mm en una hora)",
+   "u": "https://www.radiosudamericana.com/nota/sociedad/337882-El-Municipio-trabaja-en-las-zonas-mas-afectadas-por-el-temporal.htm"
+  },
+  "EL2025": {
+   "t": "El Litoral: barrios más afectados por el temporal de diciembre de 2025 (más de 300 mm)",
+   "u": "https://www.ellitoral.com.ar/ciudad/2025-12-22-16-18-0-temporal-en-la-ciudad-de-corrientes-se-asiste-a-mas-de-150-personas-en-dos-escuelas"
+  },
+  "SR2025": {
+   "t": "El Litoral: más de 120 departamentos afectados en el barrio Santa Rosa (diciembre de 2025)",
+   "u": "https://www.ellitoral.com.ar/ciudad/2025-12-26-10-6-0--inundaciones-en-corrientes-mas-de-120-departamentos-afectados-en-el-barrio-santa-rosa"
+  },
+  "RS2024": {
+   "t": "Radio Sudamericana: barrios con agua tras el temporal del 3/3/2024 (unos 250 mm en dos horas y media)",
+   "u": "https://www.radiosudamericana.com/nota/sociedad/306237-Corrientes-tiene-791-evacuados-y-aun-hay-agua-en-algunos-barrios.htm"
+  },
+  "CH2026": {
+   "t": "Corrientes Hoy: anegamientos con solo 42 mm (agosto de 2026)",
+   "u": "https://www.corrienteshoy.com/info-general/caos-en-la-ciudad-llovieron-solo-42-mm-y-los-vecinos-inundados.htm"
+  },
+  "MUN2017": {
+   "t": "Municipalidad de Corrientes vía El Litoral: informe sobre las inundaciones de abril de 2017 (570 mm en 20 días)",
+   "u": "https://www.ellitoral.com.ar/corrientes/2017-4-28-13-26-0-la-municipalidad-realizo-un-informe-especial-sobre-las-inundaciones-en-capital"
+  }
  },
  "zonas": [
-  {"n": "La Olla", "alias": ["Conglomerado La Olla"], "nivel": "alta", "motivo": "Zona baja sobre la antigua Laguna Seca, donde converge el escurrimiento hacia la avenida Cartagena.", "f": ["CH2026", "MUN2025", "EL2025", "RS2024", "TU2026"]},
-  {"n": "Laguna Seca", "alias": ["República de Venezuela", "9 de Julio"], "nivel": "alta", "motivo": "Barrios construidos sobre terrenos rellenados de la antigua laguna; se anegan desde los años ochenta.", "f": ["CH2026", "MUN2025", "TU2026"]},
-  {"n": "Ongay", "alias": [], "nivel": "alta", "motivo": "Zona baja que se extendió hacia la parte más profunda de la antigua laguna.", "f": ["CH2026", "TU2026"]},
-  {"n": "Serantes", "alias": [], "nivel": "alta", "motivo": "Sobre el antiguo trazado de la laguna; sin infraestructura hidráulica adecuada (cuenca de la avenida Cartagena).", "f": ["TU2026"]},
-  {"n": "Irupé", "alias": [], "nivel": "alta", "motivo": "Sobre el antiguo trazado de la laguna; sin infraestructura hidráulica adecuada.", "f": ["TU2026"]},
-  {"n": "Paloma de la Paz", "alias": [], "nivel": "alta", "motivo": "Sobre el antiguo trazado de la laguna; sin infraestructura hidráulica adecuada.", "f": ["TU2026"]},
-  {"n": "San Jorge", "alias": [], "nivel": "alta", "motivo": "El estudio lo marca como altamente susceptible al anegamiento.", "f": ["TU2026"]},
-  {"n": "17 de Agosto", "alias": [], "nivel": "alta", "motivo": "Cuenca alta del arroyo Poncho Verde, con acumulación de agua; afectado en el temporal de diciembre de 2025.", "f": ["MUN2025", "TU2026"]},
-  {"n": "Santa Teresita", "alias": [], "nivel": "alta", "motivo": "Punto donde se redistribuye y acumula el agua de la cuenca Poncho Verde.", "f": ["MUN2025", "TU2026"]},
-  {"n": "San Ignacio", "alias": [], "nivel": "media", "motivo": "Recibe agua de lagunas y bañados del sudeste; afectado en 2017, 2024 y 2025.", "f": ["MUN2017", "RS2024", "EL2025"]},
-  {"n": "Santa Rita", "alias": ["Santa Rita Sur"], "nivel": "media", "motivo": "Recibe agua de las lagunas del sudeste.", "f": ["MUN2017", "RS2024"]},
-  {"n": "Ponce", "alias": [], "nivel": "media", "motivo": "Recibe agua de las lagunas del sudeste.", "f": ["MUN2017", "RS2024"]},
-  {"n": "Bejarano", "alias": [], "nivel": "media", "motivo": "Zona de descarga de cuencas pluviales; recibe excedentes de lagunas.", "f": ["MUN2017", "MUN2025", "TU2026"]},
-  {"n": "Pirayuí", "alias": ["Costa Esperanza"], "nivel": "media", "motivo": "Cuenca del arroyo Pirayuí, que trabaja al límite con lluvias intensas o con el Paraná alto.", "f": ["EL2025", "TU2026"]},
-  {"n": "Jardín", "alias": [], "nivel": "media", "motivo": "Corredor de la cuenca del Canal 4 y la Laguna Pampín.", "f": ["RS2024", "TU2026"]},
-  {"n": "Molina Punta", "alias": [], "nivel": "media", "motivo": "Corredor de la cuenca del Canal 4 y la Laguna Pampín.", "f": ["RS2024", "TU2026"]},
-  {"n": "Piragine Niveyro", "alias": [], "nivel": "baja", "motivo": "Afectado en el temporal de diciembre de 2025.", "f": ["MUN2025"]},
-  {"n": "San Gerónimo", "alias": [], "nivel": "baja", "motivo": "Afectado en el temporal de diciembre de 2025.", "f": ["MUN2025"]},
-  {"n": "Unión", "alias": [], "nivel": "baja", "motivo": "Afectado en el temporal de diciembre de 2025.", "f": ["MUN2025"]},
-  {"n": "Santa Rosa", "alias": [], "nivel": "baja", "motivo": "Más de 120 departamentos afectados en diciembre de 2025.", "f": ["SR2025"]},
-  {"n": "San Marcos", "alias": [], "nivel": "baja", "motivo": "Con agua tras el temporal de marzo de 2024.", "f": ["RS2024"]},
-  {"n": "Anahí", "alias": [], "nivel": "baja", "motivo": "Con agua tras el temporal de marzo de 2024.", "f": ["RS2024"]},
-  {"n": "Ciudades Correntinas", "alias": [], "nivel": "baja", "motivo": "Con agua tras el temporal de marzo de 2024.", "f": ["RS2024"]},
-  {"n": "San Antonio Este", "alias": ["San Antonio"], "nivel": "baja", "motivo": "Con agua tras el temporal de marzo de 2024.", "f": ["RS2024"]},
-  {"n": "Laguna Brava", "alias": [], "nivel": "baja", "motivo": "Desborde de lagunas y bañados que llegan desde San Luis del Palmar (abril de 2017).", "f": ["MUN2017"]},
-  {"n": "Sapucay", "alias": ["Sapucai"], "nivel": "baja", "motivo": "Desborde de lagunas sobre la Ruta 5 (abril de 2017).", "f": ["MUN2017"]},
-  {"n": "Laguna Soto", "alias": [], "nivel": "baja", "motivo": "Desborde de lagunas; canales naturales tapados por construcciones (abril de 2017).", "f": ["MUN2017"]},
-  {"n": "Perichón", "alias": [], "nivel": "baja", "motivo": "Excedentes de lagunas de San Cosme y Santa Ana (abril de 2017).", "f": ["MUN2017"]},
-  {"n": "Yecohá", "alias": ["Yechoá"], "nivel": "baja", "motivo": "Excedentes de lagunas de San Cosme y Santa Ana (abril de 2017).", "f": ["MUN2017"]},
-  {"n": "Cremonte", "alias": [], "nivel": "baja", "motivo": "Recibe agua que llega desde San Luis del Palmar (abril de 2017).", "f": ["MUN2017"]},
-  {"n": "Merceditas Collantes", "alias": [], "nivel": "baja", "motivo": "Excedentes de las lagunas de Santa Ana (abril de 2017).", "f": ["MUN2017"]}
+  {
+   "n": "La Olla",
+   "alias": [
+    "Conglomerado La Olla"
+   ],
+   "nivel": "alta",
+   "motivo": "Zona baja sobre la antigua Laguna Seca, donde converge el escurrimiento hacia la avenida Cartagena.",
+   "f": [
+    "CH2026",
+    "MUN2025",
+    "EL2025",
+    "RS2024",
+    "TU2026"
+   ]
+  },
+  {
+   "n": "Laguna Seca",
+   "alias": [
+    "República de Venezuela",
+    "9 de Julio"
+   ],
+   "nivel": "alta",
+   "motivo": "Barrios construidos sobre terrenos rellenados de la antigua laguna; se anegan desde los años ochenta.",
+   "f": [
+    "CH2026",
+    "MUN2025",
+    "TU2026"
+   ]
+  },
+  {
+   "n": "Ongay",
+   "alias": [],
+   "nivel": "alta",
+   "motivo": "Zona baja que se extendió hacia la parte más profunda de la antigua laguna.",
+   "f": [
+    "CH2026",
+    "TU2026"
+   ]
+  },
+  {
+   "n": "Serantes",
+   "alias": [],
+   "nivel": "alta",
+   "motivo": "Sobre el antiguo trazado de la laguna; sin infraestructura hidráulica adecuada (cuenca de la avenida Cartagena).",
+   "f": [
+    "TU2026"
+   ]
+  },
+  {
+   "n": "Irupé",
+   "alias": [],
+   "nivel": "alta",
+   "motivo": "Sobre el antiguo trazado de la laguna; sin infraestructura hidráulica adecuada.",
+   "f": [
+    "TU2026"
+   ]
+  },
+  {
+   "n": "Paloma de la Paz",
+   "alias": [],
+   "nivel": "alta",
+   "motivo": "Sobre el antiguo trazado de la laguna; sin infraestructura hidráulica adecuada.",
+   "f": [
+    "TU2026"
+   ]
+  },
+  {
+   "n": "San Jorge",
+   "alias": [],
+   "nivel": "alta",
+   "motivo": "El estudio lo marca como altamente susceptible al anegamiento.",
+   "f": [
+    "TU2026"
+   ]
+  },
+  {
+   "n": "17 de Agosto",
+   "alias": [],
+   "nivel": "alta",
+   "motivo": "Cuenca alta del arroyo Poncho Verde, con acumulación de agua; afectado en el temporal de diciembre de 2025.",
+   "f": [
+    "MUN2025",
+    "TU2026"
+   ]
+  },
+  {
+   "n": "Santa Teresita",
+   "alias": [],
+   "nivel": "alta",
+   "motivo": "Punto donde se redistribuye y acumula el agua de la cuenca Poncho Verde.",
+   "f": [
+    "MUN2025",
+    "TU2026"
+   ]
+  },
+  {
+   "n": "San Ignacio",
+   "alias": [],
+   "nivel": "media",
+   "motivo": "Recibe agua de lagunas y bañados del sudeste; afectado en 2017, 2024 y 2025.",
+   "f": [
+    "MUN2017",
+    "RS2024",
+    "EL2025"
+   ]
+  },
+  {
+   "n": "Santa Rita",
+   "alias": [
+    "Santa Rita Sur"
+   ],
+   "nivel": "media",
+   "motivo": "Recibe agua de las lagunas del sudeste.",
+   "f": [
+    "MUN2017",
+    "RS2024"
+   ]
+  },
+  {
+   "n": "Ponce",
+   "alias": [
+    "José María Ponce",
+    "Jose Maria Ponce",
+    "Zona Sur Ponce"
+   ],
+   "nivel": "media",
+   "motivo": "Recibe agua de las lagunas del sudeste.",
+   "f": [
+    "MUN2017",
+    "RS2024"
+   ]
+  },
+  {
+   "n": "Bejarano",
+   "alias": [],
+   "nivel": "media",
+   "motivo": "Zona de descarga de cuencas pluviales; recibe excedentes de lagunas.",
+   "f": [
+    "MUN2017",
+    "MUN2025",
+    "TU2026"
+   ]
+  },
+  {
+   "n": "Pirayuí",
+   "alias": [
+    "Costa Esperanza"
+   ],
+   "nivel": "media",
+   "motivo": "Cuenca del arroyo Pirayuí, que trabaja al límite con lluvias intensas o con el Paraná alto.",
+   "f": [
+    "EL2025",
+    "TU2026"
+   ]
+  },
+  {
+   "n": "Jardín",
+   "alias": [],
+   "nivel": "media",
+   "motivo": "Corredor de la cuenca del Canal 4 y la Laguna Pampín.",
+   "f": [
+    "RS2024",
+    "TU2026"
+   ]
+  },
+  {
+   "n": "Molina Punta",
+   "alias": [],
+   "nivel": "media",
+   "motivo": "Corredor de la cuenca del Canal 4 y la Laguna Pampín.",
+   "f": [
+    "RS2024",
+    "TU2026"
+   ]
+  },
+  {
+   "n": "Piragine Niveyro",
+   "alias": [],
+   "nivel": "baja",
+   "motivo": "Afectado en el temporal de diciembre de 2025.",
+   "f": [
+    "MUN2025"
+   ]
+  },
+  {
+   "n": "San Gerónimo",
+   "alias": [],
+   "nivel": "baja",
+   "motivo": "Afectado en el temporal de diciembre de 2025.",
+   "f": [
+    "MUN2025"
+   ]
+  },
+  {
+   "n": "Unión",
+   "alias": [],
+   "nivel": "baja",
+   "motivo": "Afectado en el temporal de diciembre de 2025.",
+   "f": [
+    "MUN2025"
+   ]
+  },
+  {
+   "n": "Santa Rosa",
+   "alias": [],
+   "nivel": "baja",
+   "motivo": "Más de 120 departamentos afectados en diciembre de 2025.",
+   "f": [
+    "SR2025"
+   ]
+  },
+  {
+   "n": "San Marcos",
+   "alias": [],
+   "nivel": "baja",
+   "motivo": "Con agua tras el temporal de marzo de 2024.",
+   "f": [
+    "RS2024"
+   ]
+  },
+  {
+   "n": "Anahí",
+   "alias": [],
+   "nivel": "baja",
+   "motivo": "Con agua tras el temporal de marzo de 2024.",
+   "f": [
+    "RS2024"
+   ]
+  },
+  {
+   "n": "Ciudades Correntinas",
+   "alias": [
+    "Ciudades de Correntinas",
+    "Ciudades de Corrientes"
+   ],
+   "nivel": "baja",
+   "motivo": "Con agua tras el temporal de marzo de 2024.",
+   "f": [
+    "RS2024"
+   ]
+  },
+  {
+   "n": "San Antonio Este",
+   "alias": [
+    "San Antonio"
+   ],
+   "nivel": "baja",
+   "motivo": "Con agua tras el temporal de marzo de 2024.",
+   "f": [
+    "RS2024"
+   ]
+  },
+  {
+   "n": "Laguna Brava",
+   "alias": [],
+   "nivel": "baja",
+   "motivo": "Desborde de lagunas y bañados que llegan desde San Luis del Palmar (abril de 2017).",
+   "f": [
+    "MUN2017"
+   ]
+  },
+  {
+   "n": "Sapucay",
+   "alias": [
+    "Sapucai"
+   ],
+   "nivel": "baja",
+   "motivo": "Desborde de lagunas sobre la Ruta 5 (abril de 2017).",
+   "f": [
+    "MUN2017"
+   ]
+  },
+  {
+   "n": "Laguna Soto",
+   "alias": [
+    "Club de Campo Laguna Soto Sur",
+    "Laguna Soto Sur"
+   ],
+   "nivel": "baja",
+   "motivo": "Desborde de lagunas; canales naturales tapados por construcciones (abril de 2017).",
+   "f": [
+    "MUN2017"
+   ]
+  },
+  {
+   "n": "Perichón",
+   "alias": [],
+   "nivel": "baja",
+   "motivo": "Excedentes de lagunas de San Cosme y Santa Ana (abril de 2017).",
+   "f": [
+    "MUN2017"
+   ]
+  },
+  {
+   "n": "Yecohá",
+   "alias": [
+    "Yechoá",
+    "Yecoha"
+   ],
+   "nivel": "baja",
+   "motivo": "Excedentes de lagunas de San Cosme y Santa Ana (abril de 2017).",
+   "f": [
+    "MUN2017"
+   ]
+  },
+  {
+   "n": "Cremonte",
+   "alias": [],
+   "nivel": "baja",
+   "motivo": "Recibe agua que llega desde San Luis del Palmar (abril de 2017).",
+   "f": [
+    "MUN2017"
+   ]
+  },
+  {
+   "n": "Merceditas Collantes",
+   "alias": [],
+   "nivel": "baja",
+   "motivo": "Excedentes de las lagunas de Santa Ana (abril de 2017).",
+   "f": [
+    "MUN2017"
+   ]
+  }
  ],
  "calles": [
-  {"n": "Avenida Cartagena", "motivo": "Une Ongay, La Olla y Laguna Seca; de las más afectadas incluso con 42 mm.", "f": ["CH2026", "TU2026"]},
-  {"n": "Avenida Ferré", "motivo": "Principal cuello de botella de la cuenca Poncho Verde (cruces con España y Brasil).", "f": ["MUN2025", "TU2026"]},
-  {"n": "Avenida Chacabuco", "motivo": "Se anega en temporales.", "f": ["MUN2025", "CH2026"]},
-  {"n": "Las Heras", "motivo": "Se anega en temporales.", "f": ["MUN2025", "CH2026"]},
-  {"n": "Avenida Laprida", "motivo": "Afectada en diciembre de 2025.", "f": ["MUN2025"]},
-  {"n": "Avenida Cazadores Correntinos", "motivo": "Se anega en temporales.", "f": ["CH2026"]}
+  {
+   "n": "Avenida Cartagena",
+   "motivo": "Une Ongay, La Olla y Laguna Seca; de las más afectadas incluso con 42 mm.",
+   "f": [
+    "CH2026",
+    "TU2026"
+   ]
+  },
+  {
+   "n": "Avenida Ferré",
+   "motivo": "Principal cuello de botella de la cuenca Poncho Verde (cruces con España y Brasil).",
+   "f": [
+    "MUN2025",
+    "TU2026"
+   ]
+  },
+  {
+   "n": "Avenida Chacabuco",
+   "motivo": "Se anega en temporales.",
+   "f": [
+    "MUN2025",
+    "CH2026"
+   ]
+  },
+  {
+   "n": "Las Heras",
+   "motivo": "Se anega en temporales.",
+   "f": [
+    "MUN2025",
+    "CH2026"
+   ]
+  },
+  {
+   "n": "Avenida Laprida",
+   "motivo": "Afectada en diciembre de 2025.",
+   "f": [
+    "MUN2025"
+   ]
+  },
+  {
+   "n": "Avenida Cazadores Correntinos",
+   "motivo": "Se anega en temporales.",
+   "f": [
+    "CH2026"
+   ]
+  }
  ]
 }
