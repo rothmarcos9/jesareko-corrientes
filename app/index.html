@@ -1010,11 +1010,10 @@ function renderSuelo(){
   c.append(h("div",{class:"acciones"},h("span",{class:"eyebrow"},"Para tener en cuenta"),h("ul",null,z.hacer.map(t=>h("li",null,t)))));
   const fs=[...z.f,...(ex?["excesos","aptitud"]:[])];
   c.append(h("div",{class:"links"},
-    h("a",{href:"http://visor.geointa.inta.gob.ar",target:"_blank",rel:"noopener"},"Mapa de suelos GeoINTA",h("span",null,"inta.gob.ar ↗")),
-    h("a",{href:"http://wms.sig-ctes.inta.gob.ar/geocorrientes/web",target:"_blank",rel:"noopener"},"GeoCorrientes (INTA Corrientes)",h("span",null,"suelos 1:500.000 ↗")),
+    h("a",{href:"https://geo.inta.gob.ar/",target:"_blank",rel:"noopener"},"Mapas de suelos del INTA · INTA Digital GEO",h("span",null,"geo.inta.gob.ar ↗")),
     h("a",{href:ANIDA,target:"_blank",rel:"noopener"},"Amenazas hidrometeorológicas · Atlas ANIDA (IGN)",h("span",null,"ign.gob.ar ↗")),
     fs.map(k=>h("a",{href:FUENTES_INTA[k].u,target:"_blank",rel:"noopener"},FUENTES_INTA[k].t,h("span",null,"PDF ↗")))));
-  c.append(h("p",{class:"nota"},"Es una descripción general del paisaje donde está el pueblo, no de cada terreno. Dentro de una misma zona hay lomas y bajos: para un lote o un barrio concreto, consultá el mapa de suelos de GeoINTA o la oficina del INTA más cercana."));
+  c.append(h("p",{class:"nota"},"Es una descripción general del paisaje donde está el pueblo, no de cada terreno. Dentro de una misma zona hay lomas y bajos: para un lote o un barrio concreto, consultá los mapas de suelos del INTA (INTA Digital GEO) o la oficina del INTA más cercana."));
 }
 
 function render(){
