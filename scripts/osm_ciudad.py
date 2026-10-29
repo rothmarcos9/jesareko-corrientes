@@ -3,20 +3,20 @@
 import json, sys, time, urllib.parse, urllib.request
 
 B = "-27.60,-58.92,-27.36,-58.66"
-SERV = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter", "https://overpass.private.coffee/api/interpreter"]
+SERV = ["https://overpass.private.coffee/api/interpreter", "https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter", "https://maps.mail.ru/osm/tools/overpass/api/interpreter"]
 Q = {
- "barrios": f'[out:json][timeout:150];(relation["boundary"="administrative"]["admin_level"~"9|10"]({B});relation["place"~"neighbourhood|suburb|quarter"]({B});way["place"~"neighbourhood|suburb|quarter"]({B});way["landuse"="residential"]["name"]({B});relation["landuse"="residential"]["name"]({B}););out geom;',
- "agua": f'[out:json][timeout:150];(way["natural"="water"]({B});relation["natural"="water"]({B});way["natural"="wetland"]({B});relation["natural"="wetland"]({B});way["water"]({B}););out geom;',
+ "barrios": f'[out:json][timeout:300];(relation["boundary"="administrative"]["admin_level"~"9|10"]({B});relation["place"~"neighbourhood|suburb|quarter"]({B});way["place"~"neighbourhood|suburb|quarter"]({B}););out geom;',
+ "agua": f'[out:json][timeout:300];(way["natural"="water"]({B});relation["natural"="water"]({B});way["natural"="wetland"]({B});relation["natural"="wetland"]({B});way["water"]({B}););out geom;',
  "puntos": f'[out:json][timeout:60];node["place"~"neighbourhood|suburb|quarter|hamlet"]({B});out;',
 }
 
 def consultar(q):
     err = None
     for s in SERV:
-        for i in range(2):
+        for i in range(1):
             try:
                 data = urllib.parse.urlencode({"data": q}).encode()
-                with urllib.request.urlopen(urllib.request.Request(s, data=data, headers={"User-Agent": "Jesareko/1.0 (alerta temprana Corrientes)"}), timeout=200) as r:
+                with urllib.request.urlopen(urllib.request.Request(s, data=data, headers={"User-Agent": "Jesareko/1.0 (alerta temprana Corrientes)"}), timeout=320) as r:
                     return json.load(r)
             except Exception as e:
                 err = e; print("reintento", s, repr(e)[:150]); time.sleep(10)
