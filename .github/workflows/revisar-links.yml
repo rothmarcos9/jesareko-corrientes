@@ -1,0 +1,17 @@
+name: Revisar links de la app
+on:
+  push:
+    paths: [".github/workflows/revisar-links.yml"]
+  workflow_dispatch:
+jobs:
+  revisar:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Probar links
+        run: |
+          UA="Mozilla/5.0 (Linux; Android 13; SM-A135M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Mobile Safari/537.36"
+          for u in http://visor.geointa.inta.gob.ar https://visor.geointa.inta.gob.ar https://geointa.inta.gob.ar/ https://portalgeo.inta.gob.ar/ http://wms.sig-ctes.inta.gob.ar/geocorrientes/web https://wms.sig-ctes.inta.gob.ar/geocorrientes/web https://anida.ign.gob.ar/publicacion/argentina_ambiental/amenazas_hidrometeorologicas.html https://anida.ign.gob.ar/ https://www.produccion-animal.com.ar/produccion_y_manejo_pasturas/pasturas_naturales_especies/17-Corrientes.pdf https://www.produccion-animal.com.ar/suelos_ganaderos/113-Degradacion_suelos_en_Corrientes.pdf https://produccion-animal.com.ar/inundacion/100-Excesos_sudoeste_correntino.pdf https://www.produccion-animal.com.ar/suelos_ganaderos/107-mapeo_Corrientes.pdf https://www.smn.gob.ar/alertas https://www.smn.gob.ar/radar; do
+            r=$(curl -s -L -m 25 -A "$UA" -o /tmp/b -w "%{http_code} %{url_effective} %{content_type}" "$u" 2>&1 || true)
+            t=$(grep -o -i '<title>[^<]*' /tmp/b 2>/dev/null | head -1 | cut -c8-80)
+            echo "::notice title=Link::$u -> $r | $t"
+          done
