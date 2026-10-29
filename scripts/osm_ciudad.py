@@ -51,6 +51,38 @@ def geom(e):
         if rings: return {"type": "MultiPolygon", "coordinates": [[r] for r in rings]}
     return None
 
+OHSOME = "https://api.ohsome.org/v1/elements/geometry"
+BB = "-58.92,-27.60,-58.66,-27.36"
+FILTROS = {
+ "barrios": "(place in (neighbourhood,suburb,quarter) or (boundary=administrative and admin_level in (9,10))) and geometry:polygon",
+ "agua": "(natural in (water,wetland) or water=*) and geometry:polygon",
+ "puntos": "place in (neighbourhood,suburb,quarter,hamlet) and geometry:point",
+}
+
+def ohsome(filtro):
+    data = urllib.parse.urlencode({"bboxes": BB, "filter": filtro, "properties": "tags"}).encode()
+    with urllib.request.urlopen(urllib.request.Request(OHSOME, data=data, headers={"User-Agent": "Jesareko/1.0"}), timeout=300) as r:
+        return json.load(r)
+
+def red(c):
+    return [red(x) for x in c] if c and isinstance(c[0], list) else [round(c[0], 5), round(c[1], 5)]
+
+def main_ohsome():
+    res = {}
+    for k in ("barrios", "agua"):
+        d = ohsome(FILTROS[k]); feats = []
+        for f in d.get("features", []):
+            g = f.get("geometry") or {}
+            if g.get("type") not in ("Polygon", "MultiPolygon"): continue
+            t = f.get("properties", {})
+            feats.append({"type": "Feature", "properties": {x: t[x] for x in ("name", "place", "admin_level", "boundary", "natural", "water", "wetland") if x in t}, "geometry": {"type": g["type"], "coordinates": red(g["coordinates"])}})
+        res[k] = {"type": "FeatureCollection", "features": feats}
+        json.dump(res[k], open(f"datos/ciudad/{k}.geojson", "w"), ensure_ascii=False, separators=(",", ":"))
+    d = ohsome(FILTROS["puntos"])
+    pts = [{"name": f["properties"]["name"], "place": f["properties"].get("place"), "lat": f["geometry"]["coordinates"][1], "lon": f["geometry"]["coordinates"][0]} for f in d.get("features", []) if f.get("properties", {}).get("name") and f.get("geometry", {}).get("type") == "Point"]
+    json.dump(pts, open("datos/ciudad/barrios_puntos.json", "w"), ensure_ascii=False)
+    print("::notice title=OSM (ohsome)::barrios=%d agua=%d puntos=%d" % (len(res["barrios"]["features"]), len(res["agua"]["features"]), len(pts)))
+
 def main():
     res = {}
     for k in ("barrios", "agua"):
@@ -72,6 +104,10 @@ def main():
 
 if __name__ == "__main__":
     try:
-        main()
+        main_ohsome()
     except Exception as e:
-        print("::error title=OSM::" + repr(e)[:400]); sys.exit(1)
+        print("::warning title=OSM ohsome::" + repr(e)[:300])
+        try:
+            main()
+        except Exception as e:
+            print("::error title=OSM::" + repr(e)[:400]); sys.exit(1)
