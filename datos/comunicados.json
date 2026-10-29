@@ -1,5 +1,91 @@
 [
  {
+  "id": "2026-10-29-prefectura-alturas",
+  "titulo": "Prefectura: el Paraná baja apenas y Libres pasa los 8 m",
+  "resumen": "El parte del jueves muestra a Itatí (8,09 m), Corrientes (7,36 m), Paso de la Patria (7,69 m), Bella Vista (6,45 m) y Goya (5,77 m) todavía arriba del nivel de evacuación, con descensos de pocos centímetros; Ituzaingó bajó a 3,95 m y quedó en alerta. Sobre el Uruguay, Paso de los Libres marca 8,03 m (alerta 7,50, evacuación 8,50) y Santo Tomé bajó 58 cm en 12 horas.",
+  "fuente": "La Nación (datos de Prefectura)",
+  "url": "https://www.lanacion.com.ar/sociedad/altura-de-los-rios-en-la-argentina-segun-prefectura-esta-es-la-situacion-y-los-niveles-de-alerta-hoy-nid29102026/",
+  "fecha": "2026-10-29",
+  "alertas": [
+   {
+    "evac": 7.5,
+    "loc": "itati",
+    "m": 8.09,
+    "motivo": "8,09 m, sobre evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 3.5,
+    "evac": 4,
+    "loc": "ituzaingo",
+    "m": 3.95,
+    "motivo": "3,95 m, en alerta (bajó de evacuación)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "evac": 7,
+    "loc": "corrientes",
+    "m": 7.36,
+    "motivo": "7,36 m, sobre evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "evac": 7,
+    "loc": "paso-de-la-patria",
+    "m": 7.69,
+    "motivo": "7,69 m, sobre evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "evac": 6.4,
+    "loc": "bella-vista",
+    "m": 6.45,
+    "motivo": "6,45 m, sobre evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "evac": 5.7,
+    "loc": "goya",
+    "m": 5.77,
+    "motivo": "5,77 m, sobre evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5,
+    "evac": 5.4,
+    "loc": "esquina",
+    "m": 5.19,
+    "motivo": "5,19 m, en alerta",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 7.5,
+    "evac": 8.5,
+    "loc": "paso-de-los-libres",
+    "m": 8.03,
+    "motivo": "8,03 m, en alerta",
+    "n": 2,
+    "rio": "Uruguay"
+   },
+   {
+    "alerta": 11.5,
+    "loc": "santo-tome",
+    "m": 10.43,
+    "motivo": "10,43 m, en baja",
+    "n": 0,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
   "id": "2026-10-28-defensa-civil-1500",
   "titulo": "Ya son casi 1.500 los correntinos fuera de sus casas",
   "resumen": "Defensa Civil informó 440 evacuados y 1.056 autoevacuados por la crecida del Paraná, con Isla Apipé, Itatí, Paso de la Patria, Bella Vista y Goya como los puntos más complicados; Paso de los Libres sigue en alerta por el Uruguay. Se espera un nuevo repunte desde el 3 de noviembre.",
@@ -107,6 +193,23 @@
     "motivo": "11,35 m, cerca de la alerta",
     "n": 0,
     "rio": "Uruguay"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-28-yacyreta-32500",
+  "titulo": "Yacyretá: el caudal afluente baja a 32.500 m³/s",
+  "resumen": "El parte diario de la EBY del miércoles prevé 32.500 m³/s de ingreso al embalse (33.000 para el jueves), con 6.400 m³/s por el vertedero del brazo principal y 9.000 m³/s por Aña Cuá. En el puerto de Ituzaingó el río marcaba 4,15 m al mediodía.",
+  "fuente": "Entidad Binacional Yacyretá",
+  "url": "https://www.eby.gov.py/cota-82-40-msnm-resumen-ejecutivo-n-6125-28-10-2026/",
+  "fecha": "2026-10-28",
+  "alertas": [
+   {
+    "loc": "ituzaingo",
+    "m": 4.15,
+    "motivo": "4,15 m al mediodía",
+    "n": 0,
+    "rio": "Paraná"
    }
   ]
  },
