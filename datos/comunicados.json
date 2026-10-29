@@ -1,5 +1,135 @@
 [
  {
+  "id": "2026-10-28-defensa-civil-1500",
+  "titulo": "Ya son casi 1.500 los correntinos fuera de sus casas",
+  "resumen": "Defensa Civil informó 440 evacuados y 1.056 autoevacuados por la crecida del Paraná, con Isla Apipé, Itatí, Paso de la Patria, Bella Vista y Goya como los puntos más complicados; Paso de los Libres sigue en alerta por el Uruguay. Se espera un nuevo repunte desde el 3 de noviembre.",
+  "fuente": "Infobae (datos de Defensa Civil de Corrientes)",
+  "url": "https://www.infobae.com/sociedad/2026/10/28/el-nino-chaco-tiene-mas-de-2200-afectados-por-las-inundaciones-y-en-corrientes-se-reportaron-otros-1500/",
+  "fecha": "2026-10-28",
+  "alertas": [
+   {
+    "loc": "itati",
+    "motivo": "Paraná sobre nivel de evacuación",
+    "n": 3
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "Paraná sobre nivel de evacuación",
+    "n": 3
+   },
+   {
+    "loc": "bella-vista",
+    "motivo": "Paraná sobre nivel de evacuación",
+    "n": 3
+   },
+   {
+    "loc": "goya",
+    "motivo": "Paraná sobre nivel de evacuación",
+    "n": 3
+   },
+   {
+    "loc": "paso-de-los-libres",
+    "motivo": "Alerta por repunte del río Uruguay",
+    "n": 2
+   }
+  ]
+ },
+ {
+  "id": "2026-10-28-prefectura-alturas",
+  "titulo": "Prefectura: Itatí en 8,20 m y el Uruguay pasa la alerta en Libres",
+  "resumen": "Según el parte de Prefectura del miércoles a la mañana, Itatí, Corrientes capital, Paso de la Patria e Ituzaingó siguen por encima del nivel de evacuación, y Bella Vista y Goya quedaron a 2 y 3 cm de ese umbral. Sobre el Uruguay, Paso de los Libres (7,56 m) superó la alerta y Santo Tomé está apenas debajo.",
+  "fuente": "La Nación (datos de Prefectura)",
+  "url": "https://www.lanacion.com.ar/sociedad/altura-de-los-rios-en-la-argentina-segun-prefectura-esta-es-la-situacion-y-los-niveles-de-alerta-hoy-nid27102026/",
+  "fecha": "2026-10-28",
+  "alertas": [
+   {
+    "loc": "itati",
+    "m": 8.2,
+    "motivo": "8,20 m, sobre nivel de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "corrientes",
+    "m": 7.38,
+    "motivo": "7,38 m, sobre nivel de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.74,
+    "motivo": "7,74 m, sobre nivel de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "ituzaingo",
+    "m": 4.4,
+    "motivo": "4,40 m, sobre nivel de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "bella-vista",
+    "m": 6.43,
+    "motivo": "6,43 m, a 2 cm de la evacuación",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "goya",
+    "m": 5.7,
+    "motivo": "5,70 m, a 3 cm de la evacuación",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5,
+    "loc": "esquina",
+    "m": 5.16,
+    "motivo": "5,16 m, sobre la alerta",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 7.5,
+    "loc": "paso-de-los-libres",
+    "m": 7.56,
+    "motivo": "7,56 m, sobre la alerta",
+    "n": 2,
+    "rio": "Uruguay"
+   },
+   {
+    "alerta": 11.5,
+    "loc": "santo-tome",
+    "m": 11.35,
+    "motivo": "11,35 m, cerca de la alerta",
+    "n": 0,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-27-yacyreta-33500",
+  "titulo": "Yacyretá: entra el doble de agua que el promedio de octubre",
+  "resumen": "La EBY prevé unos 33.500 m³/s de caudal en los próximos días (entre 33.000 y 35.000) y descarga el excedente por los vertederos. En Ituzaingó el Paraná marcaba 4,31 m el martes, arriba de la cota de evacuación de 4 m.",
+  "fuente": "Primera Edición (datos de la EBY)",
+  "url": "https://www.primeraedicion.com.ar/nota/101155200/el-caudal-que-ingresa-a-yacyreta-duplico-el-promedio-historico-de-octubre-y-siguen-las-alertas/",
+  "fecha": "2026-10-27",
+  "alertas": [
+   {
+    "alerta": 3.5,
+    "evac": 4,
+    "loc": "ituzaingo",
+    "m": 4.31,
+    "motivo": "4,31 m, sobre cota de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-10-26-capital-735",
   "titulo": "El Paraná se estacionó en 7,35 m en Capital",
   "resumen": "Tras bajar un poco en los últimos días, el río se mantiene en 7,35 m en la ciudad de Corrientes, con fuerte correntada. El agua tapa el primer escalón de la defensa en Punta San Sebastián y parte de la playa Arazaty II.",
