@@ -1,5 +1,5 @@
 """Baja de OpenStreetMap los barrios y cuerpos de agua de la ciudad de Corrientes (uso puntual).
-© colaboradores de OpenStreetMap, licencia ODbL."""
+© colaboradores de OpenStreetMap, licencia ODbL.""" 
 import json, sys, time, urllib.parse, urllib.request
 
 B = "-27.60,-58.92,-27.36,-58.66"
