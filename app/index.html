@@ -1210,7 +1210,11 @@ el("form-aviso").addEventListener("submit",async e=>{
       if(!j.ok)throw new Error(j.error||"error");
       try{localStorage.setItem("ult-aviso",String(Date.now()));}catch(_){}
       el("form-aviso").reset();limpiarExtras();el("sheet").hidden=true;toast(j.foto?"¡Gracias! Aviso enviado. La foto se publica cuando se revise.":"¡Gracias! Aviso enviado. Aparece en la app en menos de una hora.");
-    }catch(err){msg("No se pudo enviar ("+(err&&err.message||"sin conexión")+"). Revisá la conexión y probá de nuevo. Ante una emergencia llamá al 103 o al 911.",true);}
+    }catch(err){
+      if(formOK()){const F=S.form,q=new URLSearchParams();q.set(F.loc,LOC[d.loc].n);q.set(F.tipo,TIPOS[tipo].t);if(d.texto)q.set(F.texto,d.texto);
+        window.open(F.url+(F.url.includes("?")?"&":"?")+q.toString(),"_blank","noopener");
+        msg("No se pudo enviar desde acá, así que se abrió el formulario con tu aviso (sin la foto): tocá «Enviar» ahí.",true);}
+      else msg("No se pudo enviar ("+(err&&err.message||"sin conexión")+"). Revisá la conexión y probá de nuevo. Ante una emergencia llamá al 103 o al 911.",true);}
     finally{b.disabled=false;b.textContent="Enviar aviso";}
     return;}
   if(!S.db){if(!formOK()){msg("Por ahora no se pueden enviar avisos desde esta versión. Ante una emergencia llamá al 103 o al 911.",true);return;}

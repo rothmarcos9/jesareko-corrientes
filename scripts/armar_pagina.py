@@ -61,6 +61,10 @@ def avisos_app(cfg):
     if not cfg or not cfg.get("csv_app") or not cfg.get("api"):
         return []
     filas = list(csv.reader(io.StringIO(bajar(cfg["csv_app"]).decode("utf-8", "replace"))))
+    # si la pestaña "Avisos app" no existe, Google devuelve otra pestaña: se controla el encabezado
+    if not filas or len(filas[0]) < 9 or filas[0][0].strip() != "Fecha" or filas[0][7].strip() != "Foto":
+        print("Aviso: la pestaña de avisos de la app todavía no existe")
+        return []
     lim = time.time() - 24 * 3600
     out = []
     for i, f in enumerate(filas[1:], start=2):
