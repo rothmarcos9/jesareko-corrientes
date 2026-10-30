@@ -1,0 +1,86 @@
+{
+ "generado": 1793361777894,
+ "fuentes": {
+  "pronostico": "nuevo",
+  "rios": "nuevo",
+  "incendios": "nuevo",
+  "satelite": "nuevo",
+  "ina": "nuevo",
+  "smn": "nuevo"
+ },
+ "pronostico_localidades": 30,
+ "ina_fecha": "29/10",
+ "ina_estaciones": {
+  "Corrientes": 7.38,
+  "Goya": 5.76,
+  "Santo Tomé": 10.43,
+  "Paso de los Libres": 8.01
+ },
+ "smn_localidades_con_alerta": 0,
+ "smn_estaciones": [
+  "Corrientes Aero",
+  "Ituzaingó",
+  "Mercedes Aero",
+  "Monte Caseros Aero",
+  "Paso de los Libres Aero"
+ ],
+ "comunicados": 10,
+ "avisos": 1,
+ "formulario": true,
+ "comunicados_remotos": "sin probar",
+ "nuevos_datos_corrientes": {
+  "hum": 80,
+  "st": 21,
+  "stmax": 31,
+  "caida24": 0.0,
+  "caida72": 0.0
+ },
+ "modelos_corrientes": {
+  "ecmwf": {
+   "lluvia": 0.0,
+   "tmax": 27
+  },
+  "gfs": {
+   "lluvia": 0.0,
+   "tmax": 29
+  },
+  "icon": {
+   "lluvia": 0.0,
+   "tmax": 27
+  }
+ },
+ "rayos": {
+  "archivos": 178,
+  "fallas": 0,
+  "total": 0
+ },
+ "localidades_sin_pronostico": [],
+ "san_luis_del_palmar": {
+  "lluvia24": 0,
+  "lluviaMaxHora": 0,
+  "prob": 8,
+  "tmax": 27,
+  "tmin": 16,
+  "rafagas": 18,
+  "hum": 80,
+  "humMed": 72,
+  "st": 21,
+  "stmax": 31,
+  "stmin": 16,
+  "caida24": 0.0,
+  "caida72": 0.0
+ },
+ "lluvia_48h_corrientes": 0.0,
+ "ina_historial": {
+  "Corrientes": 11,
+  "Goya": 11,
+  "Santo Tomé": 11,
+  "Paso de los Libres": 11
+ },
+ "ina_sin_reporte": [
+  "2026-10-17",
+  "2026-10-18",
+  "2026-10-24",
+  "2026-10-25"
+ ]
+}
