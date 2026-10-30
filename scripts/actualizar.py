@@ -26,6 +26,18 @@ def multi(base, puntos, extra):
     d = json.loads(get(u))
     return d if isinstance(d, list) else [d]
 
+def humedad_suelo(h, i0):
+    out = {}
+    for k, cap in (("s9", "soil_moisture_3_to_9cm"), ("s27", "soil_moisture_9_to_27cm")):
+        v = h.get(cap) or []
+        a = v[i0] if i0 < len(v) else None
+        b = v[i0 - 72] if 0 <= i0 - 72 < len(v) else None
+        if a is not None:
+            out[k] = round(a, 3)
+            if b is not None:
+                out[k + "_72"] = round(b, 3)
+    return out or None
+
 def pronostico():
     ahora = datetime.now(TZ).strftime("%Y-%m-%dT%H:00")
     locs = {}
@@ -33,7 +45,7 @@ def pronostico():
     for i in range(0, len(L), 5):
         g = L[i:i + 5]
         data = multi("https://api.open-meteo.com/v1/forecast", [(x[1], x[2]) for x in g],
-                     "&hourly=precipitation,precipitation_probability,temperature_2m,wind_gusts_10m,relative_humidity_2m,apparent_temperature"
+                     "&hourly=precipitation,precipitation_probability,temperature_2m,wind_gusts_10m,relative_humidity_2m,apparent_temperature,soil_moisture_3_to_9cm,soil_moisture_9_to_27cm"
                      "&past_days=3&forecast_days=3&timezone=America%2FArgentina%2FCordoba")
         for (lid, _, _), d in zip(g, data):
             h = d["hourly"]; t = h["time"]
@@ -55,7 +67,9 @@ def pronostico():
                          "caida72": r1(sum(col("precipitation", slice(max(0, i0 - 72), i0)))),
                          # lluvia hora por hora, próximas 48 horas
                          "h48": {"t0": t[i0], "mm": [r1(v) for v in col("precipitation", s48)],
-                                 "pp": [round(v) for v in col("precipitation_probability", s48)]}}
+                                 "pp": [round(v) for v in col("precipitation_probability", s48)]},
+                         # humedad del suelo estimada por el modelo (m³/m³): ahora y hace 72 horas
+                         "suelo": humedad_suelo(h, i0)}
         time.sleep(3)
     try:
         modelos(locs, ahora)

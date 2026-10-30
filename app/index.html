@@ -1128,15 +1128,25 @@ function bloqueIntaNino(){const I=INTA_NINO,mx=I.oct,fmt=n=>n.toLocaleString("es
     h("div",{class:"barras"},bar("Septiembre",I.sep),bar("Octubre",I.oct)),
     h("div",{class:"meta"},"Superficie cubierta de agua en la planicie del Paraná del lado correntino, medida con satélites por el INTA Corrientes. Según el INTA, si El Niño se parece al de 1997-1998 (cuando el agua llegó a cubrir el 58 % de la provincia, contra cerca del 20 % de hoy), podrían anegarse más de 3,3 millones de hectáreas que hoy están secas. ",
       h("a",{href:I.u1,target:"_blank",rel:"noopener"},"Monitoreo ↗")," · ",h("a",{href:I.u2,target:"_blank",rel:"noopener"},"Escenario ↗")));}
+// Humedad del suelo estimada por el modelo de pronóstico (Open-Meteo), capa de 9 a 27 cm, en m³/m³
+function bloqueHumSuelo(id){const su=(S.pron[id]||{}).suelo;if(!su||su.s27==null)return null;
+  const pc=v=>Math.round(v*100),a=pc(su.s27),b=su.s27_72!=null?pc(su.s27_72):null,d=b==null?0:a-b;
+  const tend=b==null?"":d<=-2?"se está secando":d>=2?"se está mojando":"sin cambios";
+  const bar=(t,v)=>h("div",{class:"bar ancho"},h("span",null,t),h("span",null,h("i",{style:`width:${Math.min(100,Math.round(v/50*100))}%`})),h("span",{class:"num"},v+" %"));
+  return h("div",{class:"dato"},h("b",null,`Humedad del suelo hoy: ${a} %${tend?` · ${tend}`:""}`),
+    h("div",{class:"barras"},bar("Ahora",a),b!=null?bar("Hace 3 días",b):null),
+    h("div",{class:"meta"},"Porcentaje de agua en el suelo entre 10 y 30 cm de profundidad. Cuanto más alto, menos lluvia puede absorber y antes se anega. Es una estimación del modelo de pronóstico (Open-Meteo), no una medición; como depende del tipo de suelo, sirve más para ver si sube o baja en un mismo lugar que para comparar lugares."));}
 function renderSuelo(){
   const id=S.sel||S.mi,l=LOC[id],z=ZONAS[ZONALOC[id]],c=el("s-cuerpo");if(!c)return;c.replaceChildren();
   el("s-tit").textContent=z?`El suelo en ${l.n}`:"El suelo de tu zona";
-  if(!z){c.append(h("p",{class:"nota"},"Todavía no hay ficha de suelo para esta localidad."),bloqueIntaNino());const br=bloqueRecur(id);if(br)c.append(br);return;}
+  const hs=bloqueHumSuelo(id);
+  if(!z){c.append(h("p",{class:"nota"},"Todavía no hay ficha de suelo para esta localidad."));if(hs)c.append(hs);c.append(bloqueIntaNino());const br=bloqueRecur(id);if(br)c.append(br);return;}
   const esc=h("div",{class:"esc","aria-hidden":"true"},PROPEN.map((_,i)=>h("i",{class:i<=z.p?"on":""})));
   c.append(h("h4",null,z.n),
     h("div",{class:"propen"},h("b",null,`Propensión a anegarse: ${PROPEN[z.p].toLowerCase()}`),esc,h("div",{class:"lab"},h("span",null,"Baja"),h("span",null,"Muy alta"))));
   const p=S.pron[id],nv=nivel(p),lluvia=nv.motivos.find(m=>m.why==="lluvia");
   if(lluvia&&z.p>=2)c.append(h("div",{class:"vecino rio-c"},h("div",null,h("b",null,"Con la lluvia que viene, atención:"),` en esta zona el agua tarda en escurrir. ${z.agua.split(". ")[0]}.`)));
+  if(hs)c.append(hs);
   c.append(h("dl",null,h("div",null,h("dt",null,"Suelo y relieve"),h("dd",null,z.suelo)),h("div",null,h("dt",null,"Cuándo y dónde se anega"),h("dd",null,z.agua))));
   const ex=EXCESOS[id];
   if(ex){const bar=(t,v)=>h("div",{class:"bar"},h("span",null,t),h("span",null,h("i",{style:`width:${v}%`})),h("span",{class:"num"},v+" %"));
