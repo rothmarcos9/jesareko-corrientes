@@ -1,822 +1,113 @@
-=== https://catalogos.conae.gov.ar/catalogo/catalogoGeoServiciosOGC.html
-200 text/html 263217B
-<!doctype html>
-
-<html lang="es">
-
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="text/html; charset=utf-8" http-equiv="content-type">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <meta property="og:url" content="/catalogo/catalogo.html">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Catálogo de imágenes y productos">
-    <meta property="og:description" content="Catálogo de imágenes y productos de CONAE.">
-    <meta property="og:locale" content="es_AR">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Catálogo de imágenes y productos">
-    <meta name="twitter:description" content="Catálogo de imágenes y productos de CONAE.">
-
-    <title>Comisión Nacional de Actividades Espaciales - Catálogo de Imágenes y Productos</title>
-
-    <link href="https://catalogos.conae.gov.ar/poncho/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="https://catalogos.conae.gov.ar/poncho/css/roboto-fontface.css" rel="stylesheet">
-    <link href="https://catalogos.conae.gov.ar/poncho/css/poncho.css" rel="stylesheet">
-    <link href="https://catalogos.conae.gov.ar/poncho/css/icono-arg.css" rel="stylesheet">
-    <link href="https://catalogos.conae.gov.ar/poncho/css/font-awesome.min.css" rel="Stylesheet" />
-    <link rel="shortcut icon" href="https://catalogos.conae.gov.ar/poncho/favicon.ico" type="image/ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;300;500;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/567e844156.js" crossorigin="anonymous"></script>
-    <style>
-        .nav-pills li.active a {
-            font-size: 23px;
-            border-radius: 10px;
-            border: 2px solid #cacfcf;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .link-serv {
-            width: 50%;
-            box-sizing: border-box;
-            text-align: center;
-            margin: auto;
-            background-color: rgba(16, 133, 235, 0.116);
-        }
-    </style>
-</head>
-
-<body style="font-family: 'Encode Sans', sans-serif;">
-
-    <script language="javascript">
-        function verTerminos(pCheck) {
-            var linkwms = 'lic_' + pCheck.id;
-
-            if (pCheck.checked) {
-                document.getElementById(linkwms).style.display = 'inline';
-            } else {
-                document.getElementById(linkwms).style.display = 'none';
-            }
-        }
-    </script>
-
-    <header id="divEncabezado">
-    </header>
-
-    <main role="main">
-
-        <section class="jumbotron" style="background-image: url('img/imgGeoOGC.jpg');">
-            <div class="jumbotron_bar">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ol class="breadcrumb pull-left">
-                                <li><a href="https://www.argentina.gob.ar/">Inicio</a></li>
-                                <li><a href="https://www.argentina.gob.ar/ciencia">Ministerio de Ciencia, Tecnología e Innovación Productiva</a></li>
-                                <li><a href="https://www.conae.gov.ar">Comisión Nacional de Actividades Espaciales</a></li>
-                                <li><a href="catalogo.html">Portal de Información GEOEspacial</a></li>
-                                <li class="active">GEOServicios</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="jumbotron_body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
-                            <h1>GEOServicios</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="overlay"></div>
-        </section>
-        <div class="container">
-
-            <section>
-                <article class="content_format row">
-
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="row">
-                            <div class="col-md-12">
-
-                                <p>En esta sección se detallan los servicios de información geoespacial que CONAE publica según estándares de OGC (Open Geospatial Consortium – OGC) que se encuentran disponibles para su utilización.
-                                </p>
-                                <h3>Servicios WMS y WFS</h3>
-                                <p>El Servicio de Mapas Web (WMS por sus siglas en inglés) es un estándar que permite publicar información geográfica mediante mapas referenciados espacialmente. Estos mapas pueden tener su origen en datos vectoriales, imágenes
-                                    de satélites, ortofotos, etc. y pueden visualizarse en capas individuales o combinarse y superponerse, admitiendo transparencias. La forma de acceso es mediante una interfaz HTTP y los mapas son devueltos como archivos
-                                    de imagen (formato png, jpg, etc.). </p>
-                                <p>El Servicio de Vectores Web (WFS) permite acceder a información de un objeto geográfico (por ej. una ruta, una ciudad, una laguna), tanto a las coordenadas correspondientes como también a los atributos o propiedades asociados
-                                    a dicho objeto (por ej. nombre y población en el caso de una ciudad). Adicionalmente es posible mediante este servicio la modificación de 
-
-=== https://geoportal.conae.gov.ar/geoexplorer/composer/
-200 text/html 9904B
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">	
-	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-	<meta http-equiv="Pragma" content="no-cache" />
-    <title>CONAE</title>	
-	<style type="text/css">
-		html, body, div, iframe { margin:0; padding:0; height:100%; }
-		iframe { display:block; width:100%; border:none; }	
-
-		.btn-menu {
-			min-width:200px;
-		}
-		.dropdownitems {
-		  display: inline-block;
-		}
-
-		.dropdownitems-options {
-		  display: none;
-		  position: absolute;
-		  overflow: auto;
-		  background-color:#fff;
-		  border-radius:5px;
-		  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
-		  height: 200px
-		}
-
-		.dropdownitems:hover .dropdownitems-options {
-		  display: block;
-		}
-
-		.dropdownitems-options a {
-		  display: block;
-		  color: #000000;
-		  text-decoration: none;
-		  padding:5px 10px 5px 10px;
-		}
-
-		.dropdownitems-options a:hover {
-		  color: #0a0a23;
-		  background-color: #ddd;
-		  border-radius:5px;
-		}				
-
-		.dropdownitems {
-		  display: inline-block;
-		}
-
-		.dropdownitems:hover .dropdownitems-options {
-		  display: block;
-		}
-
-		.dropdownitems-options a {
-		  display: block;
-		  color: #000000;
-		  text-decoration: none;
-		  padding:5px 10px 5px 10px;
-		}
-
-		.dropdownitems-options a:hover {
-		  color: #0a0a23;
-		  background-color: #ddd;
-		  border-radius:5px;
-		}				
-		
-		.dropdownalerts {
-		  display: inline-block;
-		}
-
-		.dropdownalerts-options {
-		  display: none;
-		  position: absolute;
-		  overflow: auto;
-		  background-color:#fff;
-		  border-radius:5px;
-		  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
-		  height: 150px;
-		}
-
-		.dropdownalerts:hover .dropdownalerts-options {
-		  display: block;
-		}
-
-		.dropdownalerts-options span {
-		  display: block;
-		  color: #000000;
-		  text-decoration: none;
-		  padding:5px 10px 5px 10px;
-		  max-width:360px;
-		}					
-		
-		.navbar-main {margin-bottom:2px !important; }
-		.navbar-text-main {margin-top:10px !important; margin-bottom:10px !important; }
-		
-	</style>
-	
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" type='text/css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="shortcut icon" type="image/png" href=" https://catalogos5.conae.gov.ar/recursoscatalogos/imagenes/favIconConae.png" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.10/proj4.js"></script>	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/bowser@2.7.0/es5.js"></script>	
-    <link rel="stylesheet" href="dist/themes/default.css" />	
-	
-    <script type="text/javascript" src="https://unpkg.com/bowser@2.7.0/es5.js"></script>
-    <script type="text/javascript">	
-        var browserInfo = bowser.getParser(window.navigator.userAgent);
-        var isValidBrowser = browserInfo.satisfies({
-            "edge": ">1",
-            "chrome": ">1",
-            "safari": ">1",
-            "firefox": ">1"
-        });
-        if (!isValidBrowser) {
-            window.location.href = "unsupportedBrowser.html"
-            document.querySelector("container").style.display = "none";
-        }		
-		var mapaAct;		
-		var hashAct; 
-    </script>
-</head>
-    <body class=" ms2" data-ms2-container="ms2" style="background-color: #ffffff;" onload="actualizarEnc()">			
-		<script>
-			switch (mapaAct) {
-			  case 'geoportal':
-				break;
-//			  default:
-//				window.location.href="/mapstore/#/viewer/openlayers/geoportal";
-//				location.reload();
-			}
-		</script>	
-
-		<script type="text/javascript">
-			var origen = window.location.origin;
-			var url    = window.location.href;
-			var replace = url.replace(origin, "");
-			if (replace == "/mapstore/#/" || replace == "/mapstore/" || replace == "/mapstore/#/viewer/") {
-				window.location.replace(origen + "/mapstore/#/viewer/openlayers/geoportal");
-			}
-			
-			function registrarVisita(log) {
-			  var xhttp = new XMLHttpRequest();
-			  xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-				}
-			  };
-			  xhttp.open("GET", "https://catalogos5.conae.gov.ar/catalogoFocos/registrarVisita.aspx?origen=" + log, true);
-			  xhttp.send();
-			}
-			
-			function actualizarEnc() {
-				hashAct = window.location.hash;
-				var n = hashAct.lastIndexOf("/");		
-				mapaAct = hashAct.substring(n + 1).toLowerCase();				
-				if (mapaAct == "geoportal-2021") {mapaAct='geoportal'}		
-				var logAct = "visor_general";
-				var titAct = "GEOPortal";
-				switch (mapaAct) {
-				  case 'geoportal':
-				  case 'geoportalordenado2':
-					titAct = "GEOVisor general";
-					break;
-				  case 'geoportal_focoscalor':
-					document.location ='https://geoportal.conae.gov.ar/mapstore/visor-incendios.html#/viewer/incendios';
-				  case 'geoportal_cultivosvegetacion':
-					titAct = "Visor Temático: Cultivos - Vegetación";
-					logAct = "visor_cultivos";
-					break;					
-				  case 'geoportal_humedadsuelo':
-					titAct = "Visor Temático: Humedad de Suelo";
-					logAct = "visor_humedad_suelos";					
-					break;					
-				  case 'geoportal_calidadaire':
-					titAct = "Visor Temático: Calidad del Aire";
-					logAct = "visor_calidad_aire";					
-					break;					
-				  case 'activaciones_emergencias':
-					titAct = "Visor de Activaciones de Emergencias";
-					logAct = "visor_emergencias";
-					break;					
-				  case 'aplicaciones_marinas':
-					titAct = "Productos de aplicaciones mar
-
-=== https://geoservicios.conae.gov.ar/geoserver/ows?service=WMS&request=GetCapabilities
-ERR URLError(TimeoutError('timed out'))
-
-=== https://geoportal.conae.gov.ar/geoserver/ows?service=WMS&request=GetCapabilities
-200 text/xml 120799B
-<?xml version="1.0" encoding="UTF-8"?><WMS_Capabilities version="1.3.0" updateSequence="175061" xmlns="http://www.opengis.net/wms" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wms https://geoportal.conae.gov.ar/geoserver/schemas/wms/1.3.0/capabilities_1_3_0.xsd">
-  <Service>
-    <Name>WMS</Name>
-    <Title>Geoservicios WMS CONAE</Title>
-    <Abstract>Servicios WMS de CONAE</Abstract>
-    <KeywordList>
-      <Keyword>WFS</Keyword>
-      <Keyword>WMS</Keyword>
-      <Keyword>GEOSERVER</Keyword>
-    </KeywordList>
-    <OnlineResource xlink:type="simple" xlink:href="http://geoportal.conae.gov.ar/geoserver/wms"/>
-    <ContactInformation>
-      <ContactPersonPrimary>
-        <ContactPerson>Unidad de Base de Datos y Comunicaciones</ContactPerson>
-        <ContactOrganization>CONAE</ContactOrganization>
-      </ContactPersonPrimary>
-      <ContactPosition>Gerencia de Gestión Tecnológica</ContactPosition>
-      <ContactAddress>
-        <AddressType>Sede Central</AddressType>
-        <Address>Paseo Colon 751</Address>
-        <City>Ciudad Autónoma de Buenos Aires</City>
-        <StateOrProvince>Ciudad Autónoma de Buenos Aires</StateOrProvince>
-        <PostCode>1063</PostCode>
-        <Country>Argentina</Country>
-      </ContactAddress>
-      <ContactVoiceTelephone>+54 11 43310074</ContactVoiceTelephone>
-      <ContactFacsimileTelephone/>
-      <ContactElectronicMailAddress>si@conae.gov.ar</ContactElectronicMailAddress>
-    </ContactInformation>
-    <Fees>NONE</Fees>
-    <AccessConstraints>NONE</AccessConstraints>
-  </Service>
-  <Capability>
-    <Request>
-      <GetCapabilities>
-        <Format>text/xml</Format>
-        <DCPType>
-          <HTTP>
-            <Get>
-              <OnlineResource xlink:type="simple" xlink:href="https://geoportal.conae.gov.ar/geoserver/ows?SERVICE=WMS&amp;"/>
-            </Get>
-            <Post>
-              <OnlineResource xlink:type="simple" xlink:href="https://geoportal.conae.gov.ar/geoserver/ows?SERVICE=WMS&amp;"/>
-            </Post>
-          </HTTP>
-        </DCPType>
-      </GetCapabilities>
-      <GetMap>
-        <Format>image/png</Format>
-        <Format>application/atom+xml</Format>
-        <Format>application/json;type=utfgrid</Format>
-        <Format>application/pdf</Format>
-        <Format>application/rss+xml</Format>
-        <Format>application/vnd.google-earth.kml+xml</Format>
-        <Format>application/vnd.google-earth.kml+xml;mode=networklink</Format>
-        <Format>application/vnd.google-earth.kmz</Format>
-        <Format>image/geotiff</Format>
-        <Format>image/geotiff8</Format>
-        <Format>image/gif</Format>
-        <Format>image/jpeg</Format>
-        <Format>image/png; mode=8bit</Format>
-        <Format>image/svg+xml</Format>
-        <Format>image/tiff</Format>
-        <Format>image/tiff8</Format>
-        <Format>image/vnd.jpeg-png</Format>
-        <Format>image/vnd.jpeg-png8</Format>
-        <Format>text/html; subtype=openlayers</Format>
-        <Format>text/html; subtype=openlayers2</Format>
-        <Format>text/html; subtype=openlayers3</Format>
-        <DCPType>
-          <HTTP>
-            <Get>
-              <OnlineResource xlink:type="simple" xlink:href="https://geoportal.conae.gov.ar/geoserver/ows?SERVICE=WMS&amp;"/>
-            </Get>
-          </HTTP>
-        </DCPType>
-      </GetMap>
-      <GetFeatureInfo>
-        <Format>text/plain</Format>
-        <Format>application/vnd.ogc.gml</Format>
-        <Format>text/xml</Format>
-        <Format>application/vnd.ogc.gml/3.1.1</Format>
-        <Format>text/xml; subtype=gml/3.1.1</Format>
-        <Format>text/html</Format>
-        <Format>application/json</Format>
-        <DCPType>
-          <HTTP>
-            <Get>
-              <OnlineResource xlink:type="simple" xlink:href="https://geoportal.conae.gov.ar/geoserver/ows?SERVICE=WMS&amp;"/>
-            </Get>
-          </HTTP>
-        </DCPType>
-      </GetFeatureInfo>
-    </Request>
-    <Exception>
-      <Format>XML</Format>
-      <Format>INIMAGE</Format>
-      <Format>BLANK</Format>
-      <Format>JSON</Format>
-    </Exception>
-    <Layer>
-      <Title>Geoservicios WMS CONAE</Title>
-      <Abstract>Servicios WMS de CONAE</Abstract>
-      <!--Limited list of EPSG projections:-->
-      <CRS>EPSG:4326</CRS>
-      <CRS>EPSG:3857</CRS>
-      <CRS>EPSG:900913</CRS>
-      <CRS>CRS:84</CRS>
-      <EX_GeographicBoundingBox>
-        <westBoundLongitude>-77.00094774125571</westBoundLongitude>
-        <eastBoundLongitude>-25.26521363755534</eastBoundLongitude>
-        <southBoundLatitude>-77.23402545760341</southBoundLatitude>
-        <northBoundLatitude>-21.254323230816944</northBoundLatitude>
-      </EX_GeographicBoundingBox>
-      <BoundingBox CRS="CRS:84" minx="-77.00094774125571" miny="-77.23402545760341" maxx="-25.26521363755534" maxy="-21.254323230816944"/>
-      <Layer queryable="1">
-        <Name>saocom_mosaicos:TierraDelFuego_Antartida_2022_2</Name>
-        <Title>Tierra del Fuego - Antártida - 2022</Title>
-        <Abstract>MOSAICO SAOCOM Tierra del Fuego - Antártida - 2022</Abstract>
-        <KeywordList/>
-        <CRS>EPSG:3857</CRS>
-        <EX_GeographicBoundingBox>
-          <westBoundLongitude>-74.00011904753302</westBoundLongitude>
-          <eastBoundLongitude>-54.58648750146434</eastBoundLongitude>
-          <southBoundLatitude>-76.76610115868667</southBoundLatitude>
-          <northBoundLatitude>-62.96738570347658</northBoundLatitude>
-        </EX_GeographicBoundingBox>
-        <BoundingBox CRS="CRS:84" minx="-74.00011904753302" miny="-76.76610115868667" maxx="-54.58648750146434" maxy="-62.96738570347658"/>
-        <BoundingBox CRS="EPSG:3857" minx="-8237655.571013" miny="-1.3739354334943457E7" maxx="-6076539.992856402" maxy="-9092258.271564"/>
-        <Style>
-          <Name>default-style-saocom
-
-=== https://catalogos2.conae.gov.ar/humedad_suelos/
-200 text/html; charset=utf-8 829059B
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head><title>
-	Catálogo: HUMEDAD DE SUELOS SMOS
-</title><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta content="charset=utf-8" />    <!-- Bootstrap -->        
-    <meta name="viewport" content="width=device-width, initial-scale=1" />        
-	<script src="/recursosCatalogos/bootstrap/js/jquery-1.12.4.min.js"></script>	    
-    <link href="/recursosCatalogos/bootstrap/css/bootstrap.min.css" rel="stylesheet" />       
-    <script src="/recursosCatalogos/bootstrap/js/bootstrap.min.js"></script>               
-    <meta name="apple-mobile-web-app-capable" content="yes" /></head>
-<body>
-	<div class="bg-info hidden-lg hidden-md hidden-sm">
-	<b>CONAE</b> - Comisión Nacional de Actividades Espaciales
-</div>
-<div style="padding:1px 0px 3px 0px">
-	<div id="recuadroHeader" class="media">
-		<div class="media-left hidden-xs" style="padding:1px">
-			<img id="imgConae" style="background-color:#ffffff" src="/recursosCatalogos/imagenes/conaeLogoTransp.png" alt="CONAE" title="Comisión Nacional de Actividades Espaciales"/>
-		</div>
-		<div class="media-body" align="center">
-			<br />
-			<h3 id="encTitGde" class="media-heading"></h3>
-			<h4 id="encSubTitGde"></h4>
-		</div>
-		<div class="media-right hidden-xs">
-			<img id="imgCatActual" src="/recursosCatalogos/imagenes/empty.gif" />
-		</div>		
-	</div>
-</div>
-				  
-    <div align="right" id="divReg">                
-                    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-            <form class="form-signin" id="loginform" action="https://registracionapi.conae.gov.ar/logueo/" method="POST" style="border-color: #101010; margin-left: 0; padding: 0; width: auto;">
-				<div style="display: inline-block; margin-bottom: 0; vertical-align: middle;">
-						<h4 class="form-signin-heading">Ingreso</h4>
-				</div>
-								<div style="display: inline-block; margin-bottom: 0;">
-						<input name="username" placeholder="Usuario de Email" style="display: inline-block; vertical-align: middle; width: auto; background-color: #fff; border-radius: 4px; color: #555; font-size: 14px; padding: 6px 12px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;" required="true" maxlength="128" type="text">
-						<div class="alert alert-error hiddenElement" id="usernameMsg"></div>
-				</div>
-								<div style="display: inline-block; margin-bottom: 0;">
-						<input name="password" type="password" style="display: inline-block; vertical-align: middle; width: auto; background-color: #fff; border-radius: 4px; color: #555; font-size: 14px; padding: 6px 12px; transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;" maxlength="128" placeholder="contraseña">
-						<div class="alert alert-error hiddenElement" id="passwordMsg"></div>
-				</div>
-				<input type="submit" value="Ingresar" style="background-color: #5cb85c; border-color: #4cae4c; color: #fff; -moz-user-select: none; background-image: none; border: 1px solid transparent; border-radius: 4px; cursor: pointer; display: inline-block; font-size: 14px; font-weight: 400; line-height: 1.42857; margin-bottom: 0; padding: 6px 12px; text-align: center; vertical-align: middle; white-space: nowrap;" />
-				<div style="display: inline-block; margin-bottom: 0; vertical-align: middle; text-align: left;">
-						<a href="https://registro.conae.gov.ar/registracion/view/"> Regístrese</a><br />
-						<a href="https://registro.conae.gov.ar/resetpassword/forgot/"> ¿Olvidó su contraseña?</a>
-				</div>
-				<input class="form-control" id="userId" type="hidden" name="userId">
-				<input class="form-control" id="url_login" type="hidden" name="url_login">
-            </form>
-            <script>
-                var userId = "stsun3eg5zjc3oxbatry1hl5";
-                $(document).ready(function () {
-                    $("#loginform").submit(function() {
-                        $("#userId").val(userId);
-						$("#url_login").val($(location).attr('href'));
-                    });
-                });
-            </script>
-
-    </div>
-
-    <script language="javascript">
-        document.getElementById("encTitGde").innerHTML = "Humedad de Suelos SMOS";
-        document.getElementById("encSubTitGde").innerHTML = "Catálogo de Productos";
-        document.getElementById("recuadroHeader").setAttribute("class", "media bg-primary");
-        document.getElementById("imgCatActual").setAttribute("src", "imagenes/humedad.jpg");
-        document.getElementById("imgCatActual").setAttribute("height", "85px");               	        
-    </script>
-	
-<form method="post" action="./default.aspx?satelite=SMOS" id="form1" class="form-horizontal">
-<div class="aspNetHidden">
-<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
-<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTY1MzAxNjczMQ9kFgICAQ9kFgQCAw8QZBAV4SwcMDEtT2N0LTIwMjYgIGFsICAwMy1PY3QtMjAyNhwyOC1TZXAtMjAyNiAgYWwgIDMwLVNlcC0yMDI2HDI3LVNlcC0yMDI2ICBhbCAgMjktU2VwLTIwMjYcMjYtU2VwLTIwMjYgIGFsICAyOC1TZXAtMjAyNhwyNS1TZXAtMjAyNiAgYWwgIDI3LVNlcC0yMDI2HDI0LVNlcC0yMDI2ICBhbCAgMjYtU2VwLTIwMjYcMjMtU2VwLTIwMjYgIGFsICAyNS1TZXAtMjAyNhwyMi1TZXAtMjAyNiAgYWwgIDI0LVNlcC0yMDI2HDIxLVNlcC0yMDI2ICBhbCAgMjMtU2VwLTIwMjYcMjAtU2VwLTIwMjYgIGFsICAyMi1TZXAtMjAyNhwxOS1TZXAtMjAyNiAgYWwgIDIxLVNlcC0yMDI2HDE4LVNlcC0yMDI2ICBhbCAgMjAtU2VwLTIwMjYcMTctU2VwLTIwMjYgIGFsICAxOS1TZXAtMjAyNhwxNi1TZXAtMjAyNiAgYWwgIDE4LVNlcC0yMDI2HDE1LVNlcC0yMDI2ICBhbCAgMTctU2VwLTIwMjYcMTQtU2VwLTIwMjYgIGFsICAxNi1TZXAtMjAyNhwxMy1TZXAtMjAyNiAgYWwgIDE1LVNlcC0yMDI2HDEyLVNlcC0yMDI2ICBhbCAgMTQtU2VwLTIwMjYcMTEtU2VwLTIwMjYgIGFsICAxMy1TZXAtMjAyNhwxMC1TZXAtMjAyNiAgYWwgIDEyLVNlcC0yMDI2HDA5LVNlcC0yMDI2ICBhbCAgMTEtU2VwLTIwMjYcMDgtU2VwLTIwMjYgIGFsICAxMC1TZXAt
-
-=== https://geocatalogos.conae.gov.ar/geonetwork/srv/spa/q?any=humedad&_content_type=json&fast=index&sortBy=changeDate&to=30
-200 application/json;charset=UTF-8 136822B
-{
-  "@from": "1",
-  "@to": "30",
-  "@selected": "0",
-  "summary":   {
-    "@count": "28222",
-    "@type": "local",
-    "types":     [
-            {
-        "@count": "28219",
-        "@name": "dataset",
-        "@label": "Conjunto de datos"
-      },
-            {
-        "@count": "3",
-        "@name": "product",
-        "@label": "product"
-      }
-    ],
-    "topicCats":     [
-            {
-        "@count": "14648",
-        "@name": "environment",
-        "@label": "Medio ambiente"
-      },
-            {
-        "@count": "8812",
-        "@name": "climatologyMeteorologyAtmosphere",
-        "@label": "Atmósfera, meteorología, climatología"
-      },
-            {
-        "@count": "8376",
-        "@name": "farming",
-        "@label": "Agricultura"
-      },
-            {
-        "@count": "5761",
-        "@name": "geoscientificInformation",
-        "@label": "Información geocientífica"
-      },
-            {
-        "@count": "5260",
-        "@name": "imageryBaseMapsEarthCover",
-        "@label": "Cobertura de la tierra con mapas básicos e imágenes"
-      },
-            {
-        "@count": "13",
-        "@name": "health",
-        "@label": "Salud"
-      },
-            {
-        "@count": "13",
-        "@name": "biota",
-        "@label": "Biota"
-      }
-    ],
-    "inspireThemes": [],
-    "inspireThemesWithAc": [],
-    "inspireThemesURI": [],
-    "keywords":     [
-            {
-        "@count": "16518",
-        "@name": "SAR",
-        "@label": "SAR"
-      },
-            {
-        "@count": "9594",
-        "@name": "SAOCOM",
-        "@label": "SAOCOM"
-      },
-            {
-        "@count": "8836",
-        "@name": "América del Sur",
-        "@label": "América del Sur"
-      },
-            {
-        "@count": "7801",
-        "@name": "IRV",
-        "@label": "IRV"
-      },
-            {
-        "@count": "7801",
-        "@name": "Índice de vegetación",
-        "@label": "Índice de vegetación"
-      },
-            {
-        "@count": "7801",
-        "@name": "Estrés hídrico",
-        "@label": "Estrés hídrico"
-      },
-            {
-        "@count": "7195",
-        "@name": "Modelos de estimación",
-        "@label": "Modelos de estimación"
-      },
-            {
-        "@count": "6620",
-        "@name": "Región pampaeana",
-        "@label": "Región pampaeana"
-      },
-            {
-        "@count": "5760",
-        "@name": "GPM",
-        "@label": "GPM"
-      },
-            {
-        "@count": "5260",
-        "@name": "Imágenes satelitales",
-        "@label": "Imágenes satelitales"
-      },
-            {
-        "@count": "5257",
-        "@name": "Humedad de suelos",
-        "@label": "Humedad de suelos"
-      },
-            {
-        "@count": "4413",
-        "@name": "Rango de percentiles de humedad de suelo",
-        "@label": "Rango de percentiles de humedad de suelo"
-      },
-            {
-        "@count": "4399",
-        "@name": "Perfil Integrado de humedad de suelo",
-        "@label": "Perfil Integrado de humedad de suelo"
-      },
-            {
-        "@count": "3988",
-        "@name": "SAO1A",
-        "@label": "SAO1A"
-      },
-            {
-        "@count": "3795",
-        "@name": "SMOS",
-        "@label": "SMOS"
-      }
-    ],
-    "orgNames":     [
-            {
-        "@count": "28222",
-        "@name": "CONAE - Atención al Usuario",
-        "@label": "CONAE - Atención al Usuario"
-      },
-            {
-        "@count": "24286",
-        "@name": "CONAE - Subgerencia de Informática, Servicios de Datos y Telecomunicaciones",
-        "@label": "CONAE - Subgerencia de Informática, Servicios de Datos y Telecomunicaciones"
-      },
-            {
-        "@count": "19609",
-        "@name": "CONAE - Gerencia de Gestión Tecnológica",
-        "@label": "CONAE - Gerencia de Gestión Tecnológica"
-      },
-            {
-        "@count": "12159",
-        "@name": "CONAE - Subgerencia de Aplicaciones y Productos",
-        "@label": "CONAE - Subgerencia de Aplicaciones y Productos"
-      },
-            {
-        "@count": "8932",
-        "@name": "CONAE - Unidad de Aplicaciones, Subgerencia de Aplicaciones y Productos",
-        "@label": "CONAE - Unidad de Aplicaciones, Subgerencia de Aplicaciones y Productos"
-      },
-            {
-        "@count": "3933",
-        "@name": "Subgerencia de Informática, Servicios de Datos y Telecomunicaciones",
-        "@label": "Subgerencia de Informática, Servicios de Datos y Telecomunicaciones"
-      },
-            {
-        "@count": "2630",
-        "@name": "Gerencia de Gestión Tecnológica",
-        "@label": "Gerencia de Gestión Tecnológica"
-      },
-            {
-        "@count": "1439",
-        "@name": "Subgerencia de Aplicaciones y Productos",
-        "@label": "Subgerencia de Aplicaciones y Productos"
-      },
-            {
-        "@count": "421",
-        "@name": "Unidad de Aplicaciones, Subgerencia de Aplicaciones y Productos",
-        "@label": "Unidad de Aplicaciones, Subgerencia de Aplicaciones y Productos"
-      },
-            {
-        "@count": "13",
-        "@name": "Fundación Mundo Sano",
-        "@label": "Fundación Mundo Sano"
-      },
-            {
-        "@count": "3",
-        "@name": "CONAE - Unidad de Sistemas de Información",
-        "@label": "CONAE - Unidad de Sistemas de Información"
-      },
-            {
-        "@count": "3",
-        "@name": "CONAE - CUSS",
-        "@label": "CONAE - CUSS"
-      }
-    ],
-    "createDateYears":     [
-            {
-        "@count": "2135",
-        "@name": "2026",
-        "@label": "2026"
-      },
-            {
-        "@count": "3138",
-        "@name": "2025",
-        "@label": "2025"
-      },
-            {
-        "@count": "6722",
-        "@name": "2024",
-        "@label": "2024"
-      },
-            {
-        "@count": "5864",
-        "@name": "2023",
-        "@label": "2023"
-      },
-            {
-        "@count": "4046",
-        "@name": "2022",
-        "@label": "2022"
-      },
-            {
-        "@count": "3595",
-        "@nam
-
-=== https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSM_20261030_v001.zip
-200 text/html; charset=UTF-8 11098B
-<!doctype html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title>Comisión Nacional de Actividades Espaciales - GEODescargas</title>
-
-=== https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSM_20261029_v001.zip
-200 text/html; charset=UTF-8 11098B
-<!doctype html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title>Comisión Nacional de Actividades Espaciales - GEODescargas</title>
-
-=== https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSM_20261028_v001.zip
-200 text/html; charset=UTF-8 11098B
-<!doctype html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title>Comisión Nacional de Actividades Espaciales - GEODescargas</title>
-
-=== https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSM_20261027_v001.zip
-200 text/html; charset=UTF-8 11098B
-<!doctype html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title>Comisión Nacional de Actividades Espaciales - GEODescargas</title>
-
-=== https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSM_20261026_v001.zip
-200 text/html; charset=UTF-8 11098B
-<!doctype html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title>Comisión Nacional de Actividades Espaciales - GEODescargas</title>
-
-=== https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSM_20261025_v001.zip
-200 text/html; charset=UTF-8 11098B
-<!doctype html>
-<html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title>Comisión Nacional de Actividades Espaciales - GEODescargas</title>
+saocom_mosaicos:TierraDelFuego_Antartida_2022_2 | Tierra del Fuego - Antártida - 2022 | ['-74.00011904753302', '-54.58648750146434', '-76.76610115868667', '-62.96738570347658'] | []
+saocom_mosaicos:TierraDelFuego_Antartida_2022_adquisiciones | Tierra del Fuego - Antártida - 2022 - adquisiciones | ['-77.00094774125571', '-53.862596652781335', '-77.23402545760341', '-62.164464656580336'] | []
+saocom_mosaicos:BuenosAires_2022 | Buenos Aires - 2022 | ['-63.38611221507997', '-56.66482308653621', '-41.037904629790056', '-33.261745091846045'] | []
+saocom_mosaicos:BuenosAires_2022_adquisiciones | Buenos Aires - 2022 - adquisiciones | ['-64.11470559783659', '-56.313571481826685', '-41.34375301964859', '-32.76999070885733'] | []
+saocom_mosaicos:Catamarca_2022 | Catamarca – 2022 | ['-69.09529247937203', '-64.78083272075756', '-30.119647823951123', '-25.168161066266265'] | []
+saocom_mosaicos:Catamarca_2022_adquisiciones | Catamarca - 2022 - adquisiciones | ['-69.43220530482925', '-64.16397952675543', '-30.933747758748073', '-24.580597142615314'] | []
+saocom_mosaicos:Chaco_2022 | Chaco - 2022 | ['-63.422425597886466', '-58.3781239308693', '-28.06691877027229', '-24.078563053650214'] | []
+saocom_mosaicos:Chaco_2022_adquisiciones | Chaco - 2022 - adquisiciones | ['-63.956291226573576', '-57.847426741529254', '-28.686016073920953', '-23.624092274861017'] | []
+saocom_mosaicos:Chubut_2022 | Chubut - 2022 | ['-72.18843145143609', '-63.58269553544119', '-46.00019202539287', '-41.999955998087735'] | []
+saocom_mosaicos:Chubut_2022_adquisiciones | Chubut - 2022 - adquisiciones | ['-72.81877867712653', '-63.13741323490051', '-46.84251259145495', '-41.448051536820635'] | []
+saocom_mosaicos:CiudadAutonomaDeBuenosAires_2022 | Ciudad Autónoma de Buenos Aires - 2022 | ['-58.5315555973214', '-58.335007432772564', '-34.70555674015776', '-34.52635467909255'] | []
+saocom_mosaicos:CiudadAutonomaDeBuenosAires_2022_adquisiciones | Ciudad Autónoma de Buenos Aires - 2022 - adquisiciones | ['-58.70767520835196', '-57.85708055784325', '-34.980211494326966', '-34.046316659039036'] | []
+saocom_mosaicos:Cordoba_2022 | Córdoba - 2022 | ['-65.77156349222545', '-61.771524451879756', '-35.015467263563636', '-29.49854222645947'] | []
+saocom_mosaicos:Cordoba_2022_adquisiciones | Córdoba - 2022 - adquisiciones | ['-66.41101292981313', '-61.30097031224112', '-35.67341230791907', '-28.797716581111747'] | []
+saocom_mosaicos:Corrientes_2022 | Corrientes - 2022 | ['-59.712156009589386', '-55.62023079078056', '-30.73022841099594', '-27.25379055046876'] | []
+saocom_mosaicos:Corrientes_2022_adquisiciones | Corrientes - 2022 - adquisiciones | ['-60.226221339783436', '-55.22699676478206', '-31.42658698108246', '-26.587741467180976'] | []
+saocom_mosaicos:EntreRios_2022 | Entre Ríos - 2022 | ['-60.77625689970194', '-57.79729533688103', '-34.039852490388604', '-30.15882865045603'] | []
+saocom_mosaicos:EntreRios_2022_adquisiciones | Entre Ríos - 2022 - adquisiciones | ['-61.185818840099344', '-57.36569119544403', '-34.47622593543001', '-29.39108192152832'] | []
+saocom_mosaicos:Formosa_2022 | Formosa - 2022 | ['-62.342436787577746', '-57.55933293191382', '-26.880018599305103', '-22.460824746562164'] | []
+saocom_mosaicos:Formosa_2022_adquisiciones | Formosa - 2022 - adquisiciones | ['-62.92089599638889', '-57.20150887312823', '-27.420250228293575', '-21.73965223851128'] | []
+saocom_mosaicos:Jujuy_2022 | Jujuy - 2022 | ['-67.21319622677528', '-64.1506643794643', '-24.61340549262461', '-21.78079780228795'] | []
+saocom_mosaicos:Jujuy_2022_adquisiciones | Jujuy - 2022 - adquisiciones | ['-67.7569264977567', '-63.617221127859054', '-25.208723553541873', '-21.254323230816944'] | []
+saocom_mosaicos:LaPampa_2022 | La Pampa - 2022 | ['-68.29677722311675', '-63.38295311715352', '-39.330534493105255', '-35.00211318178335'] | []
+saocom_mosaicos:LaPampa_2022_adquisiciones | La Pampa - 2022 - adquisiciones | ['-69.00177996211326', '-62.64204500747326', '-40.11561298585777', '-34.06798230401157'] | []
+saocom_mosaicos:LaRioja_2022 | La Rioja - 2022 | ['-69.63500761495933', '-65.42275895286343', '-31.998549145574376', '-27.707053500088644'] | []
+saocom_mosaicos:LaRioja_2022_adquisiciones | La Rioja - 2022 - adquisiciones | ['-69.83051111055926', '-64.78165885888106', '-32.658287712420616', '-27.16669712609209'] | []
+saocom_mosaicos:Mendoza_2022 | Mendoza - 2022 | ['-70.58379687924135', '-66.47797712749457', '-37.57538241522474', '-31.99922579158137'] | []
+saocom_mosaicos:Mendoza_2022_adquisiciones | Mendoza - 2022 - adquisiciones | ['-71.11483907797421', '-66.03507066862461', '-37.94943345592769', '-31.623770533279124'] | []
+saocom_mosaicos:Misiones_2022 | Misiones - 2022 | ['-56.05868513114035', '-53.637410960580745', '-28.16433487647285', '-25.494166822575256'] | []
+saocom_mosaicos:Misiones_2022_adquisiciones | Misiones - 2022 - adquisiciones | ['-56.34786748670298', '-53.26853048372532', '-28.5047862593016', '-25.22767486984174'] | []
+saocom_mosaicos:Neuquen_2022 | Neuquén - 2022 | ['-71.9657540067644', '-67.99816843730818', '-41.100730705965226', '-36.10989930736214'] | []
+saocom_mosaicos:Neuquen_2022_adquisiciones | Neuquén - 2022 - adquisiciones | ['-72.49575293727892', '-67.58476709588392', '-41.56735839943', '-35.391096560553144'] | []
+saocom_mosaicos:RioNegro_2022 | Río Negro - 2022 | ['-71.9121486778999', '-62.789483623480805', '-42.00017000558927', '-37.571808268408766'] | []
+saocom_mosaicos:RioNegro_2022_adquisiciones | Río Negro - 2022 - adquisiciones | ['-72.36803485768893', '-62.444614111241975', '-42.76933050761934', '-37.01561177071308'] | []
+saocom_mosaicos:Salta_2022 | Salta - 2022 | ['-68.56880507790845', '-62.34133673856698', '-26.4169339489424', '-21.998683938648313'] | []
+saocom_mosaicos:Salta_2022_adquisiciones | Salta - 2022 - adquisiciones | ['-69.15026383292056', '-61.7359747561579', '-26.774286807533656', '-21.645245305014505'] | []
+saocom_mosaicos:SanJuan_2022 | San Juan - 2022 | ['-70.5693954166711', '-66.66178238827156', '-32.62637425962404', '-28.38869234009644'] | []
+saocom_mosaicos:SanJuan_2022_adquisiciones | San Juan - 2022 - adquisiciones | ['-70.99480298080387', '-66.39925208326727', '-33.25416081301366', '-27.664991227090763'] | []
+saocom_mosaicos:SanLuis_2022 | San Luis - 2022 | ['-67.38381185702706', '-64.88253558937011', '-36.00119658347588', '-31.83371347740205'] | []
+saocom_mosaicos:SanLuis_2022_adquisiciones | San Luis - 2022 - adquisiciones | ['-68.00975972116963', '-64.32521633497478', '-36.87852802156127', '-31.042821877236754'] | []
+saocom_mosaicos:SantaCruz_2022 | Santa Cruz - 2022 | ['-73.56670074681874', '-65.71048084720523', '-52.397790852621206', '-45.999819121061186'] | []
+saocom_mosaicos:SantaCruz_2022_adquisiciones | Santa Cruz - 2022 - adquisiciones | ['-74.64874207084281', '-65.0978348073883', '-52.907584369201146', '-45.15733099082401'] | []
+saocom_mosaicos:SantaFe_2022 | Santa Fe - 2022 | ['-62.88394900516366', '-58.88074959228644', '-34.38665563575365', '-27.9975394580213'] | []
+saocom_mosaicos:SantaFe_2022_adquisiciones | Santa Fe - 2022 - adquisiciones | ['-63.43584704817219', '-58.479430558459995', '-35.10935193278948', '-27.502270009081002'] | []
+saocom_mosaicos:SantiagoDelEstero_2022 | Santiago del Estero - 2022 | ['-65.18844509785959', '-61.71168227981352', '-30.48058573787623', '-25.649003625101976'] | []
+saocom_mosaicos:SantiagoDelEstero_2022_adquisiciones | Santiago del Estero - 2022 - adquisiciones | ['-65.94866031565974', '-61.03926977471755', '-30.92765028809253', '-24.68415888123686'] | []
+saocom_mosaicos:TierraDelFuego_Antartida1_2022 | Tierra del Fuego - Antártida 1 - 2022 | ['-74.00005368824195', '-68.12288432526077', '-72.68132425912205', '-68.74832779651244'] | []
+saocom_mosaicos:TierraDelFuego_Antartida1_2022_adquisiciones | Tierra del Fuego - Antártida 1 - 2022 - adquisiciones | ['-75.4748358344669', '-66.30363604656705', '-73.51223090244451', '-68.33095694691416'] | []
+saocom_mosaicos:TierraDelFuego_Antartida2a_2022 | Tierra del Fuego - Antártida 2a - 2022 | ['-69.20129186405224', '-54.58648750146434', '-68.70380543167738', '-62.96738570347658'] | []
+saocom_mosaicos:TierraDelFuego_Antartida2a_2022_adquisiciones | Tierra del Fuego - Antártida 2a - 2022 - adquisiciones | ['-70.52959423933366', '-53.90460297859637', '-69.13302918150066', '-62.172557408074745'] | []
+saocom_mosaicos:TierraDelFuego_Antartida2b_2022 | Tierra del Fuego - Antártida 2b - 2022 | ['-68.84177627456467', '-59.66978238350643', '-72.9267694177291', '-68.41053514814038'] | []
+saocom_mosaicos:TierraDelFuego_Antartida2b_2022_adquisiciones | Tierra del Fuego - Antártida 2b - 2022 - adquisiciones | ['-70.88043196591371', '-58.86652608207545', '-73.47512687814948', '-67.47616938479416'] | []
+saocom_mosaicos:TierraDelFuego_Antartida3a_2022 | Tierra del Fuego - Antártida 3a - 2022 | ['-74.00004386306226', '-59.899768762478125', '-74.72964638733842', '-72.86899673490764'] | []
+saocom_mosaicos:TierraDelFuego_Antartida3a_2022_adquisiciones | Tierra del Fuego - Antártida 3a - 2022 - adquisiciones | ['-76.93783648749326', '-58.414886861883666', '-75.34158660615645', '-72.1000969450454'] | []
+saocom_mosaicos:TierraDelFuego_Antartida3b_2022 | Tierra del Fuego - Antártida 3b - 2022 | ['-74.00011904753302', '-61.79014239724603', '-76.76610115868667', '-74.71209130492569'] | []
+saocom_mosaicos:TierraDelFuego_Antartida3b_2022_adquisiciones | Tierra del Fuego - Antártida 3b - 2022 - adquisiciones | ['-76.47469090394432', '-60.94921755617399', '-77.23402545760341', '-74.5743945411958'] | []
+saocom_mosaicos:TierraDelFuego_IslasGeorgiasDelSur_2022 | Tierra del Fuego - Islas Georgias del Sur - 2022 | ['-39.14554661389369', '-34.875522002955734', '-55.33118568594025', '-53.49955179772457'] | []
+saocom_mosaicos:TierraDelFuego_IslasGeorgiasDelSur_2022_adquisiciones | Tierra del Fuego - Islas Georgias del Sur - 2022 - adquisiciones | ['-39.05990047305751', '-35.05889578872301', '-55.2498011141526', '-53.58676047847571'] | []
+saocom_mosaicos:TierraDelFuego_IslasMalvinas_2022 | Tierra del Fuego - Islas Malvinas - 2022 | ['-62.318088501031646', '-57.17394030696013', '-52.86819260978265', '-51.00003085230204'] | []
+saocom_mosaicos:TierraDelFuego_IslasMalvinas_2022_adquisiciones | Tierra del Fuego - Islas Malvinas - 2022 - adquisiciones | ['-62.21509719570873', '-57.264788154369526', '-52.875198640888904', '-50.62000354296081'] | []
+saocom_mosaicos:TierraDelFuego_IslasOrcadasDelSur_2022 | Tierra del Fuego - Islas Orcadas del Sur - 2022 | ['-47.99780501239819', '-43.324108930293605', '-61.34681888174639', '-59.8331637091177'] | []
+saocom_mosaicos:TierraDelFuego_IslasOrcadasDelSur_2022_adquisiciones | Tierra del Fuego - Islas Orcadas del Sur - 2022 - adquisiciones | ['-47.796561607414304', '-43.508102191323076', '-61.41096765690983', '-59.86555018894468'] | []
+saocom_mosaicos:TierraDelFuego_IslasSandwichDelSur_2022 | Tierra del Fuego - Islas Sandwich del Sur - 2022 | ['-28.352058190376738', '-25.26521363755534', '-59.80644261550231', '-56.102871185254536'] | []
+saocom_mosaicos:TierraDelFuego_IslasSandwichDelSur_2022_adquisiciones | Tierra del Fuego - Islas Sandwich del Sur - 2022 - adquisiciones | ['-28.22340615981541', '-25.41494784133223', '-59.79417656004216', '-56.1390856326245'] | []
+saocom_mosaicos:TierraDelFuego_IslasShetlandDelSur_2022 | Tierra del Fuego - Islas Shetland del Sur - 2022 | ['-62.706073319586075', '-53.96062016650992', '-63.36329610557521', '-60.97449136481'] | []
+saocom_mosaicos:TierraDelFuego_IslasShetlandDelSur_2022_adquisiciones | Tierra del Fuego - Islas Shetland Del Sur - 2022 - adquisiciones | ['-63.484224007475575', '-53.42550105346473', '-63.80997541199019', '-60.609275071446405'] | []
+saocom_mosaicos:TierraDelFuego_TierraDelFuego_2022 | Tierra del Fuego -Tierra del Fuego - 2022 | ['-69.57559797745675', '-63.516495534098894', '-55.60124232178364', '-52.04197530145029'] | []
+saocom_mosaicos:TierraDelFuego_TierraDelFuego_2022_adquisiciones | Tierra del Fuego - Tierra del Fuego - 2022 - adquisiciones | ['-69.46839960917507', '-63.644817304750866', '-55.72330221088283', '-51.973476246902244'] | []
+saocom_mosaicos:Tucuman_2022 | Tucumán - 2022 | ['-66.17695304050147', '-64.48158115016234', '-28.01420457421454', '-26.058285555554225'] | []
+saocom_mosaicos:Tucuman_2022_adquisiciones | Tucumán - 2022 - adquisiciones | ['-66.72030422439703', '-64.10531837034549', '-28.705321944435546', '-25.37456166394623'] | []
+META Humedad del Perfil de Suelo hasta 50 cm krigeado 2026-10-29 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa de internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_MSMKR_20261029_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Humedad del Perfil de Suelo hasta 50 cm krigeado 2026-10-28 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa de internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_MSMKR_20261028_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Rango de percentiles de humedad krigeado 2026-10-29 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa de internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSMKR_20261029_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Rango de percentiles de humedad krigeado 2026-10-28 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa de internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSMKR_20261028_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Percentiles del API Semanal 2026-10-22_2026-10-28 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_PCNTLAPI_20261022_20261028_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META API Diario 2026-10-28 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_APIDIARIO_20261028_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META Número de Curva dinámico 2026-10-28 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_CNDINAMICO_20261028_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META Humedad del Perfil de Suelo hasta 50 cm krigeado 2026-10-27 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa de internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_MSMKR_20261027_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Rango de percentiles de humedad krigeado 2026-10-27 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa de internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSMKR_20261027_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Rango de percentiles de humedad 2026-10-27 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSM_20261027_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Incidencia de la fusariosis de la espiga de trigo 2026-10-27 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_FIM_PCP_20261027_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Humedad del Perfil de Suelo hasta 50cm 2026-10-27 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_MSM_20261027_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Percentiles del API Semanal 2026-10-21_2026-10-27 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_PCNTLAPI_20261021_20261027_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META API Diario 2026-10-27 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_APIDIARIO_20261027_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META Número de Curva dinámico 2026-10-27 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_CNDINAMICO_20261027_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META Humedad del Perfil de Suelo hasta 50 cm krigeado 2026-10-26 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa de internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_MSMKR_20261026_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Rango de percentiles de humedad krigeado 2026-10-26 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa de internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSMKR_20261026_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Rango de percentiles de humedad 2026-10-26 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSM_20261026_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Incidencia de la fusariosis de la espiga de trigo 2026-10-26 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_FIM_PCP_20261026_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Humedad del Perfil de Suelo hasta 50cm 2026-10-26 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_MSM_20261026_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Percentiles del API Semanal 2026-10-20_2026-10-26 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_PCNTLAPI_20261020_20261026_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META API Diario 2026-10-26 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_APIDIARIO_20261026_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META Número de Curva dinámico 2026-10-26 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_CNDINAMICO_20261026_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META Humedad del Perfil de Suelo hasta 50 cm krigeado 2026-10-25 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa de internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_MSMKR_20261025_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Rango de percentiles de humedad krigeado 2026-10-25 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa de internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSMKR_20261025_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Rango de percentiles de humedad 2026-10-25 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSM_20261025_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Incidencia de la fusariosis de la espiga de trigo 2026-10-25 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_FIM_PCP_20261025_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Humedad del Perfil de Suelo hasta 50cm 2026-10-25 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_MSM_20261025_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Percentiles del API Semanal 2026-10-19_2026-10-25 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_PCNTLAPI_20261019_20261025_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META API Diario 2026-10-25 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_APIDIARIO_20261025_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META Número de Curva dinámico 2026-10-25 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_CNDINAMICO_20261025_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META Humedad del Perfil de Suelo hasta 50 cm krigeado 2026-10-24 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa de internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_MSMKR_20261024_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Rango de percentiles de humedad krigeado 2026-10-24 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa de internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSMKR_20261024_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Rango de percentiles de humedad 2026-10-24 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_PSM_20261024_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Incidencia de la fusariosis de la espiga de trigo 2026-10-24 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_FIM_PCP_20261024_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Humedad del Perfil de Suelo hasta 50cm 2026-10-24 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_MSM_20261024_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+META Percentiles del API Semanal 2026-10-18_2026-10-24 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_PCNTLAPI_20261018_20261024_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META API Diario 2026-10-24 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_APIDIARIO_20261024_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META Número de Curva dinámico 2026-10-24 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa desde internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_GPMIMERG_CNDINAMICO_20261024_v002.zip|WWW:LINK-1.0-http--link|text/html|1
+META Humedad del Perfil de Suelo hasta 50 cm krigeado 2026-10-23 | None | Recurso para Descargar|La información se puede obtener mediante la descarga directa de internet.|https://geodescargas.conae.gov.ar/descargas/productos/CONAE_MOD_MHS_DSS_MSMKR_20261023_v001.zip|WWW:LINK-1.0-http--link|text/html|1
+HS dates: 
+HS links: &#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#116;&#101;&#110;&#99;&#105;&#111;&#110;&#46;&#117;&#115;&#117;&#97;&#114;&#105;&#111;&#64;&#99;&#111;&#110;&#97;&#101;&#46;&#103;&#111;&#118;&#46;&#97;&#114; /recursosCatalogos/bootstrap/css/bootstrap.min.css http://www.conae.gov.ar https://registro.conae.gov.ar/registracion/view/ https://registro.conae.gov.ar/resetpassword/forgot/
+GD:  Comisión Nacional de Actividades Espaciales - GEODescargas CONAE - GEODescargas Ingrese con su correo electrónico oficial. Ingresar Borrar Datos ¿No está registrado? Regístrese ¿Olvidó su contraseña? Atención Para una correcta visualización del sitio no utilice Microsoft Internet Explorer. var userId = "qejfum472d0givosv7ldog4gi2"; // reCAPTCHA callback (same widget as registro): fills userId and submits the form. function onSubmit(token) { $("#userId").val(userId); document.getElementById("loginform").submit(); } $(document).ready(function () { $("#loginform").submit(function() { $("#userId").val(userId); }); }); Datos de Contacto Unidad de Atención al Usuario Usuarios de información geoespacial Teléfono: (54-11) 4331-0074 int. 5413 Correo electrónico: atencion.usuario@conae.gob.ar $(doc
