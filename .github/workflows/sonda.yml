@@ -1,0 +1,15 @@
+name: Sonda CONAE
+on:
+  push:
+    branches: [sonda-conae]
+permissions:
+  contents: write
+jobs:
+  s:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/sonda_conae.py
+      - run: |
+          git config user.name "Jesareko (automático)"; git config user.email "rothmarcos9@users.noreply.github.com"
+          git add -f sonda_out.txt; git commit -m "resultado sonda"; git push
