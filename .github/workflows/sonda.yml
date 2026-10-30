@@ -12,4 +12,4 @@ jobs:
       - run: python3 scripts/sonda_conae.py
       - run: |
           git config user.name "Jesareko (automático)"; git config user.email "rothmarcos9@users.noreply.github.com"
-          git add -f sonda_out.txt sonda_*.png sonda_*.err || true; git add -f sonda_out.txt; git commit -m "resultado sonda"; git push
+          for f in sonda_*; do git add -f "$f"; done; git commit -m "resultado sonda"; git push
