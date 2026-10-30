@@ -1,5 +1,39 @@
 [
  {
+  "id": "2026-10-30-paso-patria-sitiada",
+  "titulo": "Paso de la Patria: más de 150 familias fuera de sus casas y temor a quedar aislada",
+  "resumen": "Más de 150 familias se autoevacuaron y otras cuatro fueron evacuadas por el municipio; cerca del 40% del pueblo está bajo agua. Con la nueva onda que el INA prevé para el 3 de noviembre, el intendente calcula que el río llegaría a 8 u 8,10 m, cerca de la defensa de 8,50 m.",
+  "fuente": "Prensa Mercosur",
+  "url": "https://prensamercosur.org/2026/10/30/argentina-el-parana-sitia-paso-de-la-patria-y-amenaza-con-aislarla-por-completo/",
+  "fecha": "2026-10-30",
+  "alertas": [
+   {
+    "evac": 7,
+    "loc": "paso-de-la-patria",
+    "motivo": "+150 familias autoevacuadas y 4 evacuadas",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-30-yacyreta-32500",
+  "titulo": "Yacyretá: el caudal empezaría a bajar y Ituzaingó marca 3,90 m",
+  "resumen": "El parte de la EBY del viernes prevé 32.500 m³/s de ingreso al embalse para hoy y unos 30.500 m³/s para el sábado, con 6.400 m³/s por el vertedero del brazo principal y 9.000 m³/s por Aña Cuá. En el puerto de Ituzaingó el río marcaba 3,90 m a las 10.",
+  "fuente": "Entidad Binacional Yacyretá",
+  "url": "https://www.eby.gov.py/cota-82-70-msnm-resumen-ejecutivo-n-6127-30-10-2026/",
+  "fecha": "2026-10-30",
+  "alertas": [
+   {
+    "loc": "ituzaingo",
+    "m": 3.9,
+    "motivo": "3,90 m a las 10 (parte EBY)",
+    "n": 0,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-10-29-prefectura-alturas",
   "titulo": "Prefectura: el Paraná baja apenas y Libres pasa los 8 m",
   "resumen": "El parte del jueves muestra a Itatí (8,09 m), Corrientes (7,36 m), Paso de la Patria (7,69 m), Bella Vista (6,45 m) y Goya (5,77 m) todavía arriba del nivel de evacuación, con descensos de pocos centímetros; Ituzaingó bajó a 3,95 m y quedó en alerta. Sobre el Uruguay, Paso de los Libres marca 8,03 m (alerta 7,50, evacuación 8,50) y Santo Tomé bajó 58 cm en 12 horas.",
