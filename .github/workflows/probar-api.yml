@@ -12,3 +12,4 @@ jobs:
           echo "::notice title=POST invalido::$(curl -sL -m 60 -H 'Content-Type: text/plain;charset=utf-8' --data '{"tipo":"prueba","loc":"corrientes"}' "$U" | head -c 300)"
           echo "::notice title=CORS::$(curl -sIL -m 60 -X OPTIONS "$U" | grep -i 'access-control' | tr '\n' ' ' | head -c 300)"
           echo "::notice title=Hoja::$(curl -sL -m 60 'https://docs.google.com/spreadsheets/d/1dZJ7hVYIwwz14R41-Iqo_TcgDr2TvRuqQ-ixhIxd8JY/gviz/tq?tqx=out:csv&sheet=Avisos%20app' | head -c 300 | tr '\n' ' ')"
+# 1793325883
