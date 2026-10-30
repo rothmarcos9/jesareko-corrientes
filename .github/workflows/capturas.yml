@@ -1,0 +1,15 @@
+name: Capturas del mapa de la ciudad (uso puntual)
+on:
+  push:
+    paths: [".github/workflows/capturas.yml", ".github/capturas/*.mjs"]
+permissions:
+  contents: write
+jobs:
+  capturas:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p out && cd .github/capturas && npm init -y >/dev/null && npm i playwright@1.48.2 >/dev/null 2>&1 && npx playwright install chromium >/dev/null 2>&1
+          cd ../.. && node .github/capturas/ciudad.mjs
+          cd out && git init -q && git config user.name "Jesareko (automático)" && git config user.email "rothmarcos9@users.noreply.github.com" && git checkout -q -b capturas-img && git add . && git commit -qm capturas && git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" capturas-img
