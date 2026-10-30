@@ -246,6 +246,7 @@ fieldset{border:0;padding:0;margin:0}
 .dato .bar span:nth-child(2){height:8px;border-radius:4px;background:color-mix(in srgb,var(--agua) 18%,transparent);position:relative;overflow:hidden}
 .dato .bar span:nth-child(2) i{position:absolute;inset:0 auto 0 0;background:var(--agua);border-radius:4px}
 .suelo .links a{font-size:.88rem}
+.fuego .links{margin-top:10px}
 .smn{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;margin-top:6px}
 .smn div{background:color-mix(in srgb,var(--surface) 70%,transparent);border-radius:6px;padding:5px 4px;text-align:center;font-size:.78rem;line-height:1.25}
 .smn b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
@@ -383,7 +384,7 @@ footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:gr
         <div class="hd">
           <span class="eyebrow">Suelo y anegamiento · INTA</span>
           <h3 id="s-tit">El suelo de tu zona</h3>
-          <span class="meta">Qué tan fácil se anega la zona por el tipo de suelo y de relieve, según los estudios del INTA Corrientes.</span>
+          <span class="meta">Qué tan fácil se anega la zona por el tipo de suelo y de relieve, y cuánto creció el agua este año, según el INTA Corrientes.</span>
         </div>
         <div id="s-cuerpo"></div>
       </section>
@@ -403,6 +404,7 @@ footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:gr
           <a href="https://www.smn.gob.ar/radar" target="_blank" rel="noopener">Radar SMN<span>smn.gob.ar ↗</span></a>
           <a href="https://www.star.nesdis.noaa.gov/GOES/sector.php?sat=G19&amp;sector=ssa" target="_blank" rel="noopener">GOES-19 animado<span>noaa.gov ↗</span></a>
           <a href="https://www.windy.com/-Weather-radar-radar?radar,-28.6,-58.0,7" target="_blank" rel="noopener">Radar Windy<span>windy.com ↗</span></a>
+          <a href="https://geoportal.conae.gov.ar/geoexplorer/composer/" target="_blank" rel="noopener">Mapas satelitales CONAE<span>conae.gov.ar ↗</span></a>
         </div>
         <a class="tg" id="tg" href="#" target="_blank" rel="noopener" hidden>
           <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.5 2.8 11.7c-.9.4-.9 1.4 0 1.7l4.6 1.5 1.8 5.5c.2.7 1 .9 1.5.4l2.6-2.4 4.8 3.5c.6.4 1.4.1 1.6-.6l3.2-14.6c.2-.8-.6-1.4-1.4-1.2zM9.6 14.6l8.3-7.4-6.5 8.5-.3 3.2-1.5-4.3z" fill="currentColor"/></svg>
@@ -447,6 +449,9 @@ footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:gr
           <span class="meta" id="fuego-meta">Últimas 24 horas en la provincia.</span>
         </div>
         <div id="fuego"></div>
+        <div class="links">
+          <a href="https://geoportal.conae.gov.ar/mapstore/visor-incendios.html#/viewer/incendios" target="_blank" rel="noopener">Visor de focos de calor e incendios · CONAE (agencia espacial argentina) <span>conae.gov.ar ↗</span></a>
+        </div>
       </section>
 
       <section class="panel comu">
@@ -468,6 +473,8 @@ footer .wrap{padding-block:0 32px;font-size:.78rem;color:var(--muted);display:gr
           <a id="link-google" href="https://www.google.com/search?q=clima+Corrientes" target="_blank" rel="noopener">Pronóstico en Google <span id="link-google-loc">Corrientes ↗</span></a>
           <a href="https://www.windy.com/-27.47/-58.83?-28.6,-58.0,7" target="_blank" rel="noopener">Comparar modelos de pronóstico (europeo, estadounidense, alemán) <span>windy.com ↗</span></a>
           <a href="https://icaa.gov.ar/" target="_blank" rel="noopener">Lluvias medidas en la ciudad de Corrientes · Instituto Correntino del Agua y del Ambiente <span>icaa.gov.ar ↗</span></a>
+          <a href="https://geoportal.conae.gov.ar/geoexplorer/composer/" target="_blank" rel="noopener">Mapas satelitales de humedad del suelo, incendios y emergencias · CONAE <span>conae.gov.ar ↗</span></a>
+          <a href="https://catalogos.conae.gov.ar/catalogo/catalogo.html" target="_blank" rel="noopener">Imágenes de los satélites argentinos SAOCOM · Catálogo CONAE <span>conae.gov.ar ↗</span></a>
         </div>
         <div id="verif" style="display:grid;gap:8px" hidden></div>
         <h3>Teléfonos de emergencia</h3>
@@ -1111,10 +1118,20 @@ function bloqueRecur(id){const rc=recur(id);if(!rc)return null;
   return h("div",{class:"dato"},h("b",null,"Lluvias extremas: cuánto puede llover en un día"),
     h("div",{class:"barras"},...[[20,0],[50,1],[100,2]].map(([a,i])=>h("div",{class:"bar ancho"},h("span",null,`Cada ${a} años`),h("span",null,h("i",{style:`width:${Math.round((rc.r[i]+12.5)/280*100)}%`})),h("span",{class:"num"},`${rc.r[i]}–${rc.r[i]+25} mm`)))),
     h("div",{class:"meta"},`Lluvia en 24 horas que se supera, en promedio, una vez cada 20, 50 o 100 años. Estación ${rc.e}${rc.d>5?`, a ${rc.d} km`:""} (${rc.p}). Fuente: Atlas ANIDA del IGN con datos del SMN.`));}
+// Monitoreo satelital del INTA Corrientes (Sentinel-1 y Sentinel-2) y escenario El Niño 2026
+const INTA_NINO={sep:129477,oct:198566,
+  u1:"https://www.perfil.com/noticias/nea/alerta-en-el-litoral-la-superficie-anegada-en-el-rio-parana-crecio-mas-de-un-20-en-un-solo-mes.phtml",
+  u2:"https://www.perfil.com/noticias/nea/corrientes-en-alerta-advierten-que-un-el-nino-extremo-podria-inundar-3-millones-de-hectareas.phtml"};
+function bloqueIntaNino(){const I=INTA_NINO,mx=I.oct,fmt=n=>n.toLocaleString("es-AR");
+  const bar=(t,v)=>h("div",{class:"bar ancho"},h("span",null,t),h("span",null,h("i",{style:`width:${Math.round(v/mx*100)}%`})),h("span",{class:"num"},fmt(v)+" ha"));
+  return h("div",{class:"dato"},h("b",null,"El Niño 2026: el agua en la costa del Paraná creció un 53 % en un mes"),
+    h("div",{class:"barras"},bar("Septiembre",I.sep),bar("Octubre",I.oct)),
+    h("div",{class:"meta"},"Superficie cubierta de agua en la planicie del Paraná del lado correntino, medida con satélites por el INTA Corrientes. Según el INTA, si El Niño se parece al de 1997-1998 (cuando el agua llegó a cubrir el 58 % de la provincia, contra cerca del 20 % de hoy), podrían anegarse más de 3,3 millones de hectáreas que hoy están secas. ",
+      h("a",{href:I.u1,target:"_blank",rel:"noopener"},"Monitoreo ↗")," · ",h("a",{href:I.u2,target:"_blank",rel:"noopener"},"Escenario ↗")));}
 function renderSuelo(){
   const id=S.sel||S.mi,l=LOC[id],z=ZONAS[ZONALOC[id]],c=el("s-cuerpo");if(!c)return;c.replaceChildren();
   el("s-tit").textContent=z?`El suelo en ${l.n}`:"El suelo de tu zona";
-  if(!z){c.append(h("p",{class:"nota"},"Todavía no hay ficha de suelo para esta localidad."));const br=bloqueRecur(id);if(br)c.append(br);return;}
+  if(!z){c.append(h("p",{class:"nota"},"Todavía no hay ficha de suelo para esta localidad."),bloqueIntaNino());const br=bloqueRecur(id);if(br)c.append(br);return;}
   const esc=h("div",{class:"esc","aria-hidden":"true"},PROPEN.map((_,i)=>h("i",{class:i<=z.p?"on":""})));
   c.append(h("h4",null,z.n),
     h("div",{class:"propen"},h("b",null,`Propensión a anegarse: ${PROPEN[z.p].toLowerCase()}`),esc,h("div",{class:"lab"},h("span",null,"Baja"),h("span",null,"Muy alta"))));
@@ -1126,6 +1143,7 @@ function renderSuelo(){
     c.append(h("div",{class:"dato"},h("b",null,`Departamento${ex.d.includes(" y ")?"s":""} ${ex.d}: superficie bajo agua`),
       h("div",{class:"barras"},bar("Año normal",ex.n),bar("Excesos 2015",ex.x)),
       h("div",{class:"meta"},"INTA Corrientes, con imágenes Landsat (abril de 2011 y enero de 2015). Las zonas altas arenosas también se anegaron por la napa.")));}
+  c.append(bloqueIntaNino());
   const br=bloqueRecur(id);if(br)c.append(br);
   c.append(h("div",{class:"acciones"},h("span",{class:"eyebrow"},"Para tener en cuenta"),h("ul",null,z.hacer.map(t=>h("li",null,t)))));
   const fs=[...z.f,...(ex?["excesos","aptitud"]:[])];
