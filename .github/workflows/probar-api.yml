@@ -7,9 +7,10 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - run: |
-          U="https://script.google.com/macros/s/AKfycbxQW5tNJdHTSmMQdt_-iF3A-388bm3rpF4IuBd5vI6q8GFqE1tBwHRgMoNeDXpXtzyGMg/exec"
+          U="https://script.google.com/macros/s/AKfycbxt-a9UPSuMCr2o7ydTCuUWqDh26gXBmbUvnjWkzQTJcVfyhthEo2TvbKycwAvVGQzBAA/exec"
           curl -sL -m 60 "$U" -o g.html -w "%{url_effective} %{http_code}" > g.txt; echo "::notice title=GET::$(cat g.txt) | $(grep -o '<title>[^<]*' g.html | head -1) | $(sed -e 's/<[^>]*>/ /g' g.html | tr -s ' \n' ' ' | grep -o 'Lo sentimos.\{0,200\}\|Sorry.\{0,200\}\|Script function.\{0,100\}\|Error.\{0,200\}' | head -c 400)"
           echo "::notice title=POST invalido::$(curl -sL -m 60 -H 'Content-Type: text/plain;charset=utf-8' --data '{"tipo":"prueba","loc":"corrientes"}' "$U" | head -c 300)"
           echo "::notice title=CORS::$(curl -sIL -m 60 -X OPTIONS "$U" | grep -i 'access-control' | tr '\n' ' ' | head -c 300)"
           echo "::notice title=Hoja::$(curl -sL -m 60 'https://docs.google.com/spreadsheets/d/1dZJ7hVYIwwz14R41-Iqo_TcgDr2TvRuqQ-ixhIxd8JY/gviz/tq?tqx=out:csv&sheet=Avisos%20app' | head -c 300 | tr '\n' ' ')"
 # x1793325883
+# y
