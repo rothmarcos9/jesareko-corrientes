@@ -1,5 +1,39 @@
 [
  {
+  "id": "2026-10-30-defensa-civil-1673",
+  "titulo": "Corrientes ya suma 1.673 desplazados por la crecida",
+  "resumen": "Según Defensa Civil, con datos hasta el viernes 30, hay 1.673 personas fuera de sus casas en la provincia: 407 evacuadas y 1.266 autoevacuadas, en la Capital, Itatí, Isla Apipé, Ituzaingó y Paso de la Patria, entre otras. El Paraná bajó en algunos tramos pero se vigila a las localidades aguas abajo.",
+  "fuente": "Canal 26 (datos de Defensa Civil de Corrientes)",
+  "url": "https://www.canal26.com/general/2026/10/31/inundaciones-por-el-nino-en-argentina-las-4-provincias-mas-afectadas-por-las-crecidas-y-los-evacuados/",
+  "fecha": "2026-10-30",
+  "alertas": [
+   {
+    "loc": "corrientes",
+    "motivo": "Familias evacuadas por la crecida",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "itati",
+    "motivo": "Familias evacuadas por la crecida",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "ituzaingo",
+    "motivo": "Familias evacuadas por la crecida (incluye Isla Apipé)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "Familias evacuadas por la crecida",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-10-30-paso-patria-sitiada",
   "titulo": "Paso de la Patria: más de 150 familias fuera de sus casas y temor a quedar aislada",
   "resumen": "Más de 150 familias se autoevacuaron y otras cuatro fueron evacuadas por el municipio; cerca del 40% del pueblo está bajo agua. Con la nueva onda que el INA prevé para el 3 de noviembre, el intendente calcula que el río llegaría a 8 u 8,10 m, cerca de la defensa de 8,50 m.",
@@ -11,6 +45,22 @@
     "evac": 7,
     "loc": "paso-de-la-patria",
     "motivo": "+150 familias autoevacuadas y 4 evacuadas",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-10-30-prefectura-punta-santa-ana",
+  "titulo": "Prefectura asistió a familias inundadas en Paso de la Patria",
+  "resumen": "Un operativo de Prefectura ayudó a 15 familias (más de 50 personas) del barrio Punta Santa Ana afectadas por la creciente del Paraná. La localidad sigue en etapa de evacuación.",
+  "fuente": "Prefectura Naval Argentina (argentina.gob.ar)",
+  "url": "https://www.argentina.gob.ar/noticias/crecida-del-parana-prefectura-asistio-15-familias-afectadas-en-paso-de-la-patria",
+  "fecha": "2026-10-30",
+  "alertas": [
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "Etapa de evacuación vigente; 15 familias asistidas en Punta Santa Ana",
     "n": 3,
     "rio": "Paraná"
    }
