@@ -1,5 +1,51 @@
 [
  {
+  "id": "2026-10-31-parana-alivio",
+  "titulo": "El Paraná se estaciona: Capital en 7,23 m y Bella Vista sigue subiendo",
+  "resumen": "Corrientes Capital quedó estacionada en 7,23 m, Paso de la Patria baja a 7,48 m y Bella Vista sube a 6,51 m, todas sobre evacuación; Ituzaingó salió de evacuación (3,88 m) pero sigue apenas sobre alerta. Yacyretá prevé bajar a 27.000 m³/s y el INA advierte posibles nuevas subas en 7 a 15 días por lluvias en el río Paraguay.",
+  "fuente": "Examedia",
+  "url": "https://examedia.com.ar/portada/post/88156949",
+  "fecha": "2026-10-31",
+  "alertas": [
+   {
+    "evac": 7,
+    "loc": "corrientes",
+    "m": 7.23,
+    "motivo": "7,23 m, sobre evacuación, estacionado",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.48,
+    "motivo": "7,48 m, sobre evacuación, en baja",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "evac": 6.4,
+    "loc": "bella-vista",
+    "m": 6.51,
+    "motivo": "6,51 m, sobre evacuación, en aumento",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "goya",
+    "motivo": "Sobre cota de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "ituzaingo",
+    "m": 3.88,
+    "motivo": "3,88 m, salió de evacuación, levemente sobre alerta",
+    "n": 2,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-10-30-defensa-civil-1673",
   "titulo": "Corrientes ya suma 1.673 desplazados por la crecida",
   "resumen": "Según Defensa Civil, con datos hasta el viernes 30, hay 1.673 personas fuera de sus casas en la provincia: 407 evacuadas y 1.266 autoevacuadas, en la Capital, Itatí, Isla Apipé, Ituzaingó y Paso de la Patria, entre otras. El Paraná bajó en algunos tramos pero se vigila a las localidades aguas abajo.",
