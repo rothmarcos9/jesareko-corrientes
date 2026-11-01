@@ -1,5 +1,57 @@
 [
  {
+  "id": "2026-10-31-desplazados-1600",
+  "titulo": "El Paraná baja, pero más de 1.600 correntinos siguen fuera de sus casas",
+  "resumen": "Con el río en descenso, Capital suma 672 desplazados (42 evacuados y 630 autoevacuados), Itatí 510, Isla Apipé 119, Paso de la Patria 31 en el ex Regimiento e Ituzaingó 17; también hay autoevacuados en Goya, Santa Lucía y Bella Vista.",
+  "fuente": "Canal 12 Misiones",
+  "url": "https://canal12misiones.com/nacionales/el-nino-corrientes-rio-parana",
+  "fecha": "2026-10-31",
+  "alertas": [
+   {
+    "loc": "corrientes",
+    "motivo": "672 desplazados (42 evacuados, 630 autoevacuados)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "itati",
+    "motivo": "188 evacuados y 322 autoevacuados",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "ituzaingo",
+    "motivo": "17 evacuados; 119 en Isla Apipé",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "31 evacuados en el ex Regimiento",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "santa-lucia",
+    "motivo": "21 autoevacuados",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "bella-vista",
+    "motivo": "19 autoevacuados",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "goya",
+    "motivo": "30 autoevacuados en la zona del puerto",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-10-31-parana-alivio",
   "titulo": "El Paraná se estaciona: Capital en 7,23 m y Bella Vista sigue subiendo",
   "resumen": "Corrientes Capital quedó estacionada en 7,23 m, Paso de la Patria baja a 7,48 m y Bella Vista sube a 6,51 m, todas sobre evacuación; Ituzaingó salió de evacuación (3,88 m) pero sigue apenas sobre alerta. Yacyretá prevé bajar a 27.000 m³/s y el INA advierte posibles nuevas subas en 7 a 15 días por lluvias en el río Paraguay.",
