@@ -1,5 +1,62 @@
 [
  {
+  "id": "2026-11-02-capital-bella-vista-evacuacion",
+  "titulo": "Capital y Bella Vista siguen sobre la cota de evacuación",
+  "resumen": "Corrientes Capital sigue estacionada en 7,23 m, arriba de la cota de evacuación de 7 m, y Bella Vista marca 6,51 m frente a una evacuación de 6,40 m. Paso de la Patria baja pero sigue en 7,48 m, y en la provincia hay más de 1.600 evacuados y autoevacuados.",
+  "fuente": "De La Bahía",
+  "url": "https://www.delabahia.com.ar/el-rio-parana-comenzo-a-bajar-pero-aun-hay-mas-de-1-600-evacuados-en-corrientes/",
+  "fecha": "2026-11-02",
+  "alertas": [
+   {
+    "evac": 7,
+    "loc": "corrientes",
+    "m": 7.23,
+    "motivo": "7,23 m, sobre evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "evac": 6.4,
+    "loc": "bella-vista",
+    "m": 6.51,
+    "motivo": "6,51 m, sobre evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.48,
+    "motivo": "7,48 m, en baja pero sobre evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "ituzaingo",
+    "m": 3.88,
+    "motivo": "3,88 m, salió de evacuación, sigue sobre alerta",
+    "n": 2,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-02-goya-609",
+  "titulo": "Goya: el Paraná se estaciona en 6,09 m",
+  "resumen": "El río en Goya quedó prácticamente estable en 6,09 m este lunes (el domingo a las 16 marcaba 6,08 m) y había 34 familias autoevacuadas. El INA ve una posible bajante hacia el 10 de noviembre.",
+  "fuente": "InfoGoya",
+  "url": "https://infogoya.com/parana-estable-6-09-metros-goya-coe/",
+  "fecha": "2026-11-02",
+  "alertas": [
+   {
+    "loc": "goya",
+    "m": 6.09,
+    "motivo": "6,09 m, 34 familias autoevacuadas",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-11-01-ina-alivio-10-nov",
   "titulo": "El Paraná empieza a bajar y el INA espera alivio para el 10 de noviembre",
   "resumen": "Capital sigue en 7,23 m, Paso de la Patria en 7,48 m, Goya en 5,80 m y Bella Vista en 6,51 m, todas sobre la cota de evacuación; Ituzaingó salió de evacuación pero sigue apenas sobre alerta. El INA proyecta para el 10 de noviembre entre 5,10 y 6 m en Capital y entre 4,50 y 6 m en Goya, aunque nuevas lluvias podrían traer otra suba; hay 1.673 evacuados y autoevacuados en la provincia.",
@@ -55,6 +112,23 @@
   "url": "https://www.noticiasdelacalle.com.ar/noticias/2026/11/01/204522-itaipu-abrio-un-segundo-canal-del-vertedero-y-libera-11-millones-de-litros-de-agua-por-segundo",
   "fecha": "2026-11-01",
   "alertas": []
+ },
+ {
+  "id": "2026-11-01-yacyreta-29200",
+  "titulo": "Yacyretá: el caudal sigue bajando, 29.200 m³/s",
+  "resumen": "El parte de la EBY del domingo prevé 29.200 m³/s de ingreso al embalse y 28.500 m³/s para el lunes, con 5.700 m³/s por el vertedero principal y 9.000 m³/s por Aña Cuá. El puerto de Ituzaingó marcaba 3,85 m al mediodía.",
+  "fuente": "Entidad Binacional Yacyretá",
+  "url": "https://www.eby.gov.py/cota-82-79-msnm-resumen-ejecutivo-n-6129-01-11-2026/",
+  "fecha": "2026-11-01",
+  "alertas": [
+   {
+    "loc": "ituzaingo",
+    "m": 3.85,
+    "motivo": "Puerto de Ituzaingó 3,85 m (12 h)",
+    "n": 0,
+    "rio": "Paraná"
+   }
+  ]
  },
  {
   "id": "2026-10-31-desplazados-1600",
