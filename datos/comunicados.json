@@ -1,5 +1,14 @@
 [
  {
+  "id": "2026-11-02-autoevacuados-1278",
+  "titulo": "Bajan los evacuados en centros oficiales, pero crecen los autoevacuados",
+  "resumen": "En Corrientes las personas en centros de evacuación pasaron de 741 a 409, mientras que las que se fueron a casas de familiares subieron de 726 a 1.278. Yacyretá deja pasar unos 32.000 m³/s, con tendencia a bajar a 27.000 m³/s, y mantiene cerrado el paso Ituzaingó–Ayolas hasta el 6 de noviembre; el río Uruguay sigue sin alertas.",
+  "fuente": "Infobae",
+  "url": "https://www.infobae.com/politica/2026/11/02/el-nino-yacyreta-mantiene-interrumpido-el-paso-entre-argentina-y-paraguay-y-se-incrementa-la-cantidad-de-auto-evacuados-en-corrientes/",
+  "fecha": "2026-11-02",
+  "alertas": []
+ },
+ {
   "id": "2026-11-02-capital-bella-vista-evacuacion",
   "titulo": "Capital y Bella Vista siguen sobre la cota de evacuación",
   "resumen": "Corrientes Capital sigue estacionada en 7,23 m, arriba de la cota de evacuación de 7 m, y Bella Vista marca 6,51 m frente a una evacuación de 6,40 m. Paso de la Patria baja pero sigue en 7,48 m, y en la provincia hay más de 1.600 evacuados y autoevacuados.",
@@ -51,6 +60,79 @@
     "loc": "goya",
     "m": 6.09,
     "motivo": "6,09 m, 34 familias autoevacuadas",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-02-prefectura-alturas",
+  "titulo": "Alturas del Paraná al 2 de noviembre: baja leve, pero siete puertos siguen en evacuación",
+  "resumen": "Según la lectura de Prefectura del 2/11, el río baja unos centímetros en Itatí, Paso de la Patria y Capital, pero Itatí, Paso de la Patria, Corrientes, Bella Vista, Goya y Esquina siguen en nivel de evacuación e Ituzaingó en alerta. En Goya y Esquina todavía sube un poco.",
+  "fuente": "Prefectura Naval Argentina (vía Paraná Info)",
+  "url": "https://rioparana.com.ar/rio/",
+  "fecha": "2026-11-02",
+  "alertas": [
+   {
+    "loc": "ituzaingo",
+    "m": 3.75,
+    "motivo": "En alerta, 3,75 m (bajó 10 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "ita-ibate",
+    "m": 6.06,
+    "motivo": "6,06 m, cerca de alerta",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "itati",
+    "m": 7.56,
+    "motivo": "Nivel de evacuación, 7,56 m (bajó 7 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.35,
+    "motivo": "Nivel de evacuación, 7,35 m (bajó 3 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "corrientes",
+    "m": 7.11,
+    "motivo": "Nivel de evacuación, 7,11 m (bajó 5 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "empedrado",
+    "m": 6.15,
+    "motivo": "6,15 m, cerca de alerta",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "bella-vista",
+    "m": 6.53,
+    "motivo": "Nivel de evacuación, 6,53 m (sin cambios)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "goya",
+    "m": 6.09,
+    "motivo": "Nivel de evacuación, 6,09 m (subió 2 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "esquina",
+    "m": 5.44,
+    "motivo": "Nivel de evacuación, 5,44 m (subió 8 cm)",
     "n": 3,
     "rio": "Paraná"
    }
