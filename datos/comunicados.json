@@ -1,5 +1,79 @@
 [
  {
+  "id": "2026-11-03-prefectura-alturas",
+  "titulo": "Alturas del Paraná al 3 de noviembre: sigue bajando de a poco",
+  "resumen": "Con la lectura de Prefectura del 3/11, el río bajó algunos centímetros en Itatí, Paso de la Patria, Capital, Empedrado y Bella Vista. Igual Itatí, Paso de la Patria, Corrientes, Bella Vista, Goya y Esquina siguen arriba del nivel de evacuación, e Ituzaingó sigue en alerta.",
+  "fuente": "Prefectura Naval Argentina e INA (vía Copernicus Argentina)",
+  "url": "https://copernicus.com.ar/rio",
+  "fecha": "2026-11-03",
+  "alertas": [
+   {
+    "alerta": 3.5,
+    "loc": "ituzaingo",
+    "m": 3.74,
+    "motivo": "En alerta, 3,74 m",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.8,
+    "loc": "itati",
+    "m": 7.55,
+    "motivo": "Sobre evacuación, 7,55 m",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "loc": "paso-de-la-patria",
+    "m": 7.27,
+    "motivo": "Sobre evacuación, 7,27 m",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "loc": "corrientes",
+    "m": 7.06,
+    "motivo": "Sobre evacuación, 7,06 m",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "loc": "empedrado",
+    "m": 6.09,
+    "motivo": "6,09 m, cerca de la alerta",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6,
+    "loc": "bella-vista",
+    "m": 6.46,
+    "motivo": "Sobre evacuación, 6,46 m",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5.2,
+    "loc": "goya",
+    "m": 6.1,
+    "motivo": "Sobre evacuación, 6,10 m",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5,
+    "loc": "esquina",
+    "m": 5.51,
+    "motivo": "Sobre evacuación, 5,51 m",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-11-02-autoevacuados-1278",
   "titulo": "Bajan los evacuados en centros oficiales, pero crecen los autoevacuados",
   "resumen": "En Corrientes las personas en centros de evacuación pasaron de 741 a 409, mientras que las que se fueron a casas de familiares subieron de 726 a 1.278. Yacyretá deja pasar unos 32.000 m³/s, con tendencia a bajar a 27.000 m³/s, y mantiene cerrado el paso Ituzaingó–Ayolas hasta el 6 de noviembre; el río Uruguay sigue sin alertas.",
