@@ -1,5 +1,738 @@
 [
  {
+  "id": "2026-11-09-mas-de-2000-afectados",
+  "titulo": "Más de 2.000 correntinos fuera de sus casas por el Paraná",
+  "resumen": "Según Infobae, en la provincia ya son más de 2.000 los vecinos con la casa inundada: la mayoría se fue a lo de familiares y el resto está en refugios. Paso de la Patria, Goya y Esquina siguen en situación de evacuación; Ituzaingó, Itatí, Capital y Bella Vista, sobre la alerta.",
+  "fuente": "Infobae",
+  "url": "https://www.infobae.com/sociedad/2026/11/09/el-nino-la-crecida-del-parana-provoco-evacuaciones-en-dos-capitales-del-litoral/",
+  "fecha": "2026-11-09",
+  "alertas": [
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "En situación de evacuación",
+    "n": 3
+   },
+   {
+    "loc": "goya",
+    "motivo": "En situación de evacuación",
+    "n": 3
+   },
+   {
+    "loc": "esquina",
+    "motivo": "En situación de evacuación",
+    "n": 3
+   },
+   {
+    "loc": "ituzaingo",
+    "motivo": "Sobre la cota de alerta",
+    "n": 2
+   },
+   {
+    "loc": "itati",
+    "motivo": "Sobre la cota de alerta",
+    "n": 2
+   },
+   {
+    "loc": "corrientes",
+    "motivo": "Sobre la cota de alerta",
+    "n": 2
+   },
+   {
+    "loc": "bella-vista",
+    "motivo": "Sobre la cota de alerta",
+    "n": 2
+   }
+  ]
+ },
+ {
+  "id": "2026-11-09-monte-caseros-486",
+  "titulo": "Monte Caseros: el Uruguay vuelve a subir",
+  "resumen": "La lectura de Prefectura del lunes 9/11 dio 4,86 m en Monte Caseros, 37 cm más que el día anterior, todavía lejos de la alerta (7,50 m). La crecida que viene de Santo Tomé sigue bajando por el río, así que conviene seguir la altura estos días.",
+  "fuente": "Prefectura Naval Argentina (vía Copernicus)",
+  "url": "https://copernicus.com.ar/rio/monte-caseros",
+  "fecha": "2026-11-09",
+  "alertas": [
+   {
+    "alerta": 7.5,
+    "evac": 8.5,
+    "loc": "monte-caseros",
+    "m": 4.86,
+    "motivo": "4,86 m y subiendo (+37 cm)",
+    "n": 0,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-09-prefectura-alturas",
+  "titulo": "Paraná, lunes 9/11: Capital baja de la cota de evacuación",
+  "resumen": "Con la lectura de Prefectura del lunes 9/11 el Paraná sigue bajando de a poco: Capital quedó en 6,91 m (pasa de evacuación a alerta), Goya 5,98 m, Bella Vista 6,34 m y Esquina 5,58 m, mientras Itatí subió a 7,42 m. Paso de la Patria (7,09 m), Goya y Esquina siguen sobre evacuación; Itatí, Ituzaingó, Capital y Bella Vista, sobre la alerta.",
+  "fuente": "Prefectura Naval Argentina (vía Copernicus)",
+  "url": "https://copernicus.com.ar/rio",
+  "fecha": "2026-11-09",
+  "alertas": [
+   {
+    "loc": "ituzaingo",
+    "m": 3.54,
+    "motivo": "3,54 m, sobre la alerta (bajó 1 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "itati",
+    "m": 7.42,
+    "motivo": "7,42 m, sobre la alerta (+2 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.09,
+    "motivo": "7,09 m, sobre evacuación (bajó 1 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "corrientes",
+    "m": 6.91,
+    "motivo": "6,91 m, bajó a nivel de alerta (−4 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "empedrado",
+    "m": 6,
+    "motivo": "6,00 m, sin cambios, debajo de la alerta",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "bella-vista",
+    "m": 6.34,
+    "motivo": "6,34 m, sobre la alerta (bajó 2 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "goya",
+    "m": 5.98,
+    "motivo": "5,98 m, sobre evacuación (bajó 3 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "esquina",
+    "m": 5.58,
+    "motivo": "5,58 m, sobre evacuación (bajó 1 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-09-yacyreta-28200",
+  "titulo": "Yacyretá: el caudal baja a 28.200 m³/s",
+  "resumen": "El resumen ejecutivo de la EBY del 9/11 prevé unos 28.200 m³/s de llegada a la represa y unos 28.000 m³/s para mañana; el vertido bajó a 4.900 m³/s por el brazo principal y 8.500 m³/s por Aña Cuá. En el puerto de Ituzaingó se midieron 3,55 m a las 10.",
+  "fuente": "Entidad Binacional Yacyretá",
+  "url": "https://www.eby.gov.py/cota-82-75-msnm-resumen-ejecutivo-n-6137-09-11-2026/",
+  "fecha": "2026-11-09",
+  "alertas": [
+   {
+    "loc": "ituzaingo",
+    "m": 3.55,
+    "motivo": "3,55 m en el puerto (lectura EBY 9/11)",
+    "n": 0,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-08-goya-esquina-autoevacuados",
+  "titulo": "Goya y Esquina: el río baja pero siguen los autoevacuados",
+  "resumen": "Con el Paraná en 6,07 m en Goya, el municipio y el COE siguen asistiendo a 157 autoevacuados de la zona del puerto y 50 de San Isidro, además de familias aisladas en islas. En Esquina, 58 personas dejaron sus casas por el río Corriente, que sigue sobre el nivel de evacuación.",
+  "fuente": "Prensa Mercosur (con datos del COE Goya y la Municipalidad de Esquina)",
+  "url": "https://prensamercosur.org/2026/11/08/pese-a-la-bajante-del-rio-en-goya-sigue-la-asistencia-a-damnificados/",
+  "fecha": "2026-11-08",
+  "alertas": [
+   {
+    "loc": "goya",
+    "m": 6.07,
+    "motivo": "207 autoevacuados (puerto y San Isidro); río en 6,07 m y bajando",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "esquina",
+    "motivo": "58 autoevacuados; río Corriente sobre evacuación",
+    "n": 3
+   }
+  ]
+ },
+ {
+  "id": "2026-11-08-santo-tome-1083",
+  "titulo": "Santo Tomé: el Uruguay llegó a 10,83 m y se estacionó",
+  "resumen": "Según el parte municipal del domingo 8/11 a las 19, el río Uruguay marcaba 10,83 m en Santo Tomé y estaba estacionario; el Paseo Costero sigue cerrado. Aguas abajo los puertos crecen hasta Monte Caseros y la represa Foz do Chapecó largó unos 11.005 m³/s.",
+  "fuente": "Municipalidad de Santo Tomé (vía Examedia)",
+  "url": "https://examedia.com.ar/portada/post/88204588",
+  "fecha": "2026-11-08",
+  "alertas": [
+   {
+    "loc": "santo-tome",
+    "m": 10.83,
+    "motivo": "10,83 m, estacionario; costanera cerrada",
+    "n": 0,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-07-prefectura-alturas",
+  "titulo": "Alturas del Paraná al 7 de noviembre: bajante lenta",
+  "resumen": "En la lectura de Prefectura del sábado 7/11 el Paraná bajó unos centímetros en casi toda la costa: Itatí 7,42 m, Paso de la Patria 7,17 m, Bella Vista 6,38 m y Goya 6,07 m, mientras Capital se mantuvo en 7,00 m y Esquina en 5,60 m. Paso de la Patria, Capital, Goya y Esquina siguen sobre evacuación; Itatí, Ituzaingó y Bella Vista, sobre la alerta.",
+  "fuente": "Prefectura Naval Argentina (vía Copernicus Argentina)",
+  "url": "https://copernicus.com.ar/rio",
+  "fecha": "2026-11-07",
+  "alertas": [
+   {
+    "loc": "itati",
+    "m": 7.42,
+    "motivo": "7,42 m, sobre la alerta (bajó 3 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "ituzaingo",
+    "m": 3.65,
+    "motivo": "3,65 m, sobre la alerta (bajó 10 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.17,
+    "motivo": "7,17 m, sobre evacuación (bajó 5 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "evac": 7,
+    "loc": "corrientes",
+    "m": 7,
+    "motivo": "7,00 m, en la cota de evacuación, sin cambios",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "empedrado",
+    "m": 6,
+    "motivo": "6,00 m, por debajo de la alerta (bajó 5 cm)",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "bella-vista",
+    "m": 6.38,
+    "motivo": "6,38 m, sobre la alerta (bajó 6 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "goya",
+    "m": 6.07,
+    "motivo": "6,07 m, sobre evacuación (bajó 2 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "esquina",
+    "m": 5.6,
+    "motivo": "5,60 m, sobre evacuación, sin cambios",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-07-uruguay-libres-547",
+  "titulo": "El Uruguay sigue subiendo: 5,47 m en Paso de los Libres",
+  "resumen": "La lectura de Prefectura del sábado 7/11 marcó 5,47 m en Paso de los Libres (35 cm más que el día anterior), todavía lejos de la alerta de 7,50 m. Aguas arriba también crece: Yapeyú tiene 5,93 m (+41 cm) y La Cruz 6,58 m (+56 cm).",
+  "fuente": "Prefectura Naval Argentina (vía Copernicus Argentina)",
+  "url": "https://copernicus.com.ar/rio/paso-de-los-libres",
+  "fecha": "2026-11-07",
+  "alertas": [
+   {
+    "alerta": 7.5,
+    "evac": 8.5,
+    "loc": "paso-de-los-libres",
+    "m": 5.47,
+    "motivo": "5,47 m y subiendo (+35 cm)",
+    "n": 0,
+    "rio": "Uruguay"
+   },
+   {
+    "loc": "yapeyu",
+    "m": 5.93,
+    "motivo": "5,93 m y subiendo (+41 cm)",
+    "n": 0,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-07-uruguay-santo-tome-890",
+  "titulo": "El Uruguay pegó un salto de 1,58 m en Santo Tomé y ya marca 8,90 m",
+  "resumen": "Con la lectura de Prefectura del sábado 7/11, Santo Tomé llegó a 8,90 m, todavía 2,60 m por debajo de la alerta (11,50 m). Aguas arriba la crecida es fuerte: Garruchos subió más de 4 m en un día y quedó en 10,66 m.",
+  "fuente": "Copernicus Argentina (datos de Prefectura Naval)",
+  "url": "https://copernicus.com.ar/rio/santo-tome",
+  "fecha": "2026-11-07",
+  "alertas": [
+   {
+    "alerta": 11.5,
+    "evac": 12.5,
+    "loc": "santo-tome",
+    "m": 8.9,
+    "motivo": "Crece fuerte, 8,90 m (+1,58 m en 24 h)",
+    "n": 0,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-06-prefectura-alturas",
+  "titulo": "Alturas del Paraná al 6 de noviembre: el río casi no se mueve",
+  "resumen": "Según la lectura de Prefectura del 6/11, Capital bajó a 7,00 m, Empedrado a 6,05 m y Goya a 6,09 m, mientras Itatí (7,45 m), Paso de la Patria (7,22 m) y Esquina (5,60 m) subieron apenas. Paso de la Patria, Capital, Bella Vista, Goya y Esquina siguen sobre evacuación; Itatí e Ituzaingó, en alerta.",
+  "fuente": "Prefectura Naval Argentina (vía Copernicus Argentina)",
+  "url": "https://copernicus.com.ar/rio",
+  "fecha": "2026-11-06",
+  "alertas": [
+   {
+    "alerta": 3.5,
+    "loc": "ituzaingo",
+    "m": 3.75,
+    "motivo": "3,75 m, sobre la alerta, sin cambios",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.8,
+    "loc": "itati",
+    "m": 7.45,
+    "motivo": "7,45 m, sobre la alerta (+1 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "loc": "paso-de-la-patria",
+    "m": 7.22,
+    "motivo": "7,22 m, sobre evacuación (+2 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "loc": "corrientes",
+    "m": 7,
+    "motivo": "7,00 m, sobre evacuación (bajó 2 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "loc": "empedrado",
+    "m": 6.05,
+    "motivo": "6,05 m, cerca de la alerta (bajó 5 cm)",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6,
+    "loc": "bella-vista",
+    "m": 6.44,
+    "motivo": "6,44 m, sobre evacuación, sin cambios",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5.2,
+    "loc": "goya",
+    "m": 6.09,
+    "motivo": "6,09 m, sobre evacuación (bajó 1 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5,
+    "loc": "esquina",
+    "m": 5.6,
+    "motivo": "5,60 m, sobre evacuación (+2 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-06-uruguay-pasos-cerrados",
+  "titulo": "Crece el Uruguay: cierran pasos a Brasil y el INA anticipa alerta hasta Santo Tomé",
+  "resumen": "Por lluvias en la cuenca alta y la apertura de compuertas en represas brasileñas, se suspendieron cuatro cruces fluviales en Misiones y el INA ve muy probable que el tramo San Javier–Santo Tomé entre en alerta. En el Paraná, Capital, Bella Vista y Goya siguen en evacuación.",
+  "fuente": "Infobae",
+  "url": "https://www.infobae.com/politica/2026/11/06/el-nino-la-crecida-del-rio-uruguay-obligo-a-cerrar-cuatro-pasos-fluviales-a-brasil/",
+  "fecha": "2026-11-06",
+  "alertas": [
+   {
+    "loc": "corrientes",
+    "motivo": "Sigue en evacuación por el Paraná",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "bella-vista",
+    "motivo": "Sigue en evacuación por el Paraná",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "goya",
+    "motivo": "Sigue en evacuación por el Paraná",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-06-uruguay-santo-tome-845",
+  "titulo": "El Uruguay llegó a 8,45 m en Santo Tomé y sigue subiendo",
+  "resumen": "El parte del COEM del viernes 6 a las 20 marcó 8,45 m en Santo Tomé, con una suba de unos 15 cm por hora, y el río también crecía en Alvear (6,32 m), Yapeyú (5,71 m) y Paso de los Libres (5,27 m). Desde Brasil siguen llegando aportes de la represa Foz do Chapecó, que libera 9.116 m³/s.",
+  "fuente": "Examedia (parte del COEM Santo Tomé)",
+  "url": "https://examedia.com.ar/portada/post/88195876",
+  "fecha": "2026-11-06",
+  "alertas": [
+   {
+    "loc": "santo-tome",
+    "m": 8.45,
+    "motivo": "8,45 m y subiendo",
+    "n": 0,
+    "rio": "Uruguay"
+   },
+   {
+    "loc": "alvear",
+    "m": 6.32,
+    "motivo": "6,32 m y subiendo",
+    "n": 0,
+    "rio": "Uruguay"
+   },
+   {
+    "loc": "yapeyu",
+    "m": 5.71,
+    "motivo": "5,71 m y subiendo",
+    "n": 0,
+    "rio": "Uruguay"
+   },
+   {
+    "loc": "paso-de-los-libres",
+    "m": 5.27,
+    "motivo": "5,27 m y subiendo",
+    "n": 0,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-06-uruguay-sube-esquina-corriente",
+  "titulo": "El Uruguay vuelve a subir en la costa correntina; en Esquina desborda el río Corriente",
+  "resumen": "El 6/11 el río Uruguay subió en Garruchos, Santo Tomé, Alvear, La Cruz, Yapeyú, Bonpland, Monte Caseros y Mocoretá, y quedó igual en Paso de los Libres. En Esquina el río Corriente pasó su nivel de evacuación y 58 personas dejaron sus casas.",
+  "fuente": "Examedia",
+  "url": "https://examedia.com.ar/portada/post/88191802",
+  "fecha": "2026-11-06",
+  "alertas": [
+   {
+    "loc": "esquina",
+    "motivo": "Río Corriente sobre evacuación, 58 autoevacuados",
+    "n": 3
+   }
+  ]
+ },
+ {
+  "id": "2026-11-06-yacyreta-vertederos-29200",
+  "titulo": "Yacyretá: entran unos 29.200 m³/s y siguen abiertos los vertederos",
+  "resumen": "Según el resumen ejecutivo de la EBY del 6/11, el caudal que llega a la represa ronda los 29.200 m³/s y bajaría a unos 28.800 m³/s; se vierten 5.700 m³/s por el brazo principal y 9.000 m³/s por Aña Cuá. En el puerto de Ituzaingó se leyeron 3,70 m.",
+  "fuente": "Entidad Binacional Yacyretá (EBY)",
+  "url": "https://www.eby.gov.py/cota-82-82-msnm-resumen-ejecutivo-n-6134-6-11-2026/",
+  "fecha": "2026-11-06",
+  "alertas": [
+   {
+    "loc": "ituzaingo",
+    "m": 3.7,
+    "motivo": "3,70 m en el puerto (lectura EBY 6/11)",
+    "n": 0,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-05-desplazados-1967",
+  "titulo": "Suben a 1.967 los correntinos fuera de sus casas aunque el Paraná se estaciona",
+  "resumen": "Según el último relevamiento de Defensa Civil hay 444 evacuados y 1.523 autoevacuados: Capital (675), Itatí (518), Isla Apipé (185), Paso de la Patria (228), Goya (157), Esquina (58) y también Ituzaingó, Santa Lucía, Bella Vista, San Isidro y Cruz de los Milagros. El río bajó apenas unos centímetros en el norte provincial.",
+  "fuente": "El Litoral (Corrientes)",
+  "url": "https://www.ellitoral.com.ar/sociedad/2026-11-5-19-39-0-el-parana-se-estaciona-y-corrientes-tiene-1-967-evacuados-por-la-crecida",
+  "fecha": "2026-11-05",
+  "alertas": [
+   {
+    "loc": "corrientes",
+    "motivo": "42 evacuados y 633 autoevacuados",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "itati",
+    "motivo": "190 evacuados y 328 autoevacuados",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "motivo": "8 evacuados y 220 autoevacuados",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "ituzaingo",
+    "motivo": "17 evacuados, más 185 en Isla Apipé",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "goya",
+    "motivo": "157 autoevacuados en la zona del puerto",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "esquina",
+    "motivo": "58 autoevacuados",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "santa-lucia",
+    "motivo": "21 autoevacuados",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "bella-vista",
+    "motivo": "16 autoevacuados",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-05-goya-pico-610",
+  "titulo": "Goya: el Paraná se estacionó en 6,10 m, su pico",
+  "resumen": "Según Prefectura, en Goya el río se frenó en 6,10 m, 40 cm arriba de la cota de evacuación (5,70 m). El COE informa 126 autoevacuados de 32 familias de la zona del puerto.",
+  "fuente": "Examedia",
+  "url": "https://examedia.com.ar/portada/post/88187550",
+  "fecha": "2026-11-05",
+  "alertas": [
+   {
+    "alerta": 5.2,
+    "evac": 5.7,
+    "loc": "goya",
+    "m": 6.1,
+    "motivo": "6,10 m, sobre evacuación; 126 autoevacuados",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-05-prefectura-alturas",
+  "titulo": "Alturas del Paraná al 5 de noviembre: Goya y Esquina siguen arriba",
+  "resumen": "Con la lectura de Prefectura del 5/11, Capital quedó estable en 7,02 m, Paso de la Patria bajó a 7,20 m e Itatí a 7,44 m, mientras Goya (6,10 m) y Bella Vista (6,44 m) no se movieron y Esquina subió a 5,58 m. Paso de la Patria, Capital, Bella Vista, Goya y Esquina siguen sobre evacuación; Itatí e Ituzaingó, en alerta.",
+  "fuente": "Prefectura Naval Argentina (vía Copernicus Argentina)",
+  "url": "https://copernicus.com.ar/rio",
+  "fecha": "2026-11-05",
+  "alertas": [
+   {
+    "alerta": 3.5,
+    "loc": "ituzaingo",
+    "m": 3.75,
+    "motivo": "3,75 m, sobre la alerta (+1 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.8,
+    "loc": "itati",
+    "m": 7.44,
+    "motivo": "7,44 m, sobre la alerta (bajó 4 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "loc": "paso-de-la-patria",
+    "m": 7.2,
+    "motivo": "7,20 m, sobre evacuación (bajó 2 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "evac": 7,
+    "loc": "corrientes",
+    "m": 7.02,
+    "motivo": "7,02 m, sobre evacuación, sin cambios",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "loc": "empedrado",
+    "m": 6.1,
+    "motivo": "6,10 m, cerca de la alerta (+3 cm)",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6,
+    "loc": "bella-vista",
+    "m": 6.44,
+    "motivo": "6,44 m, sobre evacuación, sin cambios",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5.2,
+    "loc": "goya",
+    "m": 6.1,
+    "motivo": "6,10 m, sobre evacuación, sin cambios",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5,
+    "loc": "esquina",
+    "m": 5.58,
+    "motivo": "5,58 m, sobre evacuación y subiendo (+2 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-04-capital-tormenta",
+  "titulo": "Capital: 32 mm en 20 minutos y el Paraná estacionado en 7,02 m",
+  "resumen": "El miércoles a la mañana cayeron 32 mm en unos 20 minutos en la ciudad de Corrientes, con viento y granizo chico; hubo árboles caídos pero sin heridos. Sigue el alerta por tormentas y el río se mantiene en 7,02 m en el puerto.",
+  "fuente": "El Litoral (Corrientes)",
+  "url": "https://www.ellitoral.com.ar/ciudad/2026-11-4-12-25-0-corrientes-cayeron-32-mm-de-agua-en-20-minutos-y-asisten-por-arboles-caidos",
+  "fecha": "2026-11-04",
+  "alertas": [
+   {
+    "loc": "corrientes",
+    "m": 7.02,
+    "motivo": "7,02 m, estacionario",
+    "n": 0,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-04-goya-126-autoevacuados",
+  "titulo": "Goya: el Paraná sigue en 6,10 m y hay 126 autoevacuados",
+  "resumen": "Según Prefectura, el miércoles el río marcaba 6,10 m en Goya, estacionario y por arriba de la cota de evacuación (5,70 m). El COE informó 126 personas de 32 familias que se fueron de sus casas por sus propios medios.",
+  "fuente": "El Litoral (Corrientes)",
+  "url": "https://www.ellitoral.com.ar/sociedad/2026-11-4-19-51-0-crecida-en-goya-el-rio-supera-el-nivel-de-evacuacion-y-hay-126-personas-fuera-de-sus-casas",
+  "fecha": "2026-11-04",
+  "alertas": [
+   {
+    "alerta": 5.2,
+    "evac": 5.7,
+    "loc": "goya",
+    "m": 6.1,
+    "motivo": "6,10 m, sobre evacuación; 126 autoevacuados",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-04-prefectura-alturas",
+  "titulo": "Alturas del Paraná al 4 de noviembre: baja lenta, pero Capital sigue sobre evacuación",
+  "resumen": "Con la lectura de Prefectura del 4/11, el río bajó unos centímetros en Itatí (7,48 m), Paso de la Patria (7,22 m) y Capital (7,02 m), y quedó estable en Goya (6,10 m) e Ituzaingó (3,74 m). Paso de la Patria, Corrientes, Bella Vista, Goya y Esquina siguen en evacuación; en Esquina todavía sube.",
+  "fuente": "Prefectura Naval Argentina (vía Copernicus Argentina)",
+  "url": "https://copernicus.com.ar/rio",
+  "fecha": "2026-11-04",
+  "alertas": [
+   {
+    "alerta": 3.5,
+    "loc": "ituzaingo",
+    "m": 3.74,
+    "motivo": "3,74 m, sobre la alerta, sin cambios",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.8,
+    "loc": "itati",
+    "m": 7.48,
+    "motivo": "7,48 m, sobre la alerta (bajó 7 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "loc": "paso-de-la-patria",
+    "m": 7.22,
+    "motivo": "7,22 m, sobre evacuación (bajó 5 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "loc": "corrientes",
+    "m": 7.02,
+    "motivo": "7,02 m, sobre evacuación (bajó 4 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "loc": "empedrado",
+    "m": 6.07,
+    "motivo": "6,07 m, cerca de la alerta",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6,
+    "loc": "bella-vista",
+    "m": 6.44,
+    "motivo": "6,44 m, sobre evacuación (bajó 2 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5.2,
+    "loc": "goya",
+    "m": 6.1,
+    "motivo": "6,10 m, sobre evacuación, sin cambios",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 5,
+    "loc": "esquina",
+    "m": 5.56,
+    "motivo": "5,56 m, sobre evacuación y subiendo (+5 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-11-03-prefectura-alturas",
   "titulo": "Alturas del Paraná al 3 de noviembre: sigue bajando de a poco",
   "resumen": "Con la lectura de Prefectura del 3/11, el río bajó algunos centímetros en Itatí, Paso de la Patria, Capital, Empedrado y Bella Vista. Igual Itatí, Paso de la Patria, Corrientes, Bella Vista, Goya y Esquina siguen arriba del nivel de evacuación, e Ituzaingó sigue en alerta.",
