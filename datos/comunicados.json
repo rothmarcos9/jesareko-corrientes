@@ -1,5 +1,141 @@
 [
  {
+  "id": "2026-11-10-prefectura-alturas",
+  "titulo": "Paraná, martes 10/11: sigue la bajante lenta en toda la costa",
+  "resumen": "Con la lectura de Prefectura del martes 10/11 el Paraná bajó entre 2 y 6 cm en casi todos los puertos: Capital 6,87 m, Itatí 7,36 m, Goya 5,95 m y Esquina 5,56 m; Bella Vista se mantuvo en 6,34 m. Paso de la Patria (7,05 m), Goya y Esquina siguen sobre evacuación; Itatí, Capital y Bella Vista, sobre la alerta, e Ituzaingó quedó apenas debajo de la alerta (3,48 m).",
+  "fuente": "Prefectura Naval Argentina (vía Copernicus)",
+  "url": "https://copernicus.com.ar/rio",
+  "fecha": "2026-11-10",
+  "alertas": [
+   {
+    "alerta": 3.5,
+    "evac": 4,
+    "loc": "ituzaingo",
+    "m": 3.48,
+    "motivo": "3,48 m, apenas debajo de la alerta (−5 cm)",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "itati",
+    "m": 7.36,
+    "motivo": "7,36 m, sobre la alerta (−4 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "paso-de-la-patria",
+    "m": 7.05,
+    "motivo": "7,05 m, sobre evacuación (−3 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "corrientes",
+    "m": 6.87,
+    "motivo": "6,87 m, sobre la alerta (−3 cm)",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "empedrado",
+    "m": 5.92,
+    "motivo": "5,92 m, bajó 6 cm",
+    "n": 0,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "bella-vista",
+    "m": 6.34,
+    "motivo": "6,34 m, sobre la alerta, sin cambios",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "goya",
+    "m": 5.95,
+    "motivo": "5,95 m, sobre evacuación (−2 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   },
+   {
+    "loc": "esquina",
+    "m": 5.56,
+    "motivo": "5,56 m, sobre evacuación (−2 cm)",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-10-uruguay-alturas",
+  "titulo": "El Uruguay sigue creciendo en todo el tramo correntino",
+  "resumen": "Las escalas de Prefectura del martes 10/11 muestran subas de 21 a 44 cm en un día: Santo Tomé 11,04 m (la alerta es 11,50 m), Alvear 8,98 m, Yapeyú 8,08 m, Paso de los Libres 7,45 m (alerta 7,50 m) y Monte Caseros 5,30 m. Aguas arriba, en Misiones, el río ya empezó a bajar.",
+  "fuente": "Prefectura Naval Argentina (vía Copernicus)",
+  "url": "https://copernicus.com.ar/rio",
+  "fecha": "2026-11-10",
+  "alertas": [
+   {
+    "alerta": 11.5,
+    "evac": 12.5,
+    "loc": "santo-tome",
+    "m": 11.04,
+    "motivo": "11,04 m, cerca de la alerta (+21 cm)",
+    "n": 0,
+    "rio": "Uruguay"
+   },
+   {
+    "loc": "alvear",
+    "m": 8.98,
+    "motivo": "8,98 m, subiendo (+33 cm)",
+    "n": 0,
+    "rio": "Uruguay"
+   },
+   {
+    "loc": "yapeyu",
+    "m": 8.08,
+    "motivo": "8,08 m, subiendo (+40 cm)",
+    "n": 0,
+    "rio": "Uruguay"
+   },
+   {
+    "alerta": 7.5,
+    "evac": 8.5,
+    "loc": "paso-de-los-libres",
+    "m": 7.45,
+    "motivo": "7,45 m, a 5 cm de la alerta (+43 cm)",
+    "n": 0,
+    "rio": "Uruguay"
+   },
+   {
+    "loc": "monte-caseros",
+    "m": 5.3,
+    "motivo": "5,30 m, subiendo (+44 cm)",
+    "n": 0,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-10-yacyreta-28000",
+  "titulo": "Yacyretá: entran unos 28.000 m³/s y el caudal seguirá bajando",
+  "resumen": "El alerta hidrológico de la EBY del martes 10/11 estima unos 28.000 m³/s de caudal entrante y prevé que baje a entre 27.500 y 26.000 m³/s en los próximos días, con lluvias débiles hasta el viernes. Ituzaingó marcaba 3,48 m al mediodía, justo debajo de la alerta (3,50 m), y se espera que siga bajando hasta 3,2-3,3 m el viernes 13.",
+  "fuente": "Entidad Binacional Yacyretá (EBY)",
+  "url": "https://www.eby.gov.py/alerta-hidrologico-n03-noviembre/",
+  "fecha": "2026-11-10",
+  "alertas": [
+   {
+    "alerta": 3.5,
+    "evac": 4,
+    "loc": "ituzaingo",
+    "m": 3.48,
+    "motivo": "3,48 m al mediodía, debajo de la alerta",
+    "n": 0,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
   "id": "2026-11-09-mas-de-2000-afectados",
   "titulo": "Más de 2.000 correntinos fuera de sus casas por el Paraná",
   "resumen": "Según Infobae, en la provincia ya son más de 2.000 los vecinos con la casa inundada: la mayoría se fue a lo de familiares y el resto está en refugios. Paso de la Patria, Goya y Esquina siguen en situación de evacuación; Ituzaingó, Itatí, Capital y Bella Vista, sobre la alerta.",
