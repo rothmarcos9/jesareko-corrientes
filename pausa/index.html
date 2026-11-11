@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jesareko Corrientes · En pausa</title>
+<meta name="description" content="Jesareko Corrientes está en pausa. Para alertas oficiales consultá el SMN, el INA y Defensa Civil.">
+<meta name="robots" content="noindex">
+<style>
+:root{--bg:#f4f7f6;--card:#fff;--ink:#16302b;--muted:#5b6f6a;--agua:#1f6f78;--line:#d7e2df}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1b19;--card:#16302b;--ink:#e8f1ee;--muted:#a9bcb7;--agua:#5fb8c1;--line:#2b4742}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:16px}
+main{max-width:520px;width:100%;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+h1{margin:.2em 0 .4em;font-size:1.6rem;line-height:1.2}
+p{margin:.5em 0}
+.links{display:grid;gap:8px;margin:16px 0}
+.links a{display:flex;justify-content:space-between;gap:8px;padding:12px;border:1px solid var(--line);border-radius:8px;color:var(--ink);text-decoration:none;font-weight:700}
+.links a span{font-weight:400;color:var(--muted);font-size:.85rem}
+.tels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.tel{text-align:center;border:1px solid var(--line);border-radius:8px;padding:10px 4px}
+.tel b{display:block;font-size:1.4rem;color:var(--agua)}
+.tel span{font-size:.8rem;color:var(--muted)}
+.pie{font-size:.8rem;color:var(--muted);margin-top:16px}
+</style>
+</head>
+<body>
+<main>
+  <span class="eyebrow">Jesareko Corrientes</span>
+  <h1>La app está en pausa</h1>
+  <p>Por el momento Jesareko no se está actualizando. Volverá a funcionar más adelante.</p>
+  <p>Para alertas y avisos oficiales, consultá:</p>
+  <div class="links">
+    <a href="https://www.smn.gob.ar/alertas">Alertas del Servicio Meteorológico Nacional <span>smn.gob.ar ↗</span></a>
+    <a href="https://www.ina.gob.ar/alerta/index.php?seccion=1">Alturas y pronóstico de los ríos · INA <span>ina.gob.ar ↗</span></a>
+    <a href="https://www.smn.gob.ar/radar">Radar de lluvias <span>smn.gob.ar ↗</span></a>
+  </div>
+  <p><b>Teléfonos de emergencia</b></p>
+  <div class="tels">
+    <div class="tel"><b>911</b><span>Emergencias</span></div>
+    <div class="tel"><b>103</b><span>Defensa Civil</span></div>
+    <div class="tel"><b>100</b><span>Bomberos</span></div>
+  </div>
+  <p class="pie">App creada por Marcos E.A. Roth, Licenciado en Geografía (UNNE), Corrientes.</p>
+</main>
+<script>
+// Si el celular tenía la app instalada, borra la versión guardada para que muestre este aviso
+if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.update()));}
+</script>
+</body>
+</html>

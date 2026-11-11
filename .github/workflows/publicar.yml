@@ -1,8 +1,9 @@
 name: Actualizar datos y publicar
 
 on:
-  schedule:
-    - cron: "17 * * * *"   # cada hora (GitHub puede demorarlo unos minutos)
+  # En pausa: actualización horaria desactivada. Para reactivar, borrar el archivo PAUSA y descomentar estas dos líneas.
+  # schedule:
+  #   - cron: "17 * * * *"   # cada hora (GitHub puede demorarlo unos minutos)
   push:
     branches: [main]
   workflow_dispatch:
@@ -22,30 +23,41 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+      - name: App en pausa
+        if: hashFiles('PAUSA') != ''
+        run: mkdir -p _site && cp pausa/* _site/ && touch _site/.nojekyll && echo "::notice title=Pausa::Se publica el cartel de pausa"
       - uses: actions/setup-python@v5
+        if: hashFiles('PAUSA') == ''
         with:
           python-version: "3.12"
       - name: Dependencias
+        if: hashFiles('PAUSA') == ''
         run: |
           pip install --quiet pillow pypdf netCDF4
           (sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils) > /dev/null || echo "::warning::No se pudo instalar poppler-utils"
       - name: Pronóstico, ríos, incendios y satélite
+        if: hashFiles('PAUSA') == ''
         run: python3 scripts/actualizar.py || echo "Alguna fuente falló; se usa el dato anterior"
       - name: Alturas del INA
+        if: hashFiles('PAUSA') == ''
         env:
           SITIO_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
         run: python3 scripts/ina.py ina.json || echo "INA no disponible"
       - name: Servicio Meteorológico Nacional
+        if: hashFiles('PAUSA') == ''
         run: python3 scripts/smn.py smn.json || echo "SMN no disponible"
       - name: Rayos (GOES-19)
+        if: hashFiles('PAUSA') == ''
         run: |
           timeout 600 python3 -u scripts/rayos.py rayos.json > rayos.log 2>&1 || echo "Rayos no disponibles"
           echo "::notice title=Rayos (registro)::$(tail -c 700 rayos.log | tr '\n' ' ')"
       - name: Precisión del pronóstico
+        if: hashFiles('PAUSA') == ''
         env:
           SITIO_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
         run: python3 scripts/verificar.py verificacion.json || echo "Verificación no disponible"
       - name: Armar la página
+        if: hashFiles('PAUSA') == ''
         env:
           SITIO_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
         run: |
