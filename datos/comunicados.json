@@ -1,5 +1,70 @@
 [
  {
+  "id": "2026-11-11-capital-paso-patria",
+  "titulo": "El Paraná sigue bajando despacio en Capital y Paso de la Patria",
+  "resumen": "Con la lectura de Prefectura del miércoles 11/11, Corrientes marcó 6,84 m (4 cm menos en un día), sobre la alerta de 6,50 m y 16 cm debajo de la evacuación. Paso de la Patria quedó en 7,03 m, apenas 3 cm por encima de su nivel de evacuación.",
+  "fuente": "Copernicus (datos de Prefectura Naval)",
+  "url": "https://copernicus.com.ar/rio/corrientes",
+  "fecha": "2026-11-11",
+  "alertas": [
+   {
+    "alerta": 6.5,
+    "evac": 7,
+    "loc": "corrientes",
+    "m": 6.84,
+    "motivo": "Paraná sobre la cota de alerta",
+    "n": 2,
+    "rio": "Paraná"
+   },
+   {
+    "alerta": 6.5,
+    "evac": 7,
+    "loc": "paso-de-la-patria",
+    "m": 7.03,
+    "motivo": "Paraná sobre la cota de evacuación",
+    "n": 3,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-10-itati-736",
+  "titulo": "Itatí sigue sobre la alerta con el Paraná en 7,36 m",
+  "resumen": "La escala de Itatí dio 7,36 m el martes 10/11, 6 cm menos que el día anterior. Sigue por encima de la cota de alerta (6,80 m) y a 14 cm de la de evacuación (7,50 m).",
+  "fuente": "Agrofy News (datos de Prefectura Naval)",
+  "url": "https://news.agrofy.com.ar/altura-de-los-rios/itati",
+  "fecha": "2026-11-10",
+  "alertas": [
+   {
+    "alerta": 6.8,
+    "evac": 7.5,
+    "loc": "itati",
+    "m": 7.36,
+    "motivo": "Paraná sobre la cota de alerta",
+    "n": 2,
+    "rio": "Paraná"
+   }
+  ]
+ },
+ {
+  "id": "2026-11-10-libres-costanera",
+  "titulo": "Paso de los Libres cerró la costanera por la crecida del Uruguay",
+  "resumen": "El martes 10/11 el río Uruguay llegó a 7,43 m en Paso de los Libres, a 7 cm de la alerta y subiendo cerca de 1 cm por hora. El municipio cerró los accesos a la costanera para autos y peatones y Defensa Civil atiende en el 103.",
+  "fuente": "El Litoral",
+  "url": "https://www.ellitoral.com.ar/interior/2026-11-10-11-23-0-el-rio-uruguay-marco-crece-y-la-municipalidad-de-paso-de-los-libres-cerro-su-costanera",
+  "fecha": "2026-11-10",
+  "alertas": [
+   {
+    "alerta": 7.5,
+    "loc": "paso-de-los-libres",
+    "m": 7.43,
+    "motivo": "Uruguay creciendo, cerca de la alerta; costanera cerrada",
+    "n": 0,
+    "rio": "Uruguay"
+   }
+  ]
+ },
+ {
   "id": "2026-11-10-prefectura-alturas",
   "titulo": "Paraná, martes 10/11: sigue la bajante lenta en toda la costa",
   "resumen": "Con la lectura de Prefectura del martes 10/11 el Paraná bajó entre 2 y 6 cm en casi todos los puertos: Capital 6,87 m, Itatí 7,36 m, Goya 5,95 m y Esquina 5,56 m; Bella Vista se mantuvo en 6,34 m. Paso de la Patria (7,05 m), Goya y Esquina siguen sobre evacuación; Itatí, Capital y Bella Vista, sobre la alerta, e Ituzaingó quedó apenas debajo de la alerta (3,48 m).",
