@@ -1,1 +1,1 @@
-30/30 con suelo; ej: {"corrientes": {"s9": 0.314, "s9_72": 0.367, "s27": 0.354, "s27_72": 0.385}, "goya": {"s9": 0.096, "s9_72": 0.169, "s27": 0.177, "s27_72": 0.189}, "san-luis-del-palmar": {"s9": 0.408, "s9_72": 0.44, "s27": 0.441, "s27_72": 0.455}}
+Jesareko Corrientes · En pausa | en pausa
