@@ -1,4 +1,3 @@
-import urllib.request, json, time
-d=json.loads(urllib.request.urlopen("https://rothmarcos9.github.io/jesareko-corrientes/datos.json?x=%d"%time.time(),timeout=60).read())
-L=d["pronostico"]["locs"]; con=[k for k,v in L.items() if v.get("suelo")]
-open("sonda_out.txt","w").write(f"{len(con)}/{len(L)} con suelo; ej: "+json.dumps({k:L[k].get("suelo") for k in ["corrientes","goya","san-luis-del-palmar"] if k in L}))
+import urllib.request, time, re
+h=urllib.request.urlopen("https://rothmarcos9.github.io/jesareko-corrientes/?x=%d"%time.time(),timeout=60).read().decode()
+open("sonda_out.txt","w").write(re.search(r"<title>(.*?)</title>",h).group(1)+" | "+("en pausa" if "está en pausa" in h else "NO"))
